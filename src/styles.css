@@ -1,0 +1,47 @@
+html {
+  overflow-y: scroll;
+}
+html,
+body {
+  margin: 0;
+  color: #333;
+  font-family: "Lora", serif;
+}
+
+/* auth inputs */
+input.ng-valid {
+  border-left: 5px solid #42a948;
+}
+input.ng-invalid.ng-touched {
+  border-left: 5px solid red;
+}
+
+input:active,
+input:focus,
+input:hover {
+  outline: none;
+}
+
+/* pages style */
+
+.centered {
+  min-width: 700px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 10px;
+  margin: 50px 0;
+}
+
+.center-img img {
+  width: 1000px;
+  height: 400px;
+  object-fit: cover;
+  box-shadow: 0px 2px 5px #000000eb;
+}
+.heading {
+  text-align: center;
+}
+.text-center {
+  text-align: center;
+}
