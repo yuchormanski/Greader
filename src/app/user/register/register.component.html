@@ -65,6 +65,7 @@
                 placeholder="Email:"
                 #inputEmail="ngModel"
                 required
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
                 ngModel
               />
             </div>
@@ -73,24 +74,22 @@
               <p class="error" *ngIf="inputEmail.errors?.['required']">
                 Email is required!
               </p>
-              <p class="error" *ngIf="inputEmail.errors?.['email']">
+              <p class="error" *ngIf="inputEmail.errors?.['pattern']">
                 Email is not valid!
               </p>
-              <!-- <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">
-                  Email is not valid!
-                </p> -->
             </ng-container>
 
             <!-- password -->
             <div class="form-elements">
               <label for="password"></label>
               <input
-                type="password"
+                type="text"
                 name="password"
                 id="password"
                 placeholder="Password: "
                 #inputPassword="ngModel"
                 required
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
                 ngModel
                 minlength="5"
               />
@@ -99,11 +98,35 @@
               <p class="error" *ngIf="inputPassword.errors?.['required']">
                 Password is required!
               </p>
-              <p class="error" *ngIf="inputPassword.errors?.['minlength']">
-                Password must be at least
-                <!-- динамично се задава дължината на база minlength пропъртито -->
+              <p class="error" *ngIf="inputPassword.errors?.['pattern']">
+                The password should be a minimum of
                 {{inputPassword.errors?.['minlength']['requiredLength']}}
-                characters!
+                characters long.<br />
+                Should have at least one lower case letter.<br />
+                Should have at least one upper case letter.<br />
+                It should have at least one number.
+              </p>
+            </ng-container>
+
+            <!-- repeat password -->
+            <div class="form-elements">
+              <label for="rePass"></label>
+              <input
+                type="password"
+                name="rePass"
+                id="rePass"
+                placeholder="Repeat Password: "
+                #inputRePassword="ngModel"
+                required
+                ngModel
+              />
+            </div>
+            <ng-container *ngIf="inputRePassword.touched">
+              <p class="error" *ngIf="inputRePassword.errors?.['required']">
+                Repeat your password!
+              </p>
+              <p class="error" *ngIf="inputRePassword.errors?.['pattern']">
+                Passwords didn't match!'
               </p>
             </ng-container>
 
@@ -130,5 +153,6 @@
     </div>
   </div>
 </section>
+{{ form.value | json }}
 
 <app-footer />
