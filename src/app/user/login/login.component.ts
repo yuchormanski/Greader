@@ -11,5 +11,6 @@ export class LoginComponent {
   constructor(private router: Router) {}
   login(form: NgForm): void {
     console.log(form.value);
+    this.router.navigate(['home']);
   }
 }

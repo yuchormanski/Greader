@@ -7,7 +7,7 @@
       <div class="center-text">
         <h2 class="heading login-heading">Register form</h2>
 
-        <form class="auth-form" #form="ngForm" (ngSubmit)="(null)">
+        <form class="auth-form" #form="ngForm" (ngSubmit)="register(form)">
           <fieldset>
             <!-- firstName -->
             <div class="form-elements">
@@ -91,7 +91,7 @@
                 required
                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
                 ngModel
-                minlength="5"
+                minlength="8"
               />
             </div>
             <ng-container *ngIf="inputPassword.touched">
@@ -117,16 +117,22 @@
                 id="rePass"
                 placeholder="Repeat Password: "
                 #inputRePassword="ngModel"
-                required
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
                 ngModel
+                required
+                minlength="{{ inputPassword.value?.length }}"
               />
             </div>
             <ng-container *ngIf="inputRePassword.touched">
               <p class="error" *ngIf="inputRePassword.errors?.['required']">
                 Repeat your password!
               </p>
-              <p class="error" *ngIf="inputRePassword.errors?.['pattern']">
-                Passwords didn't match!'
+
+              <p
+                class="error"
+                *ngIf="inputPassword.value !== inputRePassword.value"
+              >
+                Passwords didn't match!
               </p>
             </ng-container>
 

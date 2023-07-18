@@ -1,0 +1,47 @@
+.gallery-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 47px;
+}
+.brick {
+  width: 300px;
+  /* height: 300px; */
+  margin: 20px 0;
+  border: 1px solid red;
+  float: left;
+}
+.book-img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.book-author {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.9rem;
+}
+
+.book-author span {
+  color: #000000;
+}
+.read-more-btn {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: black;
+  border-bottom: 1px solid transparent;
+}
+
+.read-more-btn a {
+  text-decoration: none;
+  color: #333;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.read-more-btn a:hover,
+.read-more-btn a:focus,
+.read-more-btn a:active {
+  border-bottom: 1px solid #0cbb0f;
+}
