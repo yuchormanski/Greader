@@ -5,6 +5,11 @@
   width: 600px;
   margin-top: 20px;
 }
+
+.login-heading {
+  font-size: 32px;
+}
+
 .form-elements {
   display: flex;
   justify-content: space-between;

@@ -14,6 +14,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GalleryRoutingModule } from './gallery/gallery-routing.module';
 import { CatalogComponent } from './gallery/catalog/catalog.component';
+import { DetailsComponent } from './gallery/details/details.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CatalogComponent } from './gallery/catalog/catalog.component';
     CheckPasswordDirective,
     ErrorPageComponent,
     CatalogComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,

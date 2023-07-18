@@ -5,10 +5,7 @@
 }
 .brick {
   width: 300px;
-  /* height: 300px; */
   margin: 20px 0;
-  border: 1px solid red;
-  float: left;
 }
 .book-img {
   width: 300px;

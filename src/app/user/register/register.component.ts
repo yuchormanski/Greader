@@ -12,5 +12,6 @@ export class RegisterComponent {
 
   register(form: NgForm): void {
     console.log(form.value);
+    this.router.navigate(['gallery']);
   }
 }

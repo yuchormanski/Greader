@@ -5,7 +5,7 @@
     </div>
     <div class="wrapper">
       <div class="center-text">
-        <h2 class="heading login-heading">Register form</h2>
+        <h2 class="heading register-heading">Registration form</h2>
 
         <form class="auth-form" #form="ngForm" (ngSubmit)="register(form)">
           <fieldset>
@@ -48,10 +48,10 @@
             </div>
             <ng-container *ngIf="inputLastName.touched">
               <p class="error" *ngIf="inputLastName.errors?.['required']">
-                First name is required!
+                Last name is required!
               </p>
               <p class="error" *ngIf="inputLastName.errors?.['minlength']">
-                First name should be at least 2 characters!
+                Last name should be at least 2 characters!
               </p>
             </ng-container>
 
@@ -130,7 +130,10 @@
 
               <p
                 class="error"
-                *ngIf="inputPassword.value !== inputRePassword.value"
+                *ngIf="
+                  inputRePassword.value !== '' &&
+                  inputPassword.value !== inputRePassword.value
+                "
               >
                 Passwords didn't match!
               </p>

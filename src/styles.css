@@ -8,6 +8,16 @@ body {
   font-family: "Lora", serif;
 }
 
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.clearfix {
+  clear: both;
+}
+
 /* auth inputs */
 input.ng-valid {
   border-left: 5px solid #42a948;
@@ -44,4 +54,7 @@ input:hover {
 }
 .text-center {
   text-align: center;
+}
+.text-indent {
+  text-indent: 20px;
 }
