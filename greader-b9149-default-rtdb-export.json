@@ -34,4 +34,21 @@
       "password": "asdfasfsdfsdas"
     }
   }
+},
+
+
+{
+  "_ownerId": "kjsfd8sdfojsfkjlek4j",
+  "author": "Николай Хашъмов - Хъшо",
+  "comments": [
+      {
+          "comment": "comment text",
+          "comment-author": "Petar Petrov"
+      }
+  ],
+  "description": "'За кожата на една врата' е книга с разкази, човешки, приключенски, написани  с богат и буден език, пропити с хумор , с енергията на младостта и нейните пътувания навътре в себе си, далеч по света и по познатите ни улици, с усмивка, с болка, искрени, мъдри  и изключително приятни за четене.",
+  "genre": "разкази",
+  "imgUrl": "https://www.ciela.com/media/catalog/product/cache/9a7ceae8a5abbd0253425b80f9ef99a5/_/-/_-_-_-_-__5_12.jpg",
+  "title": "За кожата на една врата",
+  "year": 2017
 }

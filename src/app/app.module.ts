@@ -13,8 +13,7 @@ import { CheckPasswordDirective } from './validators/new-password.directive';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GalleryRoutingModule } from './gallery/gallery-routing.module';
-import { CatalogComponent } from './gallery/catalog/catalog.component';
-import { DetailsComponent } from './gallery/details/details.component';
+import { GalleryModule } from './gallery/gallery.module';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,6 @@ import { DetailsComponent } from './gallery/details/details.component';
     HomeComponent,
     CheckPasswordDirective,
     ErrorPageComponent,
-    CatalogComponent,
-    DetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +30,7 @@ import { DetailsComponent } from './gallery/details/details.component';
     UserModule,
     UserRoutingModule,
     FormsModule,
+    GalleryModule,
     GalleryRoutingModule,
     AppRoutingModule,
   ],

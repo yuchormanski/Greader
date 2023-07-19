@@ -88,3 +88,7 @@ li.nav-space {
 .navMenu a:active {
   color: #555;
 }
+
+.logout-link {
+  cursor: pointer;
+}

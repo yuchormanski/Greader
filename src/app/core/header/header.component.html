@@ -9,20 +9,24 @@
     />
   </div>
 
-  <nav class="navMenu">
+  <nav class="navMenu" *ngIf="isLogged">
+    <li><a routerLink="home">Home</a></li>
+    <li><a routerLink="gallery">Library</a></li>
+    <li><a routerLink="about">About</a></li>
+    <li><a routerLink="create">Add new</a></li>
+    <li class="nav-space">&#9776;</li>
+    <li><a routerLink="profile">Profile</a></li>
+    <li><a (click)="logout()" class="logout-link">Logout</a></li>
+    <div class="dot"></div>
+  </nav>
+
+  <nav class="navMenu" *ngIf="!isLogged">
     <li><a routerLink="home">Home</a></li>
     <li><a routerLink="gallery">Library</a></li>
     <li><a routerLink="about">About</a></li>
     <li class="nav-space">&#9776;</li>
-
     <li><a routerLink="login">Login</a></li>
     <li><a routerLink="register">Register</a></li>
-
-    <!-- 
-      <li><a routerLink="about">Profile</a></li>
-      <li><a routerLink="about">Logout</a></li> 
-    -->
-
     <div class="dot"></div>
   </nav>
 </header>

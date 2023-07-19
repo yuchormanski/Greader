@@ -1,3 +1,25 @@
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #4691f6;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
+/* custom rules */
+
 .book-heading {
   font-size: 48px;
 }
@@ -11,9 +33,9 @@
   margin: 0 0 0 10px;
 }
 .book-details {
-  /* display: flex; */
+  display: block;
   width: 1000px;
-  min-height: 400px;
+  min-height: 485px;
   border: 1px solid rgb(116, 116, 116);
 }
 .img {
@@ -33,10 +55,21 @@
   flex-direction: column;
   align-items: center;
   width: 800px;
+  margin-top: 20px;
+  padding: 20px;
   border: 1px solid rgb(149, 255, 0);
 }
 .comment {
   width: 100%;
   min-height: 100px;
+  margin-top: 20px;
   border: 1px solid red;
+}
+
+.book-icons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  margin-top: 20px;
+  font-size: 20px;
 }
