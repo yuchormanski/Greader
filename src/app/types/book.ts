@@ -1,4 +1,5 @@
 export interface Book {
+  _id: string;
   _ownerId: string;
   author: string;
   comments: userComment[];

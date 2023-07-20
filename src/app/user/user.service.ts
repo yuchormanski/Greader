@@ -27,6 +27,7 @@ export class UserService {
       email,
       password,
     };
+
     localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
     this.router.navigate(['/home']);
   }

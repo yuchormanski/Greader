@@ -12,7 +12,7 @@ export class LoginComponent {
   constructor(private router: Router, private userService: UserService) {}
 
   login(form: NgForm): void {
-    const email: string = form.value.email;
+    const email: any = form.value.email;
     const password: string = form.value.password;
     console.log(email, password);
 

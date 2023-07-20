@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -14,6 +15,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GalleryRoutingModule } from './gallery/gallery-routing.module';
 import { GalleryModule } from './gallery/gallery.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { GalleryModule } from './gallery/gallery.module';
   imports: [
     BrowserModule,
     RouterModule,
+    SharedModule,
     CoreModule,
     CoreRoutingModule,
     UserModule,
@@ -32,6 +35,7 @@ import { GalleryModule } from './gallery/gallery.module';
     FormsModule,
     GalleryModule,
     GalleryRoutingModule,
+    HttpClientModule,
     AppRoutingModule,
   ],
   providers: [],
