@@ -94,7 +94,6 @@
 
       let status = 200;
       let headers = {
-        // "Access-Control-Allow-Origin": true,
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       };
@@ -1427,15 +1426,22 @@
     users: {
       "35c62d76-8152-4626-8712-eeb96381bea8": {
         email: "peter@abv.bg",
-        firstName: "Peter",
-        lastName: "Petrov",
+        gender: "male",
+        username: "Peter",
         hashedPassword:
           "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
       },
       "847ec027-f659-4086-8032-5173e2f9c93a": {
-        email: "john@abv.bg",
+        email: "mary@abv.bg",
+        gender: "female",
+        username: "Mary",
         hashedPassword:
           "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1",
+      },
+      "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
+        email: "admin@abv.bg",
+        hashedPassword:
+          "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302",
       },
     },
     sessions: {},

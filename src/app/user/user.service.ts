@@ -17,27 +17,30 @@ export class UserService {
   }
 
   constructor(private router: Router, private http: HttpClient) {
-    try {
-      const lsUser = localStorage.getItem(this.USER_KEY) || '';
-      this.user = JSON.parse(lsUser);
-    } catch (error) {
-      this.user = undefined;
-    }
+    // try {
+    //   const lsUser = localStorage.getItem(this.USER_KEY) || '';
+    //   this.user = JSON.parse(lsUser);
+    // } catch (error) {
+    //   this.user = undefined;
+    // }
   }
 
-  login(email: string, password: string): void {
-    const { appUrl } = environment;
+  login(email: string, password: string) {
+    return this.http.post<User>(`/users/login`, { email, password });
+  }
 
-    this.http.post<User>(`${appUrl}/users/login`, { email, password });
-
-    this.user = {
+  register(
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string
+  ) {
+    return this.http.post<User>(`/users/register`, {
+      firstName,
+      lastName,
       email,
       password,
-    };
-    console.log(this.user);
-
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
-    this.router.navigate(['/home']);
+    });
   }
 
   logout(): void {

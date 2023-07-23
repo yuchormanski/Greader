@@ -1,3 +1,3 @@
 export const environment = {
-  // appUrl: 'http://,
+  // API_URL: 'http://,
 };

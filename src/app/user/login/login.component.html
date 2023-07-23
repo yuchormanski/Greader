@@ -23,7 +23,6 @@
                 ngModel
               />
             </div>
-            <!-- [appEmail]="appEmailDomains" -->
             <ng-container *ngIf="inputEmail.touched">
               <p class="error" *ngIf="inputEmail.errors?.['required']">
                 Email is required!
@@ -31,12 +30,6 @@
               <p class="error" *ngIf="inputEmail.errors?.['pattern']">
                 Email is not valid!
               </p>
-              <!-- <p class="error" *ngIf="inputEmail.errors?.['email']">
-                Email is not valid!
-              </p> -->
-              <!-- <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">
-                Email is not valid!
-              </p> -->
             </ng-container>
 
             <!-- password -->
@@ -50,19 +43,17 @@
                 #inputPassword="ngModel"
                 required
                 ngModel
-                minlength="6"
               />
             </div>
             <ng-container *ngIf="inputPassword.touched">
               <p class="error" *ngIf="inputPassword.errors?.['required']">
                 Password is required!
               </p>
-              <p class="error" *ngIf="inputPassword.errors?.['minlength']">
+              <!-- <p class="error" *ngIf="inputPassword.errors?.['minlength']">
                 Password must be at least
-                <!-- динамично се задава дължината на база minlength пропъртито -->
                 {{inputPassword.errors?.['minlength']['requiredLength']}}
                 characters!
-              </p>
+              </p> -->
             </ng-container>
 
             <!-- button -->

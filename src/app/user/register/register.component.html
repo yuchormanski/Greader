@@ -9,6 +9,29 @@
 
         <form class="auth-form" #form="ngForm" (ngSubmit)="register(form)">
           <fieldset>
+            <!-- firstName -->
+            <div class="form-elements">
+              <label for="firstName"></label>
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                placeholder="First Name:"
+                #inputFirstName="ngModel"
+                required
+                ngModel
+                minlength="2"
+              />
+            </div>
+            <ng-container *ngIf="inputFirstName.touched">
+              <p class="error" *ngIf="inputFirstName.errors?.['required']">
+                Last name is required!
+              </p>
+              <p class="error" *ngIf="inputFirstName.errors?.['minlength']">
+                Last name should be at least 2 characters!
+              </p>
+            </ng-container>
+
             <!-- lastName -->
             <div class="form-elements">
               <label for="lastName"></label>
@@ -60,7 +83,7 @@
             <div class="form-elements">
               <label for="password"></label>
               <input
-                type="text"
+                type="password"
                 name="password"
                 id="password"
                 placeholder="Password: "

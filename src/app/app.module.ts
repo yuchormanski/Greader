@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { GalleryRoutingModule } from './gallery/gallery-routing.module';
 import { GalleryModule } from './gallery/gallery.module';
 import { SharedModule } from './shared/shared.module';
+import { AppInterceptorProvider } from './app.interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [AppInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

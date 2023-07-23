@@ -12,9 +12,12 @@ export class LoginComponent {
   constructor(private router: Router, private userService: UserService) {}
 
   login(form: NgForm): void {
-    const email: any = form.value.email;
-    const password: string = form.value.password;
-    // this.router.navigate(['home']);
-    this.userService.login(email, password);
+    if (form.invalid) return;
+
+    const { email, password } = form.value;
+
+    this.userService.login(email, password).subscribe(() => {
+      this.router.navigate(['/gallery']);
+    });
   }
 }

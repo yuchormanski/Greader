@@ -10,19 +10,19 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getBooks() {
-    const { appUrl } = environment;
-    return this.http.get<Book[]>(`${appUrl}/data/books`);
+    const { API_URL } = environment;
+    return this.http.get<Book[]>(`${API_URL}/data/books`);
   }
 
   // getTheme(themeId: string) {
-  //   const { appUrl } = environment;
-  //   return this.http.get<Theme>(`${appUrl}/themes/${themeId}`);
+  //   const { API_URL } = environment;
+  //   return this.http.get<Theme>(`${API_URL}/themes/${themeId}`);
   // }
 
   // getPosts(limit?: number) {
-  //   const { appUrl } = environment;
+  //   const { API_URL } = environment;
   //   const limitFilter = limit ? `?limit=${limit}` : '';
-  //   return this.http.get<Post[]>(`${appUrl}/posts${limitFilter}`);
+  //   return this.http.get<Post[]>(`${API_URL}/posts${limitFilter}`);
   // }
 
   // createPost() {
