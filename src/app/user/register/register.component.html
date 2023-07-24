@@ -9,48 +9,25 @@
 
         <form class="auth-form" #form="ngForm" (ngSubmit)="register(form)">
           <fieldset>
-            <!-- firstName -->
+            <!-- username -->
             <div class="form-elements">
-              <label for="firstName"></label>
+              <label for="username"></label>
               <input
                 type="text"
-                name="firstName"
-                id="firstName"
-                placeholder="First Name:"
-                #inputFirstName="ngModel"
+                name="username"
+                id="username"
+                placeholder="Username:"
+                #inputUsername="ngModel"
                 required
                 ngModel
                 minlength="2"
               />
             </div>
-            <ng-container *ngIf="inputFirstName.touched">
-              <p class="error" *ngIf="inputFirstName.errors?.['required']">
+            <ng-container *ngIf="inputUsername.touched">
+              <p class="error" *ngIf="inputUsername.errors?.['required']">
                 Last name is required!
               </p>
-              <p class="error" *ngIf="inputFirstName.errors?.['minlength']">
-                Last name should be at least 2 characters!
-              </p>
-            </ng-container>
-
-            <!-- lastName -->
-            <div class="form-elements">
-              <label for="lastName"></label>
-              <input
-                type="text"
-                name="lastName"
-                id="lastName"
-                placeholder="Last Name:"
-                #inputLastName="ngModel"
-                required
-                ngModel
-                minlength="2"
-              />
-            </div>
-            <ng-container *ngIf="inputLastName.touched">
-              <p class="error" *ngIf="inputLastName.errors?.['required']">
-                Last name is required!
-              </p>
-              <p class="error" *ngIf="inputLastName.errors?.['minlength']">
+              <p class="error" *ngIf="inputUsername.errors?.['minlength']">
                 Last name should be at least 2 characters!
               </p>
             </ng-container>
@@ -113,8 +90,8 @@
               <label for="rePass"></label>
               <input
                 type="password"
-                name="rePass"
-                id="rePass"
+                name="rePassword"
+                id="rePassword"
                 placeholder="Repeat Password: "
                 #inputRePassword="ngModel"
                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"

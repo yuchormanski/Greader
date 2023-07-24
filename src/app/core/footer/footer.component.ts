@@ -13,9 +13,9 @@ export class FooterComponent implements OnInit {
   constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
-    this.apiService.getFooterBooks().subscribe((lastAdded) => {
-      this.lastThree = lastAdded.slice(0, 3);
-    });
+    // this.apiService.getFooterBooks().subscribe((lastAdded) => {
+    //   this.lastThree = lastAdded.slice(0, 3);
+    // });
   }
 
   redirectTo(id: string): void {

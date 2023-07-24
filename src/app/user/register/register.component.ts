@@ -14,11 +14,11 @@ export class RegisterComponent {
   register(form: NgForm) {
     if (form.invalid) return;
 
-    const { firstName, lastName, email, password } = form.value;
+    const { username, email, password, rePassword } = form.value;
     this.userService
-      .register(firstName!, lastName!, email!, password!)
+      .register(username!, email!, password!, rePassword!)
       .subscribe(() => {
-        this.router.navigate(['gallery']);
+        this.router.navigate(['/gallery']);
       });
   }
 }

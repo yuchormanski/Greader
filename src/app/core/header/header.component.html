@@ -15,9 +15,11 @@
     <li><a routerLink="about">About</a></li>
     <li><a routerLink="create">Add new</a></li>
     <li class="nav-space">&#9776;</li>
-    <li><a routerLink="profile">Profile</a></li>
+    <li>
+      <a routerLink="profile">{{ username }}'s' Profile</a>
+    </li>
     <li><a (click)="logout()" class="logout-link">Logout</a></li>
-    <div class="dot"></div>
+    <div class="dot2"></div>
   </nav>
 
   <nav class="navMenu" *ngIf="!isLogged">

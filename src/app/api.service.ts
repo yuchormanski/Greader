@@ -12,14 +12,14 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getBooks() {
-    return this.http.get<Book[]>(`${apiUrl}/books`);
+    return this.http.get<Book[]>(`/api/books`);
   }
 
   getOneBook(bookId: string) {
-    return this.http.get<Book>(`${apiUrl}/books/${bookId}`);
+    return this.http.get<Book>(`/api/books/${bookId}`);
   }
 
   getFooterBooks() {
-    return this.http.get<Book[]>(`${apiUrl}/books?sortBy=\_createdOn%20`);
+    return this.http.get<Book[]>(`/api/books?sortBy=\_createdOn%20`);
   }
 }
