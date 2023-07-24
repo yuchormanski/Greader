@@ -6,15 +6,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { CoreModule } from '../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserRoutingModule } from './user-routing.module';
-import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    RegisterComponent,
-    ProfileComponent,
-    ModalComponent,
-  ],
+  declarations: [LoginComponent, RegisterComponent, ProfileComponent],
   imports: [
     CommonModule,
     CoreModule,
@@ -22,11 +16,6 @@ import { ModalComponent } from './modal/modal.component';
     ReactiveFormsModule,
     UserRoutingModule,
   ],
-  exports: [
-    LoginComponent,
-    RegisterComponent,
-    ProfileComponent,
-    ModalComponent,
-  ],
+  exports: [LoginComponent, RegisterComponent, ProfileComponent],
 })
 export class UserModule {}

@@ -17,6 +17,9 @@ import { GalleryRoutingModule } from './gallery/gallery-routing.module';
 import { GalleryModule } from './gallery/gallery.module';
 import { SharedModule } from './shared/shared.module';
 import { AppInterceptorProvider } from './app.interceptor';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,8 @@ import { AppInterceptorProvider } from './app.interceptor';
     GalleryRoutingModule,
     HttpClientModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
   ],
   providers: [AppInterceptorProvider],
   bootstrap: [AppComponent],
