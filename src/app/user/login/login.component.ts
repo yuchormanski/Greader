@@ -26,19 +26,20 @@ export class LoginComponent {
     try {
       this.inSubmission = true;
       this.isLoading = true;
-      this.auth.signInWithEmailAndPassword(
+      await this.auth.signInWithEmailAndPassword(
         this.credentials.email,
         this.credentials.password
       );
-      this.router.navigate(['/gallery']);
     } catch (err) {
       console.error(err);
       this.showAlert = true;
       this.alertMsg = 'Something went wrong! Please, try again later.';
       this.inSubmission = false;
+      this.isLoading = false;
 
       return;
     }
+    this.router.navigate(['/gallery']);
     this.showAlert = false;
   }
 }

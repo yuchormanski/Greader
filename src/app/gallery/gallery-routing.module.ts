@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogComponent } from './catalog/catalog.component';
 import { DetailsComponent } from './details/details.component';
+import { CreateComponent } from './create/create.component';
 
 // const routes: Routes = [{ path: 'gallery', component: CatalogComponent }];
 
@@ -20,11 +21,11 @@ const routes: Routes = [
       },
     ],
   },
-  // {
-  //   path: 'add-theme',
-  //   component: NewThemeComponent,
-  //   canActivate: [AuthActivate],
-  // },
+  {
+    path: 'create',
+    component: CreateComponent,
+    // canActivate: [AuthActivate],
+  },
 ];
 
 @NgModule({

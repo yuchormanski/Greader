@@ -8,6 +8,7 @@ import IUser from '../models/user.model';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -47,6 +48,6 @@ export class AuthService {
       displayName: `${userData.firstName} ${userData.lastName}`,
     });
 
-    this.router.navigate(['/gallery']);
+    // this.router.navigate(['/gallery']);
   }
 }

@@ -60,6 +60,7 @@ export class RegisterComponent {
 
       return;
     }
+    this.router.navigate(['/gallery']);
     this.showAlert = false;
     this.isLoading = false;
   }
