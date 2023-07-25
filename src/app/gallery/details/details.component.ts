@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Book } from 'src/app/types/book';
-import { UserService } from 'src/app/user/user.service';
+// import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-details',
@@ -15,8 +15,7 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private activatedRoute: ActivatedRoute,
-    private userService: UserService
+    private activatedRoute: ActivatedRoute // private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -38,9 +37,9 @@ export class DetailsComponent implements OnInit {
     // });
   }
 
-  get isLoggedIn(): boolean {
-    return this.userService.isLogged;
-  }
+  // get isLoggedIn(): boolean {
+  //   return this.userService.isLogged;
+  // }
 
   searchAuthor(author: any) {
     return author?.split(' ').join('+');

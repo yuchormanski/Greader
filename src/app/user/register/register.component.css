@@ -61,6 +61,21 @@
   color: #333;
 }
 
+/* input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  color: #f8f8f8;
+}
+input[type="number"]:active,
+input[type="number"]:focus,
+input[type="number"]:visited {
+  -webkit-appearance: number;
+  -moz-appearance: number;
+  appearance: number;
+  color: #333;
+} */
+
 .auth-button {
   width: 100%;
   height: 50px;

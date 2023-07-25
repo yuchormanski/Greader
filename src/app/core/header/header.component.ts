@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/user/user.service';
+import { AuthService } from 'src/app/services/auth.service';
+// import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -8,24 +10,21 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private userService: UserService, private router: Router) {}
+  // isAuthenticated = false;
 
-  get isLogged(): boolean {
-    return this.userService.isLogged;
+  constructor(
+    private router: Router,
+    public hasUser: AuthService,
+    private auth: AngularFireAuth
+  ) {
+    // this.auth.isAuthenticated$.subscribe((status) => {
+    //   this.isAuthenticated = status;
+    // });
   }
 
-  get username(): string {
-    return this.userService.user?.username || '';
-  }
-
-  logout(): void {
-    this.userService.logout().subscribe({
-      next: () => {
-        this.router.navigate(['/']);
-      },
-      error: () => {
-        this.router.navigate(['/']);
-      },
-    });
+  async logout($event: Event) {
+    $event.preventDefault();
+    await this.auth.signOut();
+    // this.router.navigate(['/']); //TODO: не съм сигурен дали да се редиректва....
   }
 }

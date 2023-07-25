@@ -7,7 +7,17 @@
       <div class="center-text">
         <h2 class="heading login-heading">Login form</h2>
 
-        <form class="auth-form" #form="ngForm" (ngSubmit)="login(form)">
+        <app-loader *ngIf="isLoading" />
+
+        <app-alert *ngIf="showAlert">
+          {{ alertMsg }}
+        </app-alert>
+
+        <form
+          class="auth-form"
+          #loginForm="ngForm"
+          (ngSubmit)="login(loginForm)"
+        >
           <fieldset>
             <!-- email -->
             <div class="form-elements">
@@ -17,17 +27,17 @@
                 name="email"
                 id="email"
                 placeholder="Email:"
-                #inputEmail="ngModel"
+                #email="ngModel"
                 required
                 pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-                ngModel
+                [(ngModel)]="credentials.email"
               />
             </div>
-            <ng-container *ngIf="inputEmail.touched">
-              <p class="error" *ngIf="inputEmail.errors?.['required']">
+            <ng-container *ngIf="email.touched">
+              <p class="error" *ngIf="email.errors?.['required']">
                 Email is required!
               </p>
-              <p class="error" *ngIf="inputEmail.errors?.['pattern']">
+              <p class="error" *ngIf="email.errors?.['pattern']">
                 Email is not valid!
               </p>
             </ng-container>
@@ -40,29 +50,29 @@
                 name="password"
                 id="password"
                 placeholder="Password: "
-                #inputPassword="ngModel"
+                #password="ngModel"
                 required
-                ngModel
+                [(ngModel)]="credentials.password"
+                minlength="8"
               />
             </div>
-            <ng-container *ngIf="inputPassword.touched">
-              <p class="error" *ngIf="inputPassword.errors?.['required']">
+            <ng-container *ngIf="password.touched">
+              <p class="error" *ngIf="password.errors?.['required']">
                 Password is required!
               </p>
-              <!-- <p class="error" *ngIf="inputPassword.errors?.['minlength']">
+              <p class="error" *ngIf="password.errors?.['minlength']">
                 Password must be at least
-                {{inputPassword.errors?.['minlength']['requiredLength']}}
+                {{password.errors?.['minlength']['requiredLength']}}
                 characters!
-              </p> -->
+              </p>
             </ng-container>
 
-            <!-- button -->
             <div class="form-elements">
               <button
                 class="auth-button"
-                [disabled]="form.invalid"
+                [disabled]="loginForm.invalid || inSubmission"
                 [style]="{
-                  backgroundColor: form.invalid ? '#e6e6e6' : '#42a948'
+                  backgroundColor: loginForm.invalid ? '#e6e6e6' : '#42a948'
                 }"
               >
                 Login

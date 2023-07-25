@@ -39,47 +39,47 @@ li.nav-space {
   margin-left: -50px;
   -webkit-transform: translateX(0);
   transform: translateX(0);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 /* dot1 */
 .navMenu li:nth-child(1):hover ~ .dot {
   -webkit-transform: translateX(75px);
   transform: translateX(75px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 
 .navMenu li:nth-child(2):hover ~ .dot {
   -webkit-transform: translateX(145px);
   transform: translateX(145px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 
 .navMenu li:nth-child(3):hover ~ .dot {
   -webkit-transform: translateX(215px);
   transform: translateX(215px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 
 .navMenu li:nth-child(5):hover ~ .dot {
   -webkit-transform: translateX(304px);
   transform: translateX(304px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 .navMenu li:nth-child(6):hover ~ .dot {
   -webkit-transform: translateX(375px);
   transform: translateX(375px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 
@@ -87,54 +87,54 @@ li.nav-space {
 .navMenu li:nth-child(1):hover ~ .dot2 {
   -webkit-transform: translateX(75px);
   transform: translateX(75px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 
 .navMenu li:nth-child(2):hover ~ .dot2 {
   -webkit-transform: translateX(143px);
   transform: translateX(143px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 
 .navMenu li:nth-child(3):hover ~ .dot2 {
   -webkit-transform: translateX(215px);
   transform: translateX(215px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 
 .navMenu li:nth-child(4):hover ~ .dot2 {
   -webkit-transform: translateX(290px);
   transform: translateX(290px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 
 .navMenu li:nth-child(5):hover ~ .dot2 {
   -webkit-transform: translateX(256px);
   transform: translateX(256px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 .navMenu li:nth-child(6):hover ~ .dot2 {
-  -webkit-transform: translateX(435px);
-  transform: translateX(435px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transform: translateX(395px);
+  transform: translateX(395px);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 .navMenu li:nth-child(7):hover ~ .dot2 {
-  -webkit-transform: translateX(535px);
-  transform: translateX(535px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transform: translateX(465px);
+  transform: translateX(465px);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 

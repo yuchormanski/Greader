@@ -7,27 +7,56 @@
       <div class="center-text">
         <h2 class="heading register-heading">Registration form</h2>
 
+        <app-loader *ngIf="isLoading" />
+
+        <app-alert *ngIf="showAlert">
+          {{ alertMsg }}
+        </app-alert>
+
         <form class="auth-form" #form="ngForm" (ngSubmit)="register(form)">
           <fieldset>
-            <!-- username -->
+            <!-- firstName -->
             <div class="form-elements">
-              <label for="username"></label>
+              <label for="firstName"></label>
               <input
                 type="text"
-                name="username"
-                id="username"
-                placeholder="Username:"
-                #inputUsername="ngModel"
+                name="firstName"
+                id="firstName"
+                placeholder="First name:"
+                #firstName="ngModel"
                 required
-                ngModel
+                [(ngModel)]="credentials.firstName"
                 minlength="2"
               />
             </div>
-            <ng-container *ngIf="inputUsername.touched">
-              <p class="error" *ngIf="inputUsername.errors?.['required']">
+            <ng-container *ngIf="firstName.touched">
+              <p class="error" *ngIf="firstName.errors?.['required']">
                 Last name is required!
               </p>
-              <p class="error" *ngIf="inputUsername.errors?.['minlength']">
+              <p class="error" *ngIf="firstName.errors?.['minlength']">
+                Last name should be at least 2 characters!
+              </p>
+            </ng-container>
+
+            <!-- Last name -->
+            <div class="form-elements">
+              <label for="lastName"></label>
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="Last name:"
+                #lastName="ngModel"
+                required
+                [(ngModel)]="credentials.lastName"
+                minlength="2"
+              />
+            </div>
+            <ng-container *ngIf="lastName.touched">
+              <p class="error" *ngIf="lastName.errors?.['required']">
+                Last name is required!
+              </p>
+              <p class="error" *ngIf="lastName.errors?.['minlength']">
                 Last name should be at least 2 characters!
               </p>
             </ng-container>
@@ -40,18 +69,17 @@
                 name="email"
                 id="email"
                 placeholder="Email:"
-                #inputEmail="ngModel"
+                #email="ngModel"
                 required
                 pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-                ngModel
+                [(ngModel)]="credentials.email"
               />
             </div>
-            <!-- [appEmail]="appEmailDomains" -->
-            <ng-container *ngIf="inputEmail.touched">
-              <p class="error" *ngIf="inputEmail.errors?.['required']">
+            <ng-container *ngIf="email.touched">
+              <p class="error" *ngIf="email.errors?.['required']">
                 Email is required!
               </p>
-              <p class="error" *ngIf="inputEmail.errors?.['pattern']">
+              <p class="error" *ngIf="email.errors?.['pattern']">
                 Email is not valid!
               </p>
             </ng-container>
@@ -120,7 +148,7 @@
             <div class="form-elements">
               <button
                 class="auth-button"
-                [disabled]="form.invalid"
+                [disabled]="form.invalid || inSubmission"
                 [style]="{
                   backgroundColor: form.invalid ? '#e6e6e6' : '#42a948'
                 }"
@@ -139,6 +167,5 @@
     </div>
   </div>
 </section>
-{{ form.value | json }}
 
 <app-footer />

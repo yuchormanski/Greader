@@ -1,0 +1,13 @@
+.auth-alert {
+  background-color: #be040b;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 18px;
+  text-shadow: 0px 2px 2px #4b4b4b;
+  padding: 14px;
+  margin: 5px 22px 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 2px black;
+}
