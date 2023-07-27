@@ -30,3 +30,61 @@
 textarea {
   resize: none;
 }
+
+.green,
+.red,
+.blue,
+.gray,
+.black {
+  text-align: center;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 18px;
+  text-shadow: 0px 2px 2px #4b4b4b;
+  padding: 5px;
+  margin: 5px 22px 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 2px black;
+}
+select {
+  color: #7f7f7f;
+}
+select:active {
+  color: #333;
+}
+.required {
+  color: red;
+  font-size: 18px;
+}
+.green {
+  background-color: rgb(1, 157, 1);
+  color: white;
+}
+.red {
+  background-color: rgb(157, 1, 1);
+  color: white;
+}
+.blue {
+  background-color: rgb(5, 43, 138);
+  color: white;
+}
+.gray {
+  background-color: rgb(70, 70, 70);
+  color: white;
+}
+.black {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+.base {
+  text-align: center;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 18px;
+  /* text-shadow: 0px 2px 2px #4b4b4b; */
+  padding: 5px;
+  margin: 5px 22px 20px;
+  border-radius: 5px;
+  /* box-shadow: 0px 2px 2px black; */
+  color: #333;
+}

@@ -18,6 +18,11 @@ import { SharedModule } from '../shared/shared.module';
     ReactiveFormsModule,
     UserRoutingModule,
   ],
-  exports: [LoginComponent, RegisterComponent, ProfileComponent],
+  exports: [
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    UserRoutingModule,
+  ],
 })
 export class UserModule {}

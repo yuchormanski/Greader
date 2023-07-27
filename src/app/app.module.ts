@@ -8,18 +8,20 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
-import { UserRoutingModule } from './user/user-routing.module';
 import { CheckPasswordDirective } from './validators/new-password.directive';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GalleryModule } from './gallery/gallery.module';
 import { SharedModule } from './shared/shared.module';
-import { AppInterceptorProvider } from './app.interceptor';
-import { AngularFireModule } from '@angular/fire/compat';
+// import { AppInterceptorProvider } from './app.interceptor';
 import { environment } from 'src/environments/environment';
+import { BookModule } from './book/book.module';
+
+//Firebase
+import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { BookModule } from './book/book.module';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,6 @@ import { BookModule } from './book/book.module';
     CoreModule,
     BookModule,
     UserModule,
-    UserRoutingModule,
     FormsModule,
     GalleryModule,
     HttpClientModule,
@@ -43,6 +44,7 @@ import { BookModule } from './book/book.module';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireStorageModule,
   ],
   // providers: [AppInterceptorProvider],
   providers: [],

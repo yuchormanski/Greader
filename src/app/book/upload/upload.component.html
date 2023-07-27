@@ -10,6 +10,7 @@
         </h2>
 
         <!-- book upload -->
+
         <div
           *ngIf="!nextStep; else bookInfo"
           app-event-blocker
@@ -23,37 +24,93 @@
           class="drop-zone"
         >
           <p>Drag one file to this <i>drop zone</i>.</p>
-          <p>Available types - ePub, PDF, TXT</p>
+          <p>Available types - EPUB, PDF, TXT with maximum file size - 5 MB</p>
         </div>
 
         <!-- book-info -->
         <ng-template #bookInfo>
-          <form [formGroup]="uploadForm">
-            <div class="form-row">
-              <label for=""></label>
-              <input type="text" placeholder="Book title:" />
-            </div>
-            <div class="form-row">
-              <label for=""></label>
-              <input type="text" placeholder="Author:" />
-              <label for=""></label>
-              <input type="text" placeholder="Book image URL:" />
-            </div>
-            <div class="form-row">
-              <label for=""></label>
-              <input type="text" placeholder="Language:" />
-              <label for=""></label>
-              <input type="text" placeholder="Year:" />
-            </div>
-            <div class="form-row">
-              <textarea
-                name=""
-                cols="94"
-                rows="10"
-                placeholder="Description: "
-              ></textarea>
-            </div>
-          </form>
+          <div *ngIf="showAlert" [ngClass]="alertColor">
+            <p>
+              {{ alertMsg }}
+            </p>
+            <p *ngIf="showPercentage">{{ percentage | percent }}</p>
+          </div>
+          <div>
+            <form [formGroup]="uploadForm" (ngSubmit)="uploadBook()">
+              <div class="form-row">
+                <!-- book-title -->
+                <label for="title"></label>
+                <input
+                  formControlName="title"
+                  type="text"
+                  id="title"
+                  name="title"
+                  placeholder="Book title:"
+                /><span class="required">*</span>
+              </div>
+
+              <!-- book-author book-image-->
+              <div class="form-row">
+                <label for=""></label>
+                <input
+                  type="text"
+                  placeholder="Author:"
+                  formControlName="author"
+                />
+                <label for=""></label>
+                <input
+                  type="text"
+                  formControlName="imgUrl"
+                  placeholder="Book image URL:"
+                />
+              </div>
+
+              <!-- book-language book-year-->
+              <div class="form-row">
+                <select value="Language:" formControlName="language">
+                  <option value="" disabled selected hidden>Language:</option>
+                  <option value="bg">Bulgarian</option>
+                  <option value="en">English</option>
+                  <option value="de">German</option>
+                </select>
+                <!-- <label for=""></label>
+                <input
+                  type="text"
+                  placeholder="Language:"
+                  formControlName="language"
+                /> -->
+                <label for=""></label>
+                <input
+                  type="number"
+                  placeholder="Year:"
+                  formControlName="year"
+                />
+              </div>
+
+              <!-- book-description-->
+              <div class="form-row">
+                <textarea
+                  name=""
+                  cols="94"
+                  rows="10"
+                  placeholder="Description: "
+                  formControlName="description"
+                ></textarea>
+              </div>
+
+              <!-- form submit -->
+              <button
+                class="uplad-book-Btn"
+                [disabled]="uploadForm.invalid"
+                [disabled]="inSubmission"
+                [style]="{
+                  backgroundColor: uploadForm.invalid ? 'gray' : null
+                }"
+              >
+                Upload Book
+              </button>
+            </form>
+          </div>
         </ng-template>
       </div>
     </div>
