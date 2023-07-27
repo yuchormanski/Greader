@@ -1,0 +1,70 @@
+routerLinkActive
+-----
+logout move in auth
+-----
+(команда за модул с рутиране ng g m video/clip --routing)
+
+-----
+import {  AngularFireAuthGuard,  redirectUnauthorizedTo,} from '@angular/fire/compat/auth-guard';
+
+const redirectToHome = () => redirectUnauthorizedTo('/');
+
+  { path: 'manage',
+	component: ManageComponent,
+    data: {
+      authOnly: true,
+      authGuardPipe: redirectToHome,
+    },
+    canActivate: [AngularFireAuthGuard],
+  },
+ -----
+ 
+ директва за блокиране на браузера при драг-анд-дроп уплоуд
+ 
+ ----
+ work on upload component
+     //for ePub mime type is application/epub+zip
+    //for pdf mime type is application/pdf
+    //for txt mime type is text/plain
+ ----
+ add reactive form modul to host module of uplad component
+ ---
+ #uplad component -> 
+ import {FormControl, FormGroup, Validators} from '@angular/forms'
+ 
+ 
+ 
+-----
+prepair cloud storage
+app.module -> 
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+upload -> 
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+
+
+--
+
+за да няма дупикиране на имената 
+pacage uuid - https://www.npmjs.com/package/uuid
+npm i uuid @types/uuid
+
+
+
+
++++++++++++++++++++++++++++
+
+https://firebase.google.com/docs/storage/security/core-syntax
+
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && 
+					  request.resource.contentType == 'video/mp4' && 
+					  // request.resource.contentType.matches('video/*')  -за всички видове видео файлове
+					  request.resource.size < 10 * 1000 * 1000;
+    }
+  }
+}
+++++++++++++++++++++++++++++

@@ -1,0 +1,63 @@
+<section>
+  <div class="centered">
+    <div class="center-img">
+      <img src="/assets/img/share-book.jpg" alt="" />
+    </div>
+    <div class="upload-wrapper">
+      <div class="center-text">
+        <h2 class="heading create-heading">
+          Lorem ipsum dolor sit amet consecteturasdfasdfsad.
+        </h2>
+
+        <!-- book upload -->
+        <div
+          *ngIf="!nextStep; else bookInfo"
+          app-event-blocker
+          (dragend)="isDragover = false"
+          (dragover)="isDragover = true"
+          (dragenter)="isDragover = true"
+          (dragleave)="isDragover = false"
+          (mouseleave)="isDragover = false"
+          (drop)="storeFile($event)"
+          [ngClass]="{ 'drop-zone-hover': isDragover }"
+          class="drop-zone"
+        >
+          <p>Drag one file to this <i>drop zone</i>.</p>
+          <p>Available types - ePub, PDF, TXT</p>
+        </div>
+
+        <!-- book-info -->
+        <ng-template #bookInfo>
+          <form [formGroup]="uploadForm">
+            <div class="form-row">
+              <label for=""></label>
+              <input type="text" placeholder="Book title:" />
+            </div>
+            <div class="form-row">
+              <label for=""></label>
+              <input type="text" placeholder="Author:" />
+              <label for=""></label>
+              <input type="text" placeholder="Book image URL:" />
+            </div>
+            <div class="form-row">
+              <label for=""></label>
+              <input type="text" placeholder="Language:" />
+              <label for=""></label>
+              <input type="text" placeholder="Year:" />
+            </div>
+            <div class="form-row">
+              <textarea
+                name=""
+                cols="94"
+                rows="10"
+                placeholder="Description: "
+              ></textarea>
+            </div>
+          </form>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer />

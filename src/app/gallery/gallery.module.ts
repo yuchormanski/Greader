@@ -6,11 +6,10 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { DetailsComponent } from './details/details.component';
 import { GalleryRoutingModule } from './gallery-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { CreateComponent } from './create/create.component';
 
 @NgModule({
-  declarations: [CatalogComponent, DetailsComponent, CreateComponent],
+  declarations: [CatalogComponent, DetailsComponent],
   imports: [CommonModule, CoreModule, GalleryRoutingModule, SharedModule],
-  exports: [CatalogComponent, DetailsComponent],
+  exports: [CatalogComponent, DetailsComponent, GalleryRoutingModule],
 })
 export class GalleryModule {}
