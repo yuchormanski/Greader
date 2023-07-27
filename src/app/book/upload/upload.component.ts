@@ -8,6 +8,7 @@ import firebase from 'firebase/compat/app';
 import { v4 as uuid } from 'uuid';
 
 import { last, switchMap } from 'rxjs/operators';
+import { BookService } from 'src/app/services/book.service';
 
 @Component({
   selector: 'app-upload',
@@ -28,7 +29,8 @@ export class UploadComponent implements OnInit {
 
   constructor(
     private storage: AngularFireStorage,
-    private auth: AngularFireAuth
+    private auth: AngularFireAuth,
+    private booksService: BookService
   ) {
     auth.user.subscribe((user) => (this.user = user));
   }
@@ -144,8 +146,8 @@ export class UploadComponent implements OnInit {
       .subscribe({
         next: (url) => {
           const book = {
-            uid: this.user?.uid,
-            displayName: this.user?.displayName,
+            uid: this.user?.uid as string,
+            displayName: this.user?.displayName as string,
             title: this.title.value,
             author: this.author.value,
             imgUrl: this.imgUrl.value,
@@ -153,9 +155,11 @@ export class UploadComponent implements OnInit {
             year: this.year.value,
             description: this.description.value,
             url,
-            fileName: `${this.file?.name}.${this.fileExtension()}`,
+            fileName: this.file?.name as string,
+            fileType: this.fileExtension(),
           };
 
+          this.booksService.createBook(book);
           console.log(book);
 
           this.showPercentage = false;
