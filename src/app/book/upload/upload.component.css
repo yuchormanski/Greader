@@ -1,14 +1,18 @@
-/* .centered {
-  min-width: 700px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 20px 10px;
-  margin: 50px 0;
-} */
 .upload-wrapper {
   width: 700px;
 }
+.upload-heading {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  margin: 50px 0;
+}
+.heading-line {
+  width: 15%;
+  border-bottom: 1px solid #333;
+}
+
 .drop-zone {
   background-color: rgb(245, 245, 245);
   width: 100%;
@@ -22,13 +26,11 @@
   border-radius: 3px;
   border: 1px dotted rgb(75, 75, 75);
   cursor: pointer;
+  box-shadow: 0px 2px 8px #6e6e6ec7;
 }
 .drop-zone-hover {
   background-color: rgb(207, 207, 207);
   border: 1px solid rgb(75, 75, 75);
-}
-textarea {
-  resize: none;
 }
 textarea,
 input,
@@ -36,6 +38,8 @@ select {
   padding: 5px 10px;
   font-size: 18px;
   line-height: 20px;
+  border-radius: 4px;
+  border: 1px solid #7f7f7f;
 }
 select {
   color: #7f7f7f;
@@ -51,22 +55,70 @@ select:active {
   align-items: center;
   margin: 10px 0;
 }
-.additional input,
-.additional select {
-  width: 45%;
-  margin: 0 5px;
+.additional input {
+  width: 288px;
+  margin: 0 0 0 9px;
 }
+.additional select {
+  width: 312px;
+  margin: 0 0 0 12px;
+  color: #7f7f7f;
+}
+
+.option-value,
+.selected {
+  color: #000000;
+}
+
 .required {
   color: red;
   font-size: 18px;
 }
 .book-title {
-  width: 100%;
+  width: 690px;
+  margin-left: 10px;
 }
 .book-title input {
   width: 92%;
 }
 
+textarea {
+  resize: none;
+  outline: none;
+}
+/*  */
+
+label.label input[type="file"] {
+  position: absolute;
+  top: -1000px;
+}
+.label {
+  cursor: pointer;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin: 5px;
+  background: #dddddd;
+  display: inline-block;
+  width: 200px;
+}
+.label:hover {
+  background: rgb(1, 157, 1);
+  color: #fafafa;
+  border: 1px solid #606060;
+  box-shadow: 0px 2px 4px rgb(98, 98, 98);
+}
+.label:active {
+  background: #9fa1a0;
+}
+.label:invalid + span {
+  color: #000000;
+}
+.label:valid + span {
+  color: #ffffff;
+}
+
+/*  */
 .green,
 .red,
 .blue,
@@ -81,7 +133,7 @@ select:active {
   padding: 5px;
   margin: 5px 22px 20px;
   border-radius: 5px;
-  box-shadow: 0px 2px 2px black;
+  box-shadow: 0px 2px 4px rgb(44, 44, 44);
 }
 .green {
   background-color: rgb(1, 157, 1);

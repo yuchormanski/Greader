@@ -5,13 +5,15 @@
     </div>
     <div class="upload-wrapper">
       <div class="center-text">
-        <h2 class="heading create-heading">
-          Lorem ipsum dolor sit amet consecteturasdfasdfsad.
-        </h2>
+        <div class="upload-heading">
+          <div class="heading-line"></div>
+          <h2 class="heading create-heading">Upload your favorite book</h2>
+          <div class="heading-line"></div>
+        </div>
 
         <!-- book upload -->
-        <ng-container *ngIf="nextStep; else bookInfo">
-          <!-- <ng-container *ngIf="!nextStep; else bookInfo"> -->
+        <!-- <ng-container *ngIf="nextStep; else bookInfo"> -->
+        <ng-container *ngIf="!nextStep; else bookInfo">
           <div
             app-event-blocker
             (dragend)="isDragover = false"
@@ -24,17 +26,27 @@
             class="drop-zone"
           >
             <p>Drag a file to this <i>drop zone</i>.</p>
+            <p>Next step is to add the book information</p>
             <p>
               Available types - EPUB, PDF, TXT with maximum file size - 5 MB
             </p>
+            <p>or select one from folder</p>
+            <label class="label">
+              <input type="file" required (change)="storeFile($event)" />
+              <span>Select a file</span>
+            </label>
+            <!-- <input
+              type="file"
+              class="file-input"
+              (change)="storeFile($event)"
+            /> -->
           </div>
-          <input type="file" class="" (change)="storeFile($event)" />
         </ng-container>
 
         <!-- book-info -->
         <ng-template #bookInfo>
-          <div [ngClass]="alertColor">
-            <!-- <div *ngIf="showAlert" [ngClass]="alertColor"> -->
+          <!-- <div [ngClass]="alertColor"> -->
+          <div *ngIf="showAlert" [ngClass]="alertColor">
             <p>
               {{ alertMsg }}
             </p>
@@ -51,7 +63,7 @@
                   id="title"
                   name="title"
                   placeholder="Book title:"
-                /><span class="required">*</span>
+                /><span class="required">&#10039;</span>
               </div>
 
               <!-- book-author book-image-->
@@ -61,35 +73,36 @@
                   type="text"
                   placeholder="Author:"
                   formControlName="author"
-                /><span class="required">*</span>
+                /><span class="required">&#10039;</span>
                 <label for=""></label>
                 <input
                   type="text"
                   formControlName="imgUrl"
                   placeholder="Book image URL:"
-                /><span class="required">*</span>
+                /><span class="required">&#10039;</span>
               </div>
 
               <!-- book-language book-year-->
               <div class="form-row additional">
                 <select value="Language:" formControlName="language">
-                  <option value="" disabled selected hidden>Language:</option>
-                  <option value="bg">Bulgarian</option>
-                  <option value="en">English</option>
-                  <option value="de">German</option></select
-                ><span class="required">*</span>
-                <!-- <label for=""></label>
-                <input
-                  type="text"
-                  placeholder="Language:"
-                  formControlName="language"
-                /> -->
+                  <option value="" disabled selected hidden inactive>
+                    Language:
+                  </option>
+                  <option value="Bulgarian" class="option-value">
+                    Bulgarian
+                  </option>
+                  <option value="English" class="option-value">English</option>
+                  <option value="German" class="option-value">
+                    German
+                  </option></select
+                ><span class="required">&#10039;</span>
+
                 <label for=""></label>
                 <input
                   type="number"
                   placeholder="Year:"
                   formControlName="year"
-                /><span class="required">*</span>
+                /><span class="required">&#10039;</span>
               </div>
 
               <!-- book-description-->
