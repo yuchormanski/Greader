@@ -1,3 +1,5 @@
+import firebase from 'firebase/compat/app';
+
 export default interface IBook {
   uid: string;
   displayName: string;
@@ -10,4 +12,5 @@ export default interface IBook {
   url: string;
   fileName: string;
   fileType: string;
+  timestamp: firebase.firestore.FieldValue;
 }

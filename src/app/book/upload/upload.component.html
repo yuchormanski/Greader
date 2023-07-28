@@ -10,26 +10,31 @@
         </h2>
 
         <!-- book upload -->
-
-        <div
-          *ngIf="!nextStep; else bookInfo"
-          app-event-blocker
-          (dragend)="isDragover = false"
-          (dragover)="isDragover = true"
-          (dragenter)="isDragover = true"
-          (dragleave)="isDragover = false"
-          (mouseleave)="isDragover = false"
-          (drop)="storeFile($event)"
-          [ngClass]="{ 'drop-zone-hover': isDragover }"
-          class="drop-zone"
-        >
-          <p>Drag one file to this <i>drop zone</i>.</p>
-          <p>Available types - EPUB, PDF, TXT with maximum file size - 5 MB</p>
-        </div>
+        <ng-container *ngIf="nextStep; else bookInfo">
+          <!-- <ng-container *ngIf="!nextStep; else bookInfo"> -->
+          <div
+            app-event-blocker
+            (dragend)="isDragover = false"
+            (dragover)="isDragover = true"
+            (dragenter)="isDragover = true"
+            (dragleave)="isDragover = false"
+            (mouseleave)="isDragover = false"
+            (drop)="storeFile($event)"
+            [ngClass]="{ 'drop-zone-hover': isDragover }"
+            class="drop-zone"
+          >
+            <p>Drag a file to this <i>drop zone</i>.</p>
+            <p>
+              Available types - EPUB, PDF, TXT with maximum file size - 5 MB
+            </p>
+          </div>
+          <input type="file" class="" (change)="storeFile($event)" />
+        </ng-container>
 
         <!-- book-info -->
         <ng-template #bookInfo>
-          <div *ngIf="showAlert" [ngClass]="alertColor">
+          <div [ngClass]="alertColor">
+            <!-- <div *ngIf="showAlert" [ngClass]="alertColor"> -->
             <p>
               {{ alertMsg }}
             </p>
@@ -37,7 +42,7 @@
           </div>
           <div>
             <form [formGroup]="uploadForm" (ngSubmit)="uploadBook()">
-              <div class="form-row">
+              <div class="form-row book-title">
                 <!-- book-title -->
                 <label for="title"></label>
                 <input
@@ -50,29 +55,29 @@
               </div>
 
               <!-- book-author book-image-->
-              <div class="form-row">
+              <div class="form-row additional">
                 <label for=""></label>
                 <input
                   type="text"
                   placeholder="Author:"
                   formControlName="author"
-                />
+                /><span class="required">*</span>
                 <label for=""></label>
                 <input
                   type="text"
                   formControlName="imgUrl"
                   placeholder="Book image URL:"
-                />
+                /><span class="required">*</span>
               </div>
 
               <!-- book-language book-year-->
-              <div class="form-row">
+              <div class="form-row additional">
                 <select value="Language:" formControlName="language">
                   <option value="" disabled selected hidden>Language:</option>
                   <option value="bg">Bulgarian</option>
                   <option value="en">English</option>
-                  <option value="de">German</option>
-                </select>
+                  <option value="de">German</option></select
+                ><span class="required">*</span>
                 <!-- <label for=""></label>
                 <input
                   type="text"
@@ -84,14 +89,14 @@
                   type="number"
                   placeholder="Year:"
                   formControlName="year"
-                />
+                /><span class="required">*</span>
               </div>
 
               <!-- book-description-->
-              <div class="form-row">
+              <div class="form-row additional">
                 <textarea
                   name=""
-                  cols="94"
+                  cols="66"
                   rows="10"
                   placeholder="Description: "
                   formControlName="description"
@@ -100,14 +105,14 @@
 
               <!-- form submit -->
               <button
-                class="uplad-book-Btn"
+                class="upload-book-Btn"
                 [disabled]="uploadForm.invalid"
                 [disabled]="inSubmission"
                 [style]="{
-                  backgroundColor: uploadForm.invalid ? 'gray' : null
+                  backgroundColor: uploadForm.invalid ? '#e6e6e6' : '#019d01'
                 }"
               >
-                Upload Book
+                Upload
               </button>
             </form>
           </div>

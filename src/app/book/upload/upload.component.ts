@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { AngularFireStorage } from '@angular/fire/compat/storage';
+import {
+  AngularFireStorage,
+  AngularFireUploadTask,
+} from '@angular/fire/compat/storage';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 
@@ -9,13 +12,14 @@ import { v4 as uuid } from 'uuid';
 
 import { last, switchMap } from 'rxjs/operators';
 import { BookService } from 'src/app/services/book.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.css'],
 })
-export class UploadComponent implements OnInit {
+export class UploadComponent implements OnDestroy {
   user: firebase.User | null = null;
   isDragover = false;
   nextStep = false;
@@ -26,11 +30,13 @@ export class UploadComponent implements OnInit {
   file: File | null = null;
   percentage = 0;
   showPercentage = false;
+  task?: AngularFireUploadTask;
 
   constructor(
     private storage: AngularFireStorage,
     private auth: AngularFireAuth,
-    private booksService: BookService
+    private booksService: BookService,
+    private router: Router
   ) {
     auth.user.subscribe((user) => (this.user = user));
   }
@@ -77,12 +83,12 @@ export class UploadComponent implements OnInit {
     // bookFileType: this.fileExtension(),
   });
 
-  ngOnInit(): void {}
-
   storeFile($event: Event) {
     this.isDragover = false;
 
-    this.file = ($event as DragEvent).dataTransfer?.files.item(0) ?? null;
+    this.file = ($event as DragEvent).dataTransfer
+      ? ($event as DragEvent).dataTransfer?.files.item(0) ?? null
+      : ($event.target as HTMLInputElement).files?.item(0) ?? null;
 
     if (!this.file || this.file.type !== this.fileType()) {
       return;
@@ -117,7 +123,7 @@ export class UploadComponent implements OnInit {
   }
 
   uploadBook() {
-    console.log('File is uploaded');
+    this.uploadForm.disable();
 
     this.showAlert = true;
     this.alertColor = 'base';
@@ -128,23 +134,21 @@ export class UploadComponent implements OnInit {
     const bookFileName = uuid();
     const bookPath = `books/${bookFileName}.${this.fileExtension()}`;
 
-    // console.log(this.file);
-
-    const task = this.storage.upload(bookPath, this.file);
+    this.task = this.storage.upload(bookPath, this.file);
     const bookRef = this.storage.ref(bookPath);
 
-    task.percentageChanges().subscribe((progress) => {
+    this.task.percentageChanges().subscribe((progress) => {
       this.percentage = (progress as number) / 100;
     });
 
-    task
+    this.task
       .snapshotChanges()
       .pipe(
         last(),
         switchMap(() => bookRef.getDownloadURL())
       )
       .subscribe({
-        next: (url) => {
+        next: async (url) => {
           const book = {
             uid: this.user?.uid as string,
             displayName: this.user?.displayName as string,
@@ -157,16 +161,23 @@ export class UploadComponent implements OnInit {
             url,
             fileName: this.file?.name as string,
             fileType: this.fileExtension(),
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           };
 
-          this.booksService.createBook(book);
+          const bookDocRef = await this.booksService.createBook(book);
           console.log(book);
 
           this.showPercentage = false;
           this.alertColor = 'green';
           this.alertMsg = 'Success! Your book is uploaded!';
+          setTimeout(() => {
+            this.router.navigate(['gallery', bookDocRef.id]);
+          }, 1000);
         },
+
         error: (error) => {
+          this.uploadForm.disable();
+
           this.alertMsg = 'Upload failed! Please, try again later';
           this.alertColor = 'red';
           this.showPercentage = false;
@@ -174,5 +185,9 @@ export class UploadComponent implements OnInit {
           console.error(error);
         },
       });
+  }
+
+  ngOnDestroy(): void {
+    this.task?.cancel();
   }
 }

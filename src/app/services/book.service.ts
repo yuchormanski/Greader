@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
+  DocumentReference,
 } from '@angular/fire/compat/firestore';
 import IBook from '../models/book.model';
 
@@ -15,7 +16,7 @@ export class BookService {
     this.bookCollection = db.collection('books');
   }
 
-  async createBook(data: IBook) {
-    await this.bookCollection.add(data);
+  createBook(data: IBook): Promise<DocumentReference<IBook>> {
+    return this.bookCollection.add(data);
   }
 }
