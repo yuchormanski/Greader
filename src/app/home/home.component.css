@@ -1,16 +1,13 @@
-/* .logo {
-  width: 100%;
-  max-width: 160px;
-  position: absolute;
-  top: 20px;
-  left: 51%;
-} */
-.hero {
+.logo {
+  width: 250px;
+  margin-left: 20px;
+}
+.entry {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
-.hero__entry-image {
+.entry-image {
   background-image: url("/assets/img/home.jpg");
   background-size: cover;
   background-position: center;

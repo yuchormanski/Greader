@@ -4,29 +4,14 @@
       <!-- <img src="" alt="" /> -->
     </div>
     <div class="wrapper">
-      <h2 class="heading book-heading">"{{ theBook?.title }}"</h2>
+      <h2 class="heading book-heading">"{{ theBook?.title }}Book Title"</h2>
       <div class="book-meta">
         <div class="book-author">
-          <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
-            <circle
-              cx="12"
-              cy="8"
-              r="3.25"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-            ></circle>
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M6.8475 19.25H17.1525C18.2944 19.25 19.174 18.2681 18.6408 17.2584C17.8563 15.7731 16.068 14 12 14C7.93201 14 6.14367 15.7731 5.35924 17.2584C4.82597 18.2681 5.70558 19.25 6.8475 19.25Z"
-            ></path>
-          </svg>
-          <!-- <span class="author-name">{{ theBook?.author }}</span> -->
-
+          <img
+            src="/assets/img/poetry.png"
+            alt="author icon"
+            class="headline-icons"
+          />
           <span class="author-name"
             ><a
               href="https://bg.wikipedia.org/w/index.php?fulltext=1&search={{
@@ -34,45 +19,26 @@
               }}"
               class="author-link"
               target="_blank"
-              >{{ theBook?.author }}</a
+              >{{ theBook?.author }}Author search</a
             ></span
           >
         </div>
         <div class="book-year">
-          <svg
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-calendar-check"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"
-            />
-            <path
-              d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
-            />
-          </svg>
-          <span class="author-name">{{ theBook?.year }}</span>
+          <img
+            src="/assets/img/calendar.png"
+            alt="calendar icon"
+            class="headline-icons"
+          />
+          <span class="author-name">1976</span>
+          <!-- <span class="author-name">{{book.year}}</span> -->
         </div>
         <div class="book-genre">
-          <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M19.25 17.25V9.75C19.25 8.64543 18.3546 7.75 17.25 7.75H4.75V17.25C4.75 18.3546 5.64543 19.25 6.75 19.25H17.25C18.3546 19.25 19.25 18.3546 19.25 17.25Z"
-            ></path>
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M13.5 7.5L12.5685 5.7923C12.2181 5.14977 11.5446 4.75 10.8127 4.75H6.75C5.64543 4.75 4.75 5.64543 4.75 6.75V11"
-            ></path>
-          </svg>
-          <span class="author-name">{{ theBook?.genre }}</span>
+          <img
+            src="/assets/img/language.png"
+            alt="language icon"
+            class="headline-icons"
+          />
+          <span class="author-name">Book language</span>
         </div>
       </div>
       <div class="book-details">
@@ -84,50 +50,36 @@
 
           <p class="p">
             {{ theBook?.description }}
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. At numquam
+            consequatur nemo hic! Sed cupiditate numquam porro iusto quia minus
+            perferendis perspiciatis, illo sapiente sunt doloribus. Cupiditate
+            quisquam dolor unde obcaecati blanditiis recusandae cum neque
+            voluptatibus quod dolore, molestias vel est odit dolores quasi ut,
+            esse ipsa animi debitis? Illum ipsa, hic recusandae, doloribus
+            quidem est aliquam labore, similique commodi quod at modi dicta
+            accusamus. Praesentium velit non nesciunt quo eius eos inventore
+            suscipit deserunt natus vero hic quod laboriosam ut recusandae, quas
+            sapiente alias similique aliquid facilis perspiciatis aperiam
+            placeat sed tenetur nemo. Officia nisi, fugiat amet est, atque
+            provident debitis dignissimos, harum a adipisci placeat enim
+            temporibus odit dicta. Suscipit, quisquam. Eaque deserunt ut id at
+            quidem ullam, suscipit voluptates ea esse impedit mollitia! Corrupti
+            odio sit aspernatur illo fugit, sapiente dolorem voluptatem ab
+            placeat omnis facere quas? Doloremque, quia voluptates nemo
+            reiciendis ullam ad facilis minima veritatis numquam, id quibusdam
+            eaque aliquid! Aliquam aspernatur nobis sed non illum explicabo,
+            animi, corrupti, officiis laboriosam ipsum deserunt repellendus quas
+            sint expedita assumenda magni. Commodi dolor molestias optio
+            distinctio eum, porro, repellendus quaerat eveniet obcaecati
+            debitis, quasi sit. Ipsam quasi explicabo saepe dignissimos debitis
+            similique quibusdam dicta modi corporis vitae.
           </p>
         </div>
       </div>
-      <div class="book-icons">
-        <div class="liked">
-          <img src="/assets/img/heart.png" alt="" width="20" />
-          8
-        </div>
-        <div class="disliked">
-          <img src="/assets/img/heartUn.png" alt="" width="20" />
-          3
-        </div>
-        <div class="comment-count">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 512 512"
-          >
-            <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-            <style>
-              svg {
-                fill: #171717;
-              }
-            </style>
-            <path
-              d="M123.6 391.3c12.9-9.4 29.6-11.8 44.6-6.4c26.5 9.6 56.2 15.1 87.8 15.1c124.7 0 208-80.5 208-160s-83.3-160-208-160S48 160.5 48 240c0 32 12.4 62.8 35.7 89.2c8.6 9.7 12.8 22.5 11.8 35.5c-1.4 18.1-5.7 34.7-11.3 49.4c17-7.9 31.1-16.7 39.4-22.7zM21.2 431.9c1.8-2.7 3.5-5.4 5.1-8.1c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208s-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6c-15.1 6.6-32.3 12.6-50.1 16.1c-.8 .2-1.6 .3-2.4 .5c-4.4 .8-8.7 1.5-13.2 1.9c-.2 0-.5 .1-.7 .1c-5.1 .5-10.2 .8-15.3 .8c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4c4.1-4.2 7.8-8.7 11.3-13.5c1.7-2.3 3.3-4.6 4.8-6.9c.1-.2 .2-.3 .3-.5z"
-            />
-          </svg>
-          12
-        </div>
-      </div>
-
-      <div class="book-comments">
-        <h2>Lorem ipsum dolor sit amet.</h2>
-        <div class="comment">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae,
-          officiis nobis molestias voluptates voluptatum quo quam? Consequatur
-          molestias ea ducimus!
-        </div>
-        <div class="comment">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
-          eveniet modi facere dignissimos! Suscipit laboriosam iste labore
-          asperiores, tenetur cum.
-        </div>
+      <div class="book-actions">
+        <div class="book-edit"></div>
+        <div class="book-download"></div>
+        <div class="book-delete"></div>
       </div>
     </div>
   </div>

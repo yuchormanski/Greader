@@ -101,16 +101,16 @@ li.nav-space {
 }
 
 .navMenu li:nth-child(3):hover ~ .dot2 {
-  -webkit-transform: translateX(215px);
-  transform: translateX(215px);
+  -webkit-transform: translateX(227px);
+  transform: translateX(227px);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   opacity: 1;
 }
 
 .navMenu li:nth-child(4):hover ~ .dot2 {
-  -webkit-transform: translateX(290px);
-  transform: translateX(290px);
+  -webkit-transform: translateX(303px);
+  transform: translateX(303px);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   opacity: 1;

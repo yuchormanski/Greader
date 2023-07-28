@@ -2,11 +2,7 @@ footer {
   background-color: #333;
   box-shadow: -2px 5px 10px rgba(0, 128, 0, 0.871) inset;
 }
-/* .footer-top-border {
-  width: 90%;
-  height: 30px;
-  margin-left: 5%;
-} */
+
 .content {
   display: flex;
   justify-content: space-evenly;
@@ -79,5 +75,11 @@ footer {
 .footer-block a:active,
 .footer-block a:focus,
 .footer-block a:visited {
+  text-decoration: underline;
+
   color: #eee;
+}
+
+.sites-links a:hover {
+  text-decoration: underline;
 }
