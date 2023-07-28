@@ -41,9 +41,14 @@ export class UploadComponent implements OnDestroy {
     auth.user.subscribe((user) => (this.user = user));
   }
 
+  minLengthCount: number = 1;
+
   // form fields
   title = new FormControl('', {
-    validators: [Validators.required, Validators.minLength(3)],
+    validators: [
+      Validators.required,
+      Validators.minLength(this.minLengthCount),
+    ],
     nonNullable: true,
   });
   author = new FormControl('', {

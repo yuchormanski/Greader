@@ -4,12 +4,20 @@
       <img src="/assets/img/library-book.jpg" alt="" />
     </div>
     <div class="wrapper">
-      <h2 class="heading gallery-heading">
-        Lorem ipsum dolor sit amet consectetur.
-      </h2>
+      <div class="gallery-heading">
+        <div class="heading-line"></div>
+
+        <h2 class="heading gallery-heading">
+          Lorem ipsum dolor sit amet consectetur.
+        </h2>
+        <div class="heading-line"></div>
+      </div>
+
+      <!-- LOADER -->
       <div *ngIf="isLoading">
         <app-loader />
       </div>
+
       <div *ngIf="!isLoading" class="gallery-wrapper">
         <article class="brick" *ngFor="let book of booksArray">
           <img class="book-img" src="{{ book.imgUrl }}" alt="" />

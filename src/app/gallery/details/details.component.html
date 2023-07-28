@@ -6,7 +6,7 @@
     <div class="wrapper">
       <h2 class="heading book-heading">"{{ theBook?.title }}Book Title"</h2>
       <div class="book-meta">
-        <div class="book-author">
+        <div class="book-author book-heading-icon">
           <img
             src="/assets/img/poetry.png"
             alt="author icon"
@@ -19,11 +19,12 @@
               }}"
               class="author-link"
               target="_blank"
-              >{{ theBook?.author }}Author search</a
+              >{{ theBook?.author }}Author Name</a
             ></span
           >
         </div>
-        <div class="book-year">
+
+        <div class="book-year book-heading-icon">
           <img
             src="/assets/img/calendar.png"
             alt="calendar icon"
@@ -32,7 +33,8 @@
           <span class="author-name">1976</span>
           <!-- <span class="author-name">{{book.year}}</span> -->
         </div>
-        <div class="book-genre">
+
+        <div class="book-lang book-heading-icon">
           <img
             src="/assets/img/language.png"
             alt="language icon"
@@ -41,6 +43,7 @@
           <span class="author-name">Book language</span>
         </div>
       </div>
+
       <div class="book-details">
         <div class="square">
           <div>
@@ -57,30 +60,62 @@
             voluptatibus quod dolore, molestias vel est odit dolores quasi ut,
             esse ipsa animi debitis? Illum ipsa, hic recusandae, doloribus
             quidem est aliquam labore, similique commodi quod at modi dicta
-            accusamus. Praesentium velit non nesciunt quo eius eos inventore
-            suscipit deserunt natus vero hic quod laboriosam ut recusandae, quas
-            sapiente alias similique aliquid facilis perspiciatis aperiam
-            placeat sed tenetur nemo. Officia nisi, fugiat amet est, atque
-            provident debitis dignissimos, harum a adipisci placeat enim
-            temporibus odit dicta. Suscipit, quisquam. Eaque deserunt ut id at
-            quidem ullam, suscipit voluptates ea esse impedit mollitia! Corrupti
-            odio sit aspernatur illo fugit, sapiente dolorem voluptatem ab
-            placeat omnis facere quas? Doloremque, quia voluptates nemo
-            reiciendis ullam ad facilis minima veritatis numquam, id quibusdam
-            eaque aliquid! Aliquam aspernatur nobis sed non illum explicabo,
-            animi, corrupti, officiis laboriosam ipsum deserunt repellendus quas
-            sint expedita assumenda magni. Commodi dolor molestias optio
-            distinctio eum, porro, repellendus quaerat eveniet obcaecati
-            debitis, quasi sit. Ipsam quasi explicabo saepe dignissimos debitis
-            similique quibusdam dicta modi corporis vitae.
+            accusamus.
+          </p>
+          <p class="p">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo,
+            cupiditate. Vitae quis debitis fugit laboriosam ipsam? Sequi
+            distinctio possimus ab cum, earum perferendis aut optio suscipit
+            voluptate. Qui, saepe molestiae.
+          </p>
+          <p class="p">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta,
+            cumque. Deleniti pariatur alias voluptas magni quos vel reiciendis
+            delectus soluta itaque aut error tenetur ipsum eligendi explicabo,
+            commodi deserunt vitae iure porro iste! Deleniti molestias autem,
+            molestiae at officia quasi, voluptatibus vel totam consectetur ut
+            cum voluptatem itaque dolorum harum blanditiis, magni soluta non quo
+            illo eaque necessitatibus! Ipsa explicabo sint iure, praesentium
+            quis laudantium ad maiores porro libero nam minima. Dolorem
+            officiis, at quo distinctio, ipsum quisquam praesentium placeat
+            quidem, tempore consectetur inventore doloremque ullam tenetur alias
+            fugiat aliquid iusto laudantium! Laborum deserunt quam a voluptate
+            voluptatem modi ab.
           </p>
         </div>
       </div>
-      <div class="book-actions">
-        <div class="book-edit"></div>
-        <div class="book-download"></div>
-        <div class="book-delete"></div>
-      </div>
+
+      <section>
+        <div class="book-actions">
+          <div class="book-edit-block">
+            <button class="btn edit-btn">EDIT BOOK</button>
+          </div>
+          <!-- <div class="book-download-block">
+            <button class="btn download-btn">DOwnload BOOK</button>
+          </div> -->
+          <div class="book-edit-block">
+            <button class="btn delete-btn">DELETE BOOK</button>
+          </div>
+        </div>
+
+        <div class="book-meta-footer">
+          <table>
+            <tr>
+              <td>Uploader</td>
+              <td class="tdR">Elitsa Alabala</td>
+            </tr>
+            <tr>
+              <td>Data:</td>
+              <td class="tdR">15.09.2021</td>
+            </tr>
+            <tr>
+              <td>File type:</td>
+              <td class="tdR">EPUB</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <!-- actions -->
     </div>
   </div>
 </section>

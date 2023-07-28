@@ -65,6 +65,22 @@
                   placeholder="Book title:"
                 /><span class="required">&#10039;</span>
               </div>
+              <!-- title errors -->
+              <ng-container *ngIf="uploadForm.get('title')?.touched">
+                <p
+                  class="error"
+                  *ngIf="uploadForm.get('title')?.errors?.['required']"
+                >
+                  Book title is required!
+                </p>
+                <p
+                  class="error"
+                  *ngIf="uploadForm.get('title')?.errors?.['minlength']"
+                >
+                  Book title should be at least {{ minLengthCount }} characters
+                  long!
+                </p>
+              </ng-container>
 
               <!-- book-author book-image-->
               <div class="form-row additional">
@@ -80,6 +96,15 @@
                   formControlName="imgUrl"
                   placeholder="Book image URL:"
                 /><span class="required">&#10039;</span>
+                <!-- errors -->
+                <ng-container *ngIf="uploadForm.get('imgUrl')?.touched">
+                  <p
+                    class="error"
+                    *ngIf="uploadForm.get('imgUrl')?.errors?.['required']"
+                  >
+                    Image is required!
+                  </p>
+                </ng-container>
               </div>
 
               <!-- book-language book-year-->
@@ -122,7 +147,7 @@
                 [disabled]="uploadForm.invalid"
                 [disabled]="inSubmission"
                 [style]="{
-                  backgroundColor: uploadForm.invalid ? '#e6e6e6' : '#019d01'
+                  backgroundColor: uploadForm.invalid ? null : '#019d01'
                 }"
               >
                 Upload

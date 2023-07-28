@@ -1,33 +1,23 @@
-/* -----
-SVG Icons - svgicons.sparkk.fr
------ */
-
-.svg-icon {
-  width: 1em;
-  height: 1em;
+.left {
+  float: left;
 }
-
-.svg-icon path,
-.svg-icon polygon,
-.svg-icon rect {
-  fill: #4691f6;
+.right {
+  float: right;
 }
-
-.svg-icon circle {
-  stroke: #4691f6;
-  stroke-width: 1;
-}
-
-/* custom rules */
-
 .book-heading {
   font-size: 48px;
 }
 .book-meta {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-direction: row;
   align-items: center;
+}
+
+.book-heading-icon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 .author-name {
   margin: 0 0 0 10px;
@@ -37,34 +27,21 @@ SVG Icons - svgicons.sparkk.fr
   display: block;
   width: 1000px;
   min-height: 485px;
-  border: 1px solid rgb(116, 116, 116);
+  /* border: 1px solid rgb(116, 116, 116); */
 }
 .img {
   float: right;
-  margin: 0 0 0 20px;
+  margin: 0 0 40px 40px;
   width: 300px;
 }
 
+.headline-icons {
+  width: 32px;
+}
 .p {
   text-indent: 20px;
   text-align: justify;
   font-size: 20px;
-}
-
-.book-comments {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 800px;
-  margin-top: 20px;
-  padding: 20px;
-  border: 1px solid rgb(149, 255, 0);
-}
-.comment {
-  width: 100%;
-  min-height: 100px;
-  margin-top: 20px;
-  border: 1px solid red;
 }
 
 .book-icons {
@@ -88,3 +65,127 @@ SVG Icons - svgicons.sparkk.fr
   color: #333;
   text-decoration: underline;
 }
+
+section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.book-actions {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  margin: 30px 0 0;
+  padding: 20px;
+  box-shadow: 0px 14px 25px #00000013;
+  width: 700px;
+}
+
+.book-meta-footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+table {
+  margin-top: 30px;
+}
+tr {
+  font-size: 14px;
+  color: #444;
+}
+.tdR {
+  text-align: right;
+  width: 150px;
+  font-size: 18px;
+}
+
+/* button */
+.btn {
+  font-size: 17px;
+  background: transparent;
+  border: none;
+  padding: 1em 1.5em;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.5s ease;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  transition: 0.5s ease;
+}
+
+.btn:hover {
+  color: aliceblue;
+  transition-delay: 0.5s;
+  border-top: 1px solid rgb(255, 255, 255);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.btn:hover::before {
+  width: 100%;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  transition: 0.4s ease;
+  z-index: -1;
+}
+
+.btn:hover::after {
+  height: 100%;
+  transition-delay: 0.4s;
+  color: aliceblue;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.delete-btn {
+  color: rgb(130, 0, 0);
+  border-top: 1px solid rgb(130, 0, 0);
+}
+.delete-btn::before {
+  background-color: rgb(130, 0, 0);
+}
+.delete-btn::after {
+  background-color: rgb(130, 0, 0);
+}
+
+.download-btn {
+  color: rgb(0, 119, 140);
+  border-top: 1px solid rgb(0, 119, 140);
+}
+.download-btn::before {
+  background-color: rgb(0, 119, 140);
+}
+.download-btn::after {
+  background-color: rgb(0, 119, 140);
+}
+
+.edit-btn {
+  color: rgb(5, 92, 2);
+  border-top: 1px solid rgb(5, 92, 2);
+}
+.edit-btn::before {
+  background-color: rgb(5, 92, 2);
+}
+.edit-btn::after {
+  background-color: rgb(5, 92, 2);
+}
+
+/* uploader info */

@@ -3,6 +3,18 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 47px;
 }
+.gallery-heading {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  margin: 50px 0;
+}
+.heading-line {
+  width: 15%;
+  border-bottom: 1px solid #333;
+}
+
 .brick {
   width: 300px;
   margin: 20px 0;
