@@ -1,1 +1,40 @@
-<p>manage works!</p>
+<section>
+  <div class="centered">
+    <div class="center-img">
+      <img src="/assets/img/1.jpg" alt="" />
+    </div>
+    <div class="wrapper">
+      <div class="gallery-heading">
+        <div class="heading-line"></div>
+
+        <h2 class="heading gallery-heading">
+          {{ userName }}'s private library.
+        </h2>
+        <div class="heading-line"></div>
+      </div>
+
+      <!-- LOADER -->
+      <div *ngIf="isLoading">
+        <app-loader />
+      </div>
+      <!-- <select (change)="sort($event)">
+        <option value="1" [selected]="bookOrder === '1'">Recent uploads</option>
+        <option value="2" [selected]="bookOrder === '2'">Oldest uploads</option>
+      </select> -->
+      <div class="gallery-wrapper" *ngIf="!isLoading">
+        <!-- flip-card -->
+        <div class="card" *ngFor="let book of books">
+          <div class="image">
+            <span class="text"></span>
+            <img class="small-img" src="{{ book.imgUrl }}" alt="" />
+          </div>
+          <span class="title">{{ book.title }}</span>
+          <span class="price">$100</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <app-loader /> -->
+<app-footer />

@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 
 export default interface IBook {
+  docId?: string;
   uid: string;
   displayName: string;
   title: string;
