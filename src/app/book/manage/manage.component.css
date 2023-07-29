@@ -21,6 +21,9 @@
   padding: 0.5em;
   padding-bottom: 3.4em;
 }
+.card .action-btn::after {
+  opacity: 0;
+}
 
 .card::after {
   content: "Add to Cart";
@@ -62,6 +65,9 @@
   bottom: 0;
   opacity: 1;
 }
+.card:hover .action-btn {
+  opacity: 1;
+}
 
 .card:active {
   transform: scale(0.98);
@@ -88,4 +94,54 @@
   width: 11.875em;
   height: 16.5em;
   object-fit: cover;
+}
+
+/* buttons */
+.book-card {
+  width: 190px;
+}
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+button {
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 0;
+  letter-spacing: 1.5px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  color: hsl(0, 0%, 100%);
+}
+
+button:active {
+  transform: translateY(5px);
+  transition: 200ms;
+}
+.edit-btn {
+  background-color: rgb(0, 134, 200);
+  box-shadow: rgb(4, 82, 121) 0px 10px 0px 0px;
+}
+.edit-btn:hover {
+  box-shadow: rgb(4, 82, 121) 0px 10px 0px 0px;
+}
+.edit-btn:active {
+  background-color: rgb(51, 117, 150);
+  /*50, 168, 80*/
+  box-shadow: rgb(4, 82, 121) 0px 10px 0px 0px;
+}
+
+.delete-btn {
+  background-color: rgb(255, 4, 42);
+  box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
+}
+.delete-btn:hover {
+  box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
+}
+.delete-btn:active {
+  background-color: rgb(255, 56, 86);
+  /*50, 168, 80*/
+  box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
 }

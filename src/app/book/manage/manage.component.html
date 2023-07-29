@@ -23,14 +23,32 @@
       </select> -->
       <div class="gallery-wrapper" *ngIf="!isLoading">
         <!-- flip-card -->
-        <div class="card" *ngFor="let book of books">
+        <!-- <div class="card" *ngFor="let book of books">
           <div class="image">
             <span class="text"></span>
             <img class="small-img" src="{{ book.imgUrl }}" alt="" />
           </div>
           <span class="title">{{ book.title }}</span>
           <span class="price">$100</span>
+          <div class="action-bnt">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </div>
+        </div> -->
+        <div *ngIf="books.length > 0; else noBooks">
+          <div class="book-card" *ngFor="let book of books">
+            <img class="small-img" src="{{ book.imgUrl }}" alt="" />
+            <div class="buttons">
+              <button class="edit-btn" (click)="editBook($event, book)">
+                Edit
+              </button>
+              <button class="delete-btn">Delete</button>
+            </div>
+          </div>
         </div>
+        <ng-template #noBooks>
+          <h2>Currently there is no book in this section</h2>
+        </ng-template>
       </div>
     </div>
   </div>
@@ -38,3 +56,5 @@
 
 <!-- <app-loader /> -->
 <app-footer />
+
+<!-- <app-edit [activeBook]="activeBook" /> -->

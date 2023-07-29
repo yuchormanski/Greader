@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
-import { Book } from 'src/app/types/book';
+import IBook from 'src/app/models/book.model';
+import { BookService } from 'src/app/services/book.service';
+// import { ApiService } from 'src/app/api.service';
+// import { Book } from 'src/app/types/book';
 
 @Component({
   selector: 'app-catalog',
@@ -10,24 +12,26 @@ import { Book } from 'src/app/types/book';
 export class CatalogComponent implements OnInit {
   isLoading: boolean = true;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private bookService: BookService) {}
 
-  booksArray: Book[] = [];
+  booksArray: IBook[] = [];
 
   ngOnInit(): void {
-    this.apiService.getBooks().subscribe({
-      next: (books) => {
-        this.booksArray = books;
-        this.isLoading = false;
-      },
-      error: (err) => {
-        this.isLoading = false;
-        console.error(`Error: ${err}`);
-      },
+    this.bookService.getAllBooks().subscribe((docs) => {
+      this.booksArray = [];
+      this.isLoading = false;
+
+      docs.forEach((doc) => {
+        // console.log(doc.data());
+        this.booksArray.push({
+          docId: doc.id,
+          ...doc.data(),
+        });
+      });
     });
   }
 
-  shortDescription(book: Book) {
+  shortDescription(book: IBook) {
     return `${book.description.slice(0, 150)} ...`;
   }
 }

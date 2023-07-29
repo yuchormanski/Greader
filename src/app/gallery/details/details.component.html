@@ -4,7 +4,7 @@
       <!-- <img src="" alt="" /> -->
     </div>
     <div class="wrapper">
-      <h2 class="heading book-heading">"{{ theBook?.title }}Book Title"</h2>
+      <h2 class="heading book-heading">"{{ book?.title }}"</h2>
       <div class="book-meta">
         <div class="book-author book-heading-icon">
           <img
@@ -15,11 +15,11 @@
           <span class="author-name"
             ><a
               href="https://bg.wikipedia.org/w/index.php?fulltext=1&search={{
-                searchAuthor(theBook?.author)
+                searchAuthor(book?.author)
               }}"
               class="author-link"
               target="_blank"
-              >{{ theBook?.author }}Author Name</a
+              >{{ book?.author }}</a
             ></span
           >
         </div>
@@ -30,8 +30,7 @@
             alt="calendar icon"
             class="headline-icons"
           />
-          <span class="author-name">1976</span>
-          <!-- <span class="author-name">{{book.year}}</span> -->
+          <span class="author-name">{{ book?.year }}</span>
         </div>
 
         <div class="book-lang book-heading-icon">
@@ -40,47 +39,18 @@
             alt="language icon"
             class="headline-icons"
           />
-          <span class="author-name">Book language</span>
+          <span class="author-name">{{ book?.language }}</span>
         </div>
       </div>
 
       <div class="book-details">
         <div class="square">
           <div>
-            <img class="img" src="/assets/temp/_-_-_-_-__5_12.jpg" alt="" />
-            <!-- <img class="img" src="{{ theBook?.imgUrl }}" alt="" /> -->
+            <img class="img" src="{{ book?.imgUrl }}" alt="Book front page" />
           </div>
 
           <p class="p">
-            {{ theBook?.description }}
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. At numquam
-            consequatur nemo hic! Sed cupiditate numquam porro iusto quia minus
-            perferendis perspiciatis, illo sapiente sunt doloribus. Cupiditate
-            quisquam dolor unde obcaecati blanditiis recusandae cum neque
-            voluptatibus quod dolore, molestias vel est odit dolores quasi ut,
-            esse ipsa animi debitis? Illum ipsa, hic recusandae, doloribus
-            quidem est aliquam labore, similique commodi quod at modi dicta
-            accusamus.
-          </p>
-          <p class="p">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo,
-            cupiditate. Vitae quis debitis fugit laboriosam ipsam? Sequi
-            distinctio possimus ab cum, earum perferendis aut optio suscipit
-            voluptate. Qui, saepe molestiae.
-          </p>
-          <p class="p">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta,
-            cumque. Deleniti pariatur alias voluptas magni quos vel reiciendis
-            delectus soluta itaque aut error tenetur ipsum eligendi explicabo,
-            commodi deserunt vitae iure porro iste! Deleniti molestias autem,
-            molestiae at officia quasi, voluptatibus vel totam consectetur ut
-            cum voluptatem itaque dolorum harum blanditiis, magni soluta non quo
-            illo eaque necessitatibus! Ipsa explicabo sint iure, praesentium
-            quis laudantium ad maiores porro libero nam minima. Dolorem
-            officiis, at quo distinctio, ipsum quisquam praesentium placeat
-            quidem, tempore consectetur inventore doloremque ullam tenetur alias
-            fugiat aliquid iusto laudantium! Laborum deserunt quam a voluptate
-            voluptatem modi ab.
+            {{ book?.description }}
           </p>
         </div>
       </div>
@@ -90,9 +60,11 @@
           <div class="book-edit-block">
             <button class="btn edit-btn">EDIT BOOK</button>
           </div>
-          <!-- <div class="book-download-block">
-            <button class="btn download-btn">DOwnload BOOK</button>
-          </div> -->
+          <div class="book-download-block">
+            <button class="btn download-btn">
+              <a href="{{ book?.url }}">DOwnload BOOK</a>
+            </button>
+          </div>
           <div class="book-edit-block">
             <button class="btn delete-btn">DELETE BOOK</button>
           </div>
@@ -102,15 +74,15 @@
           <table>
             <tr>
               <td>Uploader</td>
-              <td class="tdR">Elitsa Alabala</td>
+              <td class="tdR">{{ book?.displayName }}</td>
             </tr>
             <tr>
               <td>Data:</td>
-              <td class="tdR">15.09.2021</td>
+              <td class="tdR">{{ book?.creationDate | date }}</td>
             </tr>
             <tr>
               <td>File type:</td>
-              <td class="tdR">EPUB</td>
+              <td class="tdR">{{ book?.fileType | uppercase }}</td>
             </tr>
           </table>
         </div>

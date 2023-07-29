@@ -14,4 +14,5 @@ export default interface IBook {
   fileName: string;
   fileType: string;
   timestamp: firebase.firestore.FieldValue;
+  creationDate?: number;
 }

@@ -7,9 +7,10 @@ import { ManageComponent } from './manage/manage.component';
 import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
-  declarations: [UploadComponent, ManageComponent],
+  declarations: [UploadComponent, ManageComponent, EditComponent],
   imports: [
     CommonModule,
     BookRoutingModule,

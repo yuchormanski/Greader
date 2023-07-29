@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from 'src/app/api.service';
+import IBook from 'src/app/models/book.model';
+import { BookService } from 'src/app/services/book.service';
 import { Book } from 'src/app/types/book';
 // import { UserService } from 'src/app/user/user.service';
 
@@ -9,37 +10,24 @@ import { Book } from 'src/app/types/book';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
 })
-export class DetailsComponent implements OnInit {
-  theBook: Book | undefined;
-  isLoading: boolean = true;
+export class DetailsComponent implements OnInit, AfterViewInit {
+  book: IBook | null = null;
 
   constructor(
-    private apiService: ApiService,
-    private activatedRoute: ActivatedRoute // private userService: UserService
+    private route: ActivatedRoute,
+    private bookService: BookService
   ) {}
 
   ngOnInit(): void {
-    const id = this.activatedRoute.snapshot.params['bookId'];
-    this.apiService.getOneBook(id).subscribe((book) => {
-      this.theBook = book;
-      console.log({ book });
+    const id = this.route.snapshot.params['bookId'];
+
+    this.bookService.getOneBook(id).then((data) => {
+      this.book = data as IBook;
+      console.log(data);
     });
-    // this.apiService.getOneBook(id).subscribe({
-    //   next: (book) => {
-    //     this.theBook = book;
-    //     this.isLoading = false;
-    //     console.log({ book });
-    //   },
-    //   error: (err) => {
-    //     this.isLoading = false;
-    //     console.error(`Error: ${err}`);
-    //   },
-    // });
   }
 
-  // get isLoggedIn(): boolean {
-  //   return this.userService.isLogged;
-  // }
+  ngAfterViewInit(): void {}
 
   searchAuthor(author: any) {
     return author?.split(' ').join('+');

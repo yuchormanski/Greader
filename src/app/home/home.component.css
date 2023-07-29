@@ -85,9 +85,10 @@
 }
 
 .h-book-name {
-  margin-top: 5px;
+  margin: 5px auto 0;
   height: 40px;
   overflow-y: hidden;
+  width: 150px;
 }
 
 .hr-line {

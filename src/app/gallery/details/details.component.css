@@ -131,6 +131,10 @@ tr {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+.btn:hover a {
+  color: aliceblue;
+  transition-delay: 0.5s;
+}
 
 .btn:hover::before {
   width: 100%;
@@ -153,6 +157,9 @@ tr {
   color: aliceblue;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+.btn:hover::after a {
+  color: aliceblue;
 }
 
 .delete-btn {
@@ -188,4 +195,7 @@ tr {
   background-color: rgb(5, 92, 2);
 }
 
-/* uploader info */
+.download-btn a {
+  color: rgb(0, 119, 140);
+  text-decoration: none;
+}

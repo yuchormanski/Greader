@@ -31,34 +31,24 @@
             <div class="hr-line"></div>
           </h3>
           <div class="heading-line"></div>
-          <div class="home-center">
-            <div class="book-small">
-              <img
-                src="https://www.ciela.com/media/catalog/product/cache/9a7ceae8a5abbd0253425b80f9ef99a5/_/-/_-_-_-_-__5_12.jpg"
-                alt=""
-                class="scale-down"
-              />
-              <p class="h-book-name">За кожата на една врата</p>
-            </div>
-            <div class="book-small">
-              <img
-                src="https://www.ciela.com/media/catalog/product/cache/9a7ceae8a5abbd0253425b80f9ef99a5/f/i/file_145_2.jpg"
-                alt=""
-                class="scale-down"
-              />
-              <p class="h-book-name">
-                Войната за вдигнатия капак на тоалетната чиния
-              </p>
-            </div>
-            <div class="book-small">
-              <img
-                src="https://www.ciela.com/media/catalog/product/cache/9a7ceae8a5abbd0253425b80f9ef99a5/z/i/zima-v-raya-ciela-9789542830375-front.jpg"
-                alt=""
-                class="scale-down"
-              />
-              <p class="h-book-name">За кожата на една врата</p>
-            </div>
+
+          <div *ngIf="isLoading; else theBooks">
+            <app-loader />
           </div>
+
+          <ng-template #theBooks>
+            <div class="home-center">
+              <div class="book-small" *ngFor="let book of limitedBooks">
+                <img
+                  src="{{ book.imgUrl }}"
+                  alt=""
+                  class="scale-down"
+                  (click)="goTo(book.docId!)"
+                />
+                <p class="h-book-name">{{ book.title }}</p>
+              </div>
+            </div>
+          </ng-template>
         </div>
       </div>
     </div>
