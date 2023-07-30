@@ -2,6 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogComponent } from './catalog/catalog.component';
 import { DetailsComponent } from './details/details.component';
+import {
+  AngularFireAuthGuard,
+  redirectUnauthorizedTo,
+} from '@angular/fire/compat/auth-guard';
+import { EditComponent } from '../book/edit/edit.component';
+
+const redirectToHome = () => redirectUnauthorizedTo('/');
 
 const routes: Routes = [
   {
@@ -16,6 +23,15 @@ const routes: Routes = [
         path: ':bookId',
         component: DetailsComponent,
         // canActivate: [AuthActivate],
+      },
+      {
+        path: 'edit',
+        component: EditComponent,
+        data: {
+          authOnly: true,
+          authGuardPipe: redirectToHome,
+        },
+        canActivate: [AngularFireAuthGuard],
       },
     ],
   },

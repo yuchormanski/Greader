@@ -27,7 +27,7 @@ export class ManageComponent implements OnInit {
     this.route.queryParams.subscribe((params: Params) => {
       this.bookOrder = params['sort'] == '2' ? params['sort'] : '1';
     });
-    this.bookService.getUserInfo().subscribe(console.log);
+    // this.bookService.getUserInfo().subscribe(console.log);
 
     this.bookService.getUserBooks().subscribe((docs) => {
       this.books = [];
@@ -38,7 +38,6 @@ export class ManageComponent implements OnInit {
       this.userName = currentUser.data().displayName;
 
       docs.forEach((doc) => {
-        console.log(doc.data());
         this.books.push({
           docId: doc.id,
           ...doc.data(),

@@ -2,16 +2,15 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import IBook from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
-import { Book } from 'src/app/types/book';
-// import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
 })
-export class DetailsComponent implements OnInit, AfterViewInit {
+export class DetailsComponent implements OnInit {
   book: IBook | null = null;
+  isLoading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,14 +19,11 @@ export class DetailsComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['bookId'];
-
-    this.bookService.getOneBook(id).then((data) => {
-      this.book = data as IBook;
-      console.log(data);
+    this.isLoading = false;
+    this.bookService.getOneBook(id).subscribe((i) => {
+      this.book = i ?? null;
     });
   }
-
-  ngAfterViewInit(): void {}
 
   searchAuthor(author: any) {
     return author?.split(' ').join('+');

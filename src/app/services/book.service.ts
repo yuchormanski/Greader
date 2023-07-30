@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
+// import { getFirestore, doc, getDoc, FieldPath } from 'firebase/firestore';
 
 import {
   AngularFirestore,
@@ -10,8 +10,26 @@ import {
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 import IBook from '../models/book.model';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, timestamp } from 'rxjs/operators';
 import { Observable, of, from } from 'rxjs';
+
+import {
+  Firestore,
+  collectionData,
+  deleteDoc,
+  limit,
+  limitToLast,
+  orderBy,
+  increment,
+  addDoc,
+  collection,
+  doc,
+  updateDoc,
+  setDoc,
+  query,
+  where,
+  getDocs,
+} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root',
@@ -29,8 +47,7 @@ export class BookService {
 
   getUserInfo() {
     const currentUser = this.auth.user;
-    console.log(currentUser);
-
+    // console.log(currentUser);
     return currentUser;
   }
 
@@ -50,33 +67,53 @@ export class BookService {
   getAllBooks() {
     return this.auth.user.pipe(
       switchMap((user) => {
-        if (!user) {
-          return of([]);
-        }
+        // if (!user) {
+        //   return of([]);
+        // }
         const query = this.bookCollection.ref;
         return query.get();
       })
     );
   }
-
-  async getOneBook(bookId: string) {
-    const currentDB = getFirestore();
-    const docRef = doc(currentDB, 'books', bookId);
-    const docSnap = await getDoc(docRef);
-    const result = await docSnap.data();
-    return result;
+  getOneBook(id: string) {
+    return this.bookCollection.doc(id).valueChanges();
   }
 
   getLimitBooks(limit: number) {
     return this.auth.user.pipe(
       switchMap((user) => {
-        if (!user) {
-          return of([]);
-        }
-        const query = this.bookCollection.ref.limit(limit);
+        const query = this.bookCollection.ref
+          .orderBy('likes', 'desc')
+          .limit(limit);
         return query.get();
       }),
       map((snapshot) => (snapshot as QuerySnapshot<IBook>).docs)
     );
+  }
+
+  getFooterBooks(limit: number) {
+    return this.auth.user.pipe(
+      switchMap((user) => {
+        const query = this.bookCollection.ref
+          .orderBy('timestamp', 'desc')
+          .limit(limit);
+        return query.get();
+      }),
+      map((snapshot) => (snapshot as QuerySnapshot<IBook>).docs)
+    );
+  }
+
+  updateBook(
+    title: string,
+    author: string,
+    imgUrl: string,
+    language: string,
+    year: string,
+    description: string,
+    id: string
+  ) {
+    return this.bookCollection
+      .doc(id)
+      .update({ title, author, imgUrl, language, year, description });
   }
 }

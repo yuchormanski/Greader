@@ -8,6 +8,9 @@
   align-items: center;
   margin: 50px 0;
 }
+.create-heading {
+  font-size: 36px;
+}
 .heading-line {
   width: 15%;
   border-bottom: 1px solid #333;

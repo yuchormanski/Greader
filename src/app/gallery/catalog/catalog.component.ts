@@ -22,7 +22,6 @@ export class CatalogComponent implements OnInit {
       this.isLoading = false;
 
       docs.forEach((doc) => {
-        // console.log(doc.data());
         this.booksArray.push({
           docId: doc.id,
           ...doc.data(),

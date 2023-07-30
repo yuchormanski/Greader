@@ -45,7 +45,7 @@
                   class="scale-down"
                   (click)="goTo(book.docId!)"
                 />
-                <p class="h-book-name">{{ book.title }}</p>
+                <p class="h-book-name">{{ book.title | slice : 40 }}</p>
               </div>
             </div>
           </ng-template>

@@ -168,6 +168,7 @@ export class UploadComponent implements OnDestroy {
             fileType: this.fileExtension(),
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             creationDate: Date.now(),
+            likes: 0,
           };
 
           const bookDocRef = await this.booksService.createBook(book);

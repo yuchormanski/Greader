@@ -9,6 +9,7 @@
   flex-direction: row;
   align-items: center;
   margin: 50px 0;
+  font-size: 36px;
 }
 .heading-line {
   width: 15%;
@@ -24,7 +25,11 @@
   height: 400px;
   object-fit: cover;
 }
-
+.h3-title {
+  text-align: center;
+  box-shadow: 0px 0.5px 0.5px #0000007f;
+  padding: 0 0 20px;
+}
 .book-author {
   font-family: "Raleway", sans-serif;
   font-size: 0.9rem;

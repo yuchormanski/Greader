@@ -1,11 +1,133 @@
-<form>
-  <!-- Title -->
-  <div class="">
-    <label class="">{{ book?.title }}</label>
-    <input placeholder="Enter Title" />
-  </div>
+<section>
+  <div class="centered">
+    <div class="center-img">
+      <img src="/assets/img/update-book.jpg" alt="" />
+    </div>
+    <div class="upload-wrapper">
+      <div class="center-text">
+        <div class="upload-heading">
+          <div class="heading-line"></div>
+          <h2 class="heading create-heading">Update your book</h2>
+          <div class="heading-line"></div>
+        </div>
 
-  <div class="">
-    <button type="submit">Update</button>
+        <div #bookInfo>
+          <!-- <div [ngClass]="alertColor"> -->
+          <!-- <div *ngIf="showAlert" [ngClass]="alertColor">
+    <p>
+      {{ alertMsg }}
+    </p>
+    <p *ngIf="showPercentage">{{ percentage | percent }}</p>
+  </div> -->
+          <div>
+            <form [formGroup]="editForm" (ngSubmit)="update()">
+              <div class="form-row book-title">
+                <!-- book-title -->
+                <label for="title"></label>
+                <input
+                  [formControl]="title"
+                  formControlName="title"
+                  type="text"
+                  id="title"
+                  name="title"
+                  placeholder="Book title:"
+                /><span class="required">&#10039;</span>
+              </div>
+              <!-- title errors -->
+              <ng-container *ngIf="editForm.get('title')?.touched">
+                <p
+                  class="error"
+                  *ngIf="editForm.get('title')?.errors?.['required']"
+                >
+                  Book title is required!
+                </p>
+                <p
+                  class="error"
+                  *ngIf="editForm.get('title')?.errors?.['minlength']"
+                >
+                  Book title should be at least {{ minLengthCount }} characters
+                  long!
+                </p>
+              </ng-container>
+
+              <!-- book-author book-image-->
+              <div class="form-row additional">
+                <label for=""></label>
+                <input
+                  type="text"
+                  placeholder="Author:"
+                  formControlName="author"
+                /><span class="required">&#10039;</span>
+                <label for=""></label>
+                <input
+                  type="text"
+                  formControlName="imgUrl"
+                  placeholder="Book image URL:"
+                /><span class="required">&#10039;</span>
+                <!-- errors -->
+                <ng-container *ngIf="editForm.get('imgUrl')?.touched">
+                  <p
+                    class="error"
+                    *ngIf="editForm.get('imgUrl')?.errors?.['required']"
+                  >
+                    Image is required!
+                  </p>
+                </ng-container>
+              </div>
+
+              <!-- book-language book-year-->
+              <div class="form-row additional">
+                <select value="Language:" formControlName="language">
+                  <option value="" disabled selected hidden inactive>
+                    Language:
+                  </option>
+                  <option value="Bulgarian" class="option-value">
+                    Bulgarian
+                  </option>
+                  <option value="English" class="option-value">English</option>
+                  <option value="German" class="option-value">
+                    German
+                  </option></select
+                ><span class="required">&#10039;</span>
+
+                <label for=""></label>
+                <input
+                  type="number"
+                  placeholder="Year:"
+                  formControlName="year"
+                /><span class="required">&#10039;</span>
+              </div>
+
+              <!-- book-description-->
+              <div class="form-row additional">
+                <textarea
+                  name=""
+                  cols="66"
+                  rows="10"
+                  placeholder="Description: "
+                  formControlName="description"
+                ></textarea>
+              </div>
+
+              <!-- form submit -->
+              <button
+                class="upload-book-Btn"
+                [disabled]="editForm.invalid"
+                [disabled]="inSubmission"
+                [style]="{
+                  backgroundColor: editForm.invalid ? null : '#019d01'
+                }"
+              >
+                Update
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</form>
+</section>
+
+{{ book | json }}
+
+<app-footer />

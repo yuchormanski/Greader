@@ -15,7 +15,7 @@
       <div class="heading-line"></div>
       <div class="footer-center">
         <div class="book-small" *ngFor="let book of lastThree">
-          <a routerLink="{{ book._id }}">
+          <a href="/gallery/{{ book.docId }}">
             <img src="{{ book.imgUrl }}" alt="" class="scale-down"
           /></a>
         </div>

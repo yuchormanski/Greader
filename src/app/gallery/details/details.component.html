@@ -1,93 +1,108 @@
 <section>
   <div class="centered">
-    <div class="book-img">
-      <!-- <img src="" alt="" /> -->
-    </div>
     <div class="wrapper">
-      <h2 class="heading book-heading">"{{ book?.title }}"</h2>
-      <div class="book-meta">
-        <div class="book-author book-heading-icon">
-          <img
-            src="/assets/img/poetry.png"
-            alt="author icon"
-            class="headline-icons"
-          />
-          <span class="author-name"
-            ><a
-              href="https://bg.wikipedia.org/w/index.php?fulltext=1&search={{
-                searchAuthor(book?.author)
-              }}"
-              class="author-link"
-              target="_blank"
-              >{{ book?.author }}</a
-            ></span
-          >
-        </div>
-
-        <div class="book-year book-heading-icon">
-          <img
-            src="/assets/img/calendar.png"
-            alt="calendar icon"
-            class="headline-icons"
-          />
-          <span class="author-name">{{ book?.year }}</span>
-        </div>
-
-        <div class="book-lang book-heading-icon">
-          <img
-            src="/assets/img/language.png"
-            alt="language icon"
-            class="headline-icons"
-          />
-          <span class="author-name">{{ book?.language }}</span>
-        </div>
+      <div *ngIf="isLoading">
+        <app-loader />
       </div>
+      <div *ngIf="!isLoading">
+        <div class="gallery-heading">
+          <div class="heading-line"></div>
+          <h2 class="heading book-heading">"{{ book?.title }}"</h2>
+          <div class="heading-line"></div>
+        </div>
 
-      <div class="book-details">
-        <div class="square">
-          <div>
-            <img class="img" src="{{ book?.imgUrl }}" alt="Book front page" />
+        <div class="book-meta">
+          <div class="book-author book-heading-icon">
+            <img
+              src="/assets/img/poetry.png"
+              alt="author icon"
+              class="headline-icons"
+            />
+            <span class="author-name"
+              ><span>author: </span>
+              <a
+                href="https://bg.wikipedia.org/w/index.php?fulltext=1&search={{
+                  searchAuthor(book?.author)
+                }}"
+                class="author-link"
+                target="_blank"
+              >
+                {{ book?.author }}</a
+              ></span
+            >
           </div>
 
-          <p class="p">
-            {{ book?.description }}
-          </p>
+          <div class="book-year book-heading-icon">
+            <img
+              src="/assets/img/calendar.png"
+              alt="calendar icon"
+              class="headline-icons"
+            />
+            <span class="author-name">
+              <span>year: </span>
+              {{ book?.year }}</span
+            >
+          </div>
+
+          <div class="book-lang book-heading-icon">
+            <img
+              src="/assets/img/language.png"
+              alt="language icon"
+              class="headline-icons"
+            />
+            <span class="author-name">
+              <span>language: </span>
+              {{ book?.language }}</span
+            >
+          </div>
         </div>
+
+        <div class="book-details">
+          <div class="square">
+            <div>
+              <img class="img" src="{{ book?.imgUrl }}" alt="Book front page" />
+            </div>
+
+            <p class="p">
+              {{ book?.description }}
+            </p>
+          </div>
+        </div>
+
+        <section>
+          <div class="book-actions">
+            <!-- <div class="book-edit-block">
+              <button class="btn edit-btn">EDIT BOOK</button>
+            </div> -->
+            <div class="book-download-block">
+              <button class="btn download-btn">
+                <a href="{{ book?.url }}">DOwnload BOOK</a>
+              </button>
+            </div>
+            <div class="book-edit-block">
+              <button class="btn delete-btn">LIKE IT!</button>
+            </div>
+          </div>
+
+          <div class="book-meta-footer">
+            <table>
+              <tr>
+                <td>Uploader:</td>
+                <td class="tdR">{{ book?.displayName }}</td>
+              </tr>
+              <tr>
+                <td>Data:</td>
+                <td class="tdR">{{ book?.creationDate | date }}</td>
+              </tr>
+              <tr>
+                <td>File type:</td>
+                <td class="tdR">{{ book?.fileType | uppercase }}</td>
+              </tr>
+            </table>
+          </div>
+        </section>
+        <!-- actions -->
       </div>
-
-      <section>
-        <div class="book-actions">
-          <div class="book-edit-block">
-            <button class="btn edit-btn">EDIT BOOK</button>
-          </div>
-          <div class="book-download-block">
-            <button class="btn download-btn">
-              <a href="{{ book?.url }}">DOwnload BOOK</a>
-            </button>
-          </div>
-          <div class="book-edit-block">
-            <button class="btn delete-btn">DELETE BOOK</button>
-          </div>
-        </div>
-
-        <div class="book-meta-footer">
-          <table>
-            <tr>
-              <td>Uploader</td>
-              <td class="tdR">{{ book?.displayName }}</td>
-            </tr>
-            <tr>
-              <td>Data:</td>
-              <td class="tdR">{{ book?.creationDate | date }}</td>
-            </tr>
-            <tr>
-              <td>File type:</td>
-              <td class="tdR">{{ book?.fileType | uppercase }}</td>
-            </tr>
-          </table>
-        </div>
-      </section>
-      <!-- actions -->
     </div>
   </div>
 </section>
