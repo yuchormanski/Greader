@@ -54,12 +54,16 @@
               <div class="form-row additional">
                 <label for=""></label>
                 <input
+                  [formControl]="author"
                   type="text"
                   placeholder="Author:"
                   formControlName="author"
                 /><span class="required">&#10039;</span>
+
+                <!-- imgUrl -->
                 <label for=""></label>
                 <input
+                  [formControl]="imgUrl"
                   type="text"
                   formControlName="imgUrl"
                   placeholder="Book image URL:"
@@ -77,7 +81,11 @@
 
               <!-- book-language book-year-->
               <div class="form-row additional">
-                <select value="Language:" formControlName="language">
+                <select
+                  value="Language:"
+                  formControlName="language"
+                  [formControl]="language"
+                >
                   <option value="" disabled selected hidden inactive>
                     Language:
                   </option>
@@ -89,9 +97,10 @@
                     German
                   </option></select
                 ><span class="required">&#10039;</span>
-
+                <!-- year -->
                 <label for=""></label>
                 <input
+                  [formControl]="year"
                   type="number"
                   placeholder="Year:"
                   formControlName="year"
@@ -101,6 +110,7 @@
               <!-- book-description-->
               <div class="form-row additional">
                 <textarea
+                  [formControl]="description"
                   name=""
                   cols="66"
                   rows="10"

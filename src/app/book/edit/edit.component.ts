@@ -16,7 +16,7 @@ import { BookService } from 'src/app/services/book.service';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css'],
 })
-export class EditComponent implements OnInit, OnChanges {
+export class EditComponent implements OnInit {
   book: IBook | null = null;
   minLengthCount: number = 1;
   inSubmission = false;
@@ -86,7 +86,7 @@ export class EditComponent implements OnInit, OnChanges {
       this.description.setValue(description as string);
     });
   }
-  ngOnChanges(changes: SimpleChanges): void {}
+  // ngOnChanges(changes: SimpleChanges): void {}
   update() {
     this.inSubmission = true;
     const id = this.route.snapshot.params['id'];
