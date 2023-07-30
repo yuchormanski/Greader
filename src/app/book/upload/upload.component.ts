@@ -56,7 +56,10 @@ export class UploadComponent implements OnDestroy {
     nonNullable: true,
   });
   imgUrl = new FormControl('', {
-    validators: [Validators.required],
+    validators: [
+      Validators.required,
+      Validators.pattern('^https?://.+(.png|.jpg|.jpeg)$'),
+    ],
     nonNullable: true,
   });
   language = new FormControl('', {

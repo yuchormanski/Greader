@@ -40,11 +40,14 @@ export class EditComponent implements OnInit {
   });
 
   author = new FormControl('', {
-    validators: [Validators.required, Validators.minLength(3)],
+    validators: [Validators.required, Validators.minLength(2)],
     nonNullable: true,
   });
   imgUrl = new FormControl('', {
-    validators: [Validators.required],
+    validators: [
+      Validators.required,
+      Validators.pattern('^https?://.+(.png|.jpg|.jpeg)$'),
+    ],
     nonNullable: true,
   });
   language = new FormControl('', {

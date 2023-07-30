@@ -20,19 +20,7 @@
           </div>
 
           <div>
-            <form [formGroup]="editForm" (ngSubmit)="update()">
-              <div class="form-row book-title">
-                <!-- book-title -->
-                <label for="title"></label>
-                <input
-                  [formControl]="title"
-                  formControlName="title"
-                  type="text"
-                  id="title"
-                  name="title"
-                  placeholder="Book title:"
-                /><span class="required">&#10039;</span>
-              </div>
+            <div>
               <!-- title errors -->
               <ng-container *ngIf="editForm.get('title')?.touched">
                 <p
@@ -49,6 +37,62 @@
                   long!
                 </p>
               </ng-container>
+              <!-- author errors -->
+              <ng-container *ngIf="editForm.get('author')?.touched">
+                <p
+                  class="error"
+                  *ngIf="editForm.get('author')?.errors?.['required']"
+                >
+                  Book author name is required!
+                </p>
+                <p
+                  class="error"
+                  *ngIf="editForm.get('author')?.errors?.['minlength']"
+                >
+                  Book title should be at least
+                  {{ minLengthCount }} characters long!
+                </p>
+              </ng-container>
+              <!-- imgUrl errors -->
+              <ng-container *ngIf="editForm.get('imgUrl')?.touched">
+                <p
+                  class="error"
+                  *ngIf="editForm.get('imgUrl')?.errors?.['required']"
+                >
+                  Image is required!
+                </p>
+                <p
+                  class="error"
+                  *ngIf="editForm.get('imgUrl')?.errors?.['pattern']"
+                >
+                  Invalid image URL! Allowed files extensions are: JPG, JPEG and
+                  PNG
+                </p>
+              </ng-container>
+              <!-- year errors -->
+              <ng-container *ngIf="editForm.get('year')?.touched">
+                <p
+                  class="error"
+                  *ngIf="editForm.get('year')?.errors?.['required']"
+                >
+                  Year is required!
+                </p>
+              </ng-container>
+            </div>
+
+            <form [formGroup]="editForm" (ngSubmit)="update()">
+              <div class="form-row book-title">
+                <!-- book-title -->
+                <label for="title"></label>
+                <input
+                  [formControl]="title"
+                  formControlName="title"
+                  type="text"
+                  id="title"
+                  name="title"
+                  placeholder="Book title:"
+                /><span class="required">&#10039;</span>
+              </div>
 
               <!-- book-author book-image-->
               <div class="form-row additional">
@@ -61,6 +105,7 @@
                 /><span class="required">&#10039;</span>
 
                 <!-- imgUrl -->
+
                 <label for=""></label>
                 <input
                   [formControl]="imgUrl"
@@ -68,15 +113,6 @@
                   formControlName="imgUrl"
                   placeholder="Book image URL:"
                 /><span class="required">&#10039;</span>
-                <!-- errors -->
-                <ng-container *ngIf="editForm.get('imgUrl')?.touched">
-                  <p
-                    class="error"
-                    *ngIf="editForm.get('imgUrl')?.errors?.['required']"
-                  >
-                    Image is required!
-                  </p>
-                </ng-container>
               </div>
 
               <!-- book-language book-year-->
