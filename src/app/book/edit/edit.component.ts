@@ -5,7 +5,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import IBook from 'src/app/models/book.model';
@@ -20,10 +20,14 @@ export class EditComponent implements OnInit {
   book: IBook | null = null;
   minLengthCount: number = 1;
   inSubmission = false;
+  showAlert = false;
+  alertColor = 'green';
+  alertMsg = 'Please wait! Your book information is being updated!';
 
   constructor(
     private route: ActivatedRoute,
-    private bookService: BookService
+    private bookService: BookService,
+    private router: Router
   ) {}
 
   // form fields
@@ -73,6 +77,11 @@ export class EditComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.showAlert = false;
+    this.showAlert = false;
+    this.alertColor = 'green';
+    this.alertMsg = 'Please wait! Your book information is being updated!';
+
     const id = this.route.snapshot.params['id'];
 
     // this.bookService.getOneBook(id).subscribe((b) => (this.book = b ?? null));
@@ -86,9 +95,14 @@ export class EditComponent implements OnInit {
       this.description.setValue(description as string);
     });
   }
-  // ngOnChanges(changes: SimpleChanges): void {}
   update() {
+    this.editForm.disable();
+
     this.inSubmission = true;
+    this.showAlert = true;
+    this.alertColor = 'green';
+    this.alertMsg = 'Please wait! Your book is being uploaded!';
+
     const id = this.route.snapshot.params['id'];
     const { title, author, imgUrl, language, year, description } =
       this.editForm.value;
@@ -104,5 +118,7 @@ export class EditComponent implements OnInit {
       description!,
       id
     );
+
+    setTimeout(() => this.router.navigate([`/gallery/${id}`]), 1000);
   }
 }

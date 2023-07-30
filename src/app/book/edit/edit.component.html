@@ -12,13 +12,13 @@
         </div>
 
         <div #bookInfo>
-          <!-- <div [ngClass]="alertColor"> -->
-          <!-- <div *ngIf="showAlert" [ngClass]="alertColor">
-    <p>
-      {{ alertMsg }}
-    </p>
-    <p *ngIf="showPercentage">{{ percentage | percent }}</p>
-  </div> -->
+          <div *ngIf="showAlert" [ngClass]="alertColor">
+            <p>
+              {{ alertMsg }}
+            </p>
+            <p><app-loader /></p>
+          </div>
+
           <div>
             <form [formGroup]="editForm" (ngSubmit)="update()">
               <div class="form-row book-title">

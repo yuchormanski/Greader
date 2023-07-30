@@ -86,7 +86,7 @@
   text-indent: 20px;
   text-align: justify;
   font-size: 20px;
-  box-shadow: -8px 27px 20px #00000071;
+  box-shadow: -8px 27px 20px #00000050;
   min-height: 500px;
   padding: 10px 30px 20px;
 }
@@ -122,17 +122,22 @@ section {
   align-items: center;
 }
 table {
-  margin-top: 30px;
+  /* margin-top: 30px; */
+  background-color: #006b64;
+  padding: 20px;
+  box-shadow: -8px 27px 20px #0000009a;
+  border-radius: 11px;
 }
 tr {
   font-size: 14px;
-  color: #444;
+  color: #cecece;
 }
 .tdR {
   text-align: right;
   width: 150px;
   font-size: 18px;
-  color: rgb(31, 31, 31);
+  color: rgb(233, 233, 233);
+  text-shadow: 0px 2px 2px #000;
 }
 
 /* button */
@@ -143,7 +148,7 @@ tr {
   padding: 1em 1.5em;
   text-transform: uppercase;
   position: relative;
-  transition: 0.5s ease;
+  transition: 0.4s ease;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -155,19 +160,19 @@ tr {
   bottom: 0;
   height: 2px;
   width: 0;
-  transition: 0.5s ease;
+  transition: 0.4s ease;
 }
 
 .btn:hover {
   color: aliceblue;
-  transition-delay: 0.5s;
+  transition-delay: 0.4s;
   border-top: 1px solid rgb(255, 255, 255);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 .btn:hover a {
   color: aliceblue;
-  transition-delay: 0.5s;
+  transition-delay: 0.4s;
 }
 
 .btn:hover::before {
@@ -181,13 +186,13 @@ tr {
   bottom: 0;
   height: 0;
   width: 100%;
-  transition: 0.4s ease;
+  transition: 0.3s ease;
   z-index: -1;
 }
 
 .btn:hover::after {
   height: 100%;
-  transition-delay: 0.4s;
+  transition-delay: 0.3s;
   color: aliceblue;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -226,6 +231,17 @@ tr {
   background-color: rgb(5, 92, 2);
 }
 .edit-btn::after {
+  background-color: rgb(5, 92, 2);
+}
+
+.like-btn {
+  color: rgb(5, 92, 2);
+  border-top: 1px solid rgb(5, 92, 2);
+}
+.like-btn::before {
+  background-color: rgb(5, 92, 2);
+}
+.like-btn::after {
   background-color: rgb(5, 92, 2);
 }
 

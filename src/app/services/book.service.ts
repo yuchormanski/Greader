@@ -116,4 +116,6 @@ export class BookService {
       .doc(id)
       .update({ title, author, imgUrl, language, year, description });
   }
+
+  likeIt(id: string) {}
 }
