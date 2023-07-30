@@ -1,0 +1,36 @@
+.wrapper {
+  width: 1000px;
+  text-align: center;
+}
+
+.upload-heading {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  margin: 50px 0;
+}
+.profile-heading {
+  font-size: 36px;
+}
+.heading-line {
+  width: 15%;
+  border-bottom: 1px solid #333;
+}
+.s-i-text {
+  font-style: italic;
+  font-size: 14px;
+}
+
+.user-books a {
+  font-size: 20px;
+  color: #333;
+  text-decoration: none;
+  transition: ease-in;
+}
+.user-books a:hover {
+  color: #333;
+  /* text-decoration: underline; */
+  border-bottom: 1.5px solid rgba(2, 2, 2, 0.488);
+  transition-delay: 0.2s;
+}

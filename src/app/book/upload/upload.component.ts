@@ -31,6 +31,7 @@ export class UploadComponent implements OnDestroy {
   percentage = 0;
   showPercentage = false;
   task?: AngularFireUploadTask;
+  currentYear = new Date().getFullYear();
 
   constructor(
     private storage: AngularFireStorage,
@@ -51,10 +52,12 @@ export class UploadComponent implements OnDestroy {
     ],
     nonNullable: true,
   });
+
   author = new FormControl('', {
-    validators: [Validators.required, Validators.minLength(3)],
+    validators: [Validators.required, Validators.minLength(2)],
     nonNullable: true,
   });
+
   imgUrl = new FormControl('', {
     validators: [
       Validators.required,
@@ -62,23 +65,30 @@ export class UploadComponent implements OnDestroy {
     ],
     nonNullable: true,
   });
+
   language = new FormControl('', {
     validators: [Validators.required],
     nonNullable: true,
   });
+
   year = new FormControl('', {
     validators: [
       Validators.required,
       Validators.min(1800),
-      Validators.max(2023),
+      Validators.max(this.currentYear),
+      Validators.pattern(/^\d+$/),
     ],
     nonNullable: true,
   });
+
   description = new FormControl('', {
-    validators: [Validators.required, Validators.minLength(10)],
+    validators: [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(8000),
+    ],
     nonNullable: true,
   });
-  fileExt: string = '';
 
   // form
   uploadForm = new FormGroup({
@@ -88,7 +98,6 @@ export class UploadComponent implements OnDestroy {
     language: this.language,
     year: this.year,
     description: this.description,
-    // bookFileType: this.fileExtension(),
   });
 
   storeFile($event: Event) {
@@ -101,11 +110,11 @@ export class UploadComponent implements OnDestroy {
     if (!this.file || this.file.type !== this.fileType()) {
       return;
     }
-    // this.bookFileType.setValue(this.fileExtension()!);
     this.nextStep = true;
   }
 
   fileExtension() {
+    // return this.file?.name.split('.').pop()?.toLowerCase();
     let ext = this.file?.name.split('.').pop()?.toLowerCase();
     if (ext == 'epub') {
       return 'epub';

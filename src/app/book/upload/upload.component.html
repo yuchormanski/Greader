@@ -45,13 +45,107 @@
 
         <!-- book-info -->
         <ng-template #bookInfo>
-          <!-- <div [ngClass]="alertColor"> -->
+          <!-- alert message -->
           <div *ngIf="showAlert" [ngClass]="alertColor">
             <p>
               {{ alertMsg }}
             </p>
             <p *ngIf="showPercentage">{{ percentage | percent }}</p>
           </div>
+          <!-- errors -->
+          <div>
+            <!-- title errors -->
+            <ng-container *ngIf="uploadForm.get('title')?.touched">
+              <p
+                class="error"
+                *ngIf="uploadForm.get('title')?.errors?.['required']"
+              >
+                Book title is required!
+              </p>
+              <p
+                class="error"
+                *ngIf="uploadForm.get('title')?.errors?.['minlength']"
+              >
+                Book title should be at least {{ minLengthCount }} characters
+                long!
+              </p>
+            </ng-container>
+            <!-- author errors -->
+            <ng-container *ngIf="uploadForm.get('author')?.touched">
+              <p
+                class="error"
+                *ngIf="uploadForm.get('author')?.errors?.['required']"
+              >
+                Book author name is required!
+              </p>
+              <p
+                class="error"
+                *ngIf="uploadForm.get('author')?.errors?.['minlength']"
+              >
+                Book title should be at least
+                {{ minLengthCount }} characters long!
+              </p>
+            </ng-container>
+            <!-- imgUrl errors -->
+            <ng-container *ngIf="uploadForm.get('imgUrl')?.touched">
+              <p
+                class="error"
+                *ngIf="uploadForm.get('imgUrl')?.errors?.['required']"
+              >
+                Image is required!
+              </p>
+              <p
+                class="error"
+                *ngIf="uploadForm.get('imgUrl')?.errors?.['pattern']"
+              >
+                Invalid image URL! Allowed files extensions are: JPG, JPEG and
+                PNG
+              </p>
+            </ng-container>
+            <!-- year errors -->
+            <ng-container *ngIf="uploadForm.get('year')?.touched">
+              <p
+                class="error"
+                *ngIf="uploadForm.get('year')?.errors?.['required']"
+              >
+                Year is required!
+              </p>
+              <p class="error" *ngIf="uploadForm.get('year')?.errors?.['min']">
+                The Year can't be before 1800!
+              </p>
+              <p class="error" *ngIf="uploadForm.get('year')?.errors?.['max']">
+                The Year can't be greater than current year!
+              </p>
+              <p
+                class="error"
+                *ngIf="uploadForm.get('year')?.errors?.['pattern']"
+              >
+                Use only digits and integers!
+              </p>
+            </ng-container>
+            <!-- description errors -->
+            <ng-container *ngIf="uploadForm.get('description')?.touched">
+              <p
+                class="error"
+                *ngIf="uploadForm.get('description')?.errors?.['required']"
+              >
+                Description is required!
+              </p>
+              <p
+                class="error"
+                *ngIf="uploadForm.get('description')?.errors?.['minlength']"
+              >
+                The description should be at least 10 characters long!
+              </p>
+              <p
+                class="error"
+                *ngIf="uploadForm.get('description')?.errors?.['maxlength']"
+              >
+                The description can't be more than 8000 characters long!
+              </p>
+            </ng-container>
+          </div>
+
           <div>
             <form [formGroup]="uploadForm" (ngSubmit)="uploadBook()">
               <div class="form-row book-title">
@@ -65,22 +159,6 @@
                   placeholder="Book title:"
                 /><span class="required">&#10039;</span>
               </div>
-              <!-- title errors -->
-              <ng-container *ngIf="uploadForm.get('title')?.touched">
-                <p
-                  class="error"
-                  *ngIf="uploadForm.get('title')?.errors?.['required']"
-                >
-                  Book title is required!
-                </p>
-                <p
-                  class="error"
-                  *ngIf="uploadForm.get('title')?.errors?.['minlength']"
-                >
-                  Book title should be at least {{ minLengthCount }} characters
-                  long!
-                </p>
-              </ng-container>
 
               <!-- book-author book-image-->
               <div class="form-row additional">
@@ -96,15 +174,6 @@
                   formControlName="imgUrl"
                   placeholder="Book image URL:"
                 /><span class="required">&#10039;</span>
-                <!-- errors -->
-                <ng-container *ngIf="uploadForm.get('imgUrl')?.touched">
-                  <p
-                    class="error"
-                    *ngIf="uploadForm.get('imgUrl')?.errors?.['required']"
-                  >
-                    Image is required!
-                  </p>
-                </ng-container>
               </div>
 
               <!-- book-language book-year-->

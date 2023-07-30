@@ -23,6 +23,7 @@ export class EditComponent implements OnInit {
   showAlert = false;
   alertColor = 'green';
   alertMsg = 'Please wait! Your book information is being updated!';
+  currentYear = new Date().getFullYear();
 
   constructor(
     private route: ActivatedRoute,
@@ -31,7 +32,7 @@ export class EditComponent implements OnInit {
   ) {}
 
   // form fields
-  title: FormControl = new FormControl('', {
+  title = new FormControl('', {
     validators: [
       Validators.required,
       Validators.minLength(this.minLengthCount),
@@ -43,6 +44,7 @@ export class EditComponent implements OnInit {
     validators: [Validators.required, Validators.minLength(2)],
     nonNullable: true,
   });
+
   imgUrl = new FormControl('', {
     validators: [
       Validators.required,
@@ -50,22 +52,31 @@ export class EditComponent implements OnInit {
     ],
     nonNullable: true,
   });
+
   language = new FormControl('', {
     validators: [Validators.required],
     nonNullable: true,
   });
+
   year = new FormControl('', {
     validators: [
       Validators.required,
       Validators.min(1800),
-      Validators.max(2023),
+      Validators.max(this.currentYear),
+      Validators.pattern(/^\d+$/),
     ],
     nonNullable: true,
   });
+
   description = new FormControl('', {
-    validators: [Validators.required, Validators.minLength(10)],
+    validators: [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(8000),
+    ],
     nonNullable: true,
   });
+
   // bookId = new FormControl('', { nonNullable: true });
 
   // form
@@ -113,7 +124,7 @@ export class EditComponent implements OnInit {
     const updatedData = this.editForm.value;
 
     this.bookService.updateBook(
-      title,
+      title!,
       author!,
       imgUrl!,
       language!,

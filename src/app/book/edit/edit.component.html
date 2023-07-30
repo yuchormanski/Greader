@@ -20,6 +20,7 @@
           </div>
 
           <div>
+            <!-- errors -->
             <div>
               <!-- title errors -->
               <ng-container *ngIf="editForm.get('title')?.touched">
@@ -77,6 +78,39 @@
                 >
                   Year is required!
                 </p>
+                <p class="error" *ngIf="editForm.get('year')?.errors?.['min']">
+                  The Year can't be before 1800!
+                </p>
+                <p class="error" *ngIf="editForm.get('year')?.errors?.['max']">
+                  The Year can't be greater than current year!
+                </p>
+                <p
+                  class="error"
+                  *ngIf="editForm.get('year')?.errors?.['pattern']"
+                >
+                  Use only digits and integers!
+                </p>
+              </ng-container>
+              <!-- description errors -->
+              <ng-container *ngIf="editForm.get('description')?.touched">
+                <p
+                  class="error"
+                  *ngIf="editForm.get('description')?.errors?.['required']"
+                >
+                  Description is required!
+                </p>
+                <p
+                  class="error"
+                  *ngIf="editForm.get('description')?.errors?.['minlength']"
+                >
+                  The description should be at least 10 characters long!
+                </p>
+                <p
+                  class="error"
+                  *ngIf="editForm.get('description')?.errors?.['maxlength']"
+                >
+                  The description can't be more than 8000 characters long!
+                </p>
               </ng-container>
             </div>
 
@@ -99,9 +133,9 @@
                 <label for=""></label>
                 <input
                   [formControl]="author"
+                  formControlName="author"
                   type="text"
                   placeholder="Author:"
-                  formControlName="author"
                 /><span class="required">&#10039;</span>
 
                 <!-- imgUrl -->
