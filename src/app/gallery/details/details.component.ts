@@ -10,12 +10,16 @@ import firebase from 'firebase/compat/app';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit, AfterViewInit {
   user: firebase.User | null = null;
-
   book: IBook | null = null;
   isLoading = true;
   isLiked = false;
+  likedArray: string[] = [];
+  // userId: string = '';
+  // bookUserId: string = '';
+  buttonText = 'LIKE IT';
+  buttonColor = '#055c02';
 
   constructor(
     private route: ActivatedRoute,
@@ -31,8 +35,18 @@ export class DetailsComponent implements OnInit {
     this.isLoading = false;
     this.bookService.getOneBook(id).subscribe((i) => {
       this.book = i ?? null;
+      this.likedArray = this.book?.likedBy!;
+      if (this.user && this.book) {
+        if (this.likedArray.includes(this.user.uid)) {
+          this.isLiked = true;
+          this.buttonText = 'Already Like It';
+          this.buttonColor = '#5a0238';
+        }
+      }
     });
   }
+
+  ngAfterViewInit(): void {}
 
   searchAuthor(author: any) {
     return author?.split(' ').join('+');
@@ -51,6 +65,7 @@ export class DetailsComponent implements OnInit {
     if (!this.user) {
       this.router.navigate(['/login']);
     }
+
     this.bookService.likeIt(id, userId!);
     this.isLiked = true;
   }
