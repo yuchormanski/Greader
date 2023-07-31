@@ -1,5 +1,8 @@
 .upload-wrapper {
   width: 700px;
+  margin-top: 30px;
+  box-shadow: -4px 11px 17px #00000071;
+  padding: 50px;
 }
 .upload-heading {
   display: flex;

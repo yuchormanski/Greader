@@ -127,4 +127,8 @@ export class BookService {
       .doc(id)
       .update({ likes: increment(1), likedBy: arrayUnion(userId) });
   }
+
+  deleteBook(id: string) {
+    return this.bookCollection.doc(id).delete();
+  }
 }
