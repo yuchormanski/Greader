@@ -29,6 +29,7 @@ import {
   query,
   where,
   getDocs,
+  arrayUnion,
 } from '@angular/fire/firestore';
 
 @Injectable({
@@ -122,7 +123,8 @@ export class BookService {
   }
 
   likeIt(id: string, userId: string) {
-    this.bookCollection.ref.doc(id).update({ likes: increment(1) });
-    return this.bookCollection.ref.doc(id).update({ likedBy.arrayUnion(userId)});
+    return this.bookCollection.ref
+      .doc(id)
+      .update({ likes: increment(1), likedBy: arrayUnion(userId) });
   }
 }
