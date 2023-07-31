@@ -15,5 +15,7 @@ export default interface IBook {
   fileType: string;
   timestamp: firebase.firestore.FieldValue;
   creationDate?: number;
-  likes?: number;
+  likes: number;
+  downloads: number;
+  likedBy?: [];
 }

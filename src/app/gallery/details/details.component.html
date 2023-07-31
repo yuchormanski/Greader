@@ -68,24 +68,40 @@
             </p>
           </div>
         </div>
-
+        {{ user?.uid | json }}
+        {{ book?.uid | json }}
         <section>
           <div class="book-actions">
-            <!-- <div class="book-edit-block">
-              <button class="btn edit-btn">EDIT BOOK</button>
-            </div> -->
             <div class="book-download-block">
               <button class="btn download-btn">
-                <a href="{{ book?.url }}">DOwnload BOOK</a>
+                <a href="{{ book?.url }}" (click)="downloadBook($event)"
+                  >DOwnload BOOK</a
+                >
               </button>
             </div>
+
             <div class="book-edit-block">
-              <button class="btn like-btn">LIKE IT!</button>
+              <button
+                class="btn like-btn"
+                (click)="likeThisBook($event)"
+                [disabled]="isLiked"
+                [disabled]="this.user?.uid == this.book?.uid"
+              >
+                LIKE IT!
+              </button>
             </div>
           </div>
 
           <div class="book-meta-footer">
             <table>
+              <tr>
+                <td>Likes:</td>
+                <td class="tdR">{{ book?.likes }}</td>
+              </tr>
+              <tr>
+                <td>Downloads:</td>
+                <td class="tdR">{{ book?.downloads }}</td>
+              </tr>
               <tr>
                 <td>Uploader:</td>
                 <td class="tdR">{{ book?.displayName }}</td>

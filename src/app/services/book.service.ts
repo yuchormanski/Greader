@@ -117,5 +117,12 @@ export class BookService {
       .update({ title, author, imgUrl, language, year, description });
   }
 
-  likeIt(id: string) {}
+  download(id: string) {
+    return this.bookCollection.ref.doc(id).update({ downloads: increment(1) });
+  }
+
+  likeIt(id: string, userId: string) {
+    this.bookCollection.ref.doc(id).update({ likes: increment(1) });
+    return this.bookCollection.ref.doc(id).update({ likedBy.arrayUnion(userId)});
+  }
 }
