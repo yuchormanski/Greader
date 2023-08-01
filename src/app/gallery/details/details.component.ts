@@ -16,8 +16,6 @@ export class DetailsComponent implements OnInit, AfterViewInit {
   isLoading = true;
   isLiked = false;
   likedArray: string[] = [];
-  // userId: string = '';
-  // bookUserId: string = '';
   buttonText = 'LIKE IT';
   buttonColor = '#055c02';
 

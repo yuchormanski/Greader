@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { BookService } from 'src/app/services/book.service';
 import IBook from 'src/app/models/book.model';
@@ -11,7 +11,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   templateUrl: './manage.component.html',
   styleUrls: ['./manage.component.css'],
 })
-export class ManageComponent implements OnInit {
+export class ManageComponent implements OnInit, OnChanges {
   bookOrder = '1';
   books: IBook[] = [];
   isLoading: boolean = true;
@@ -38,10 +38,6 @@ export class ManageComponent implements OnInit {
       this.books = [];
       // this.userName = '';
       this.isLoading = false;
-
-      // const currentUser = docs[0];
-      // this.userName = currentUser.data().displayName;
-
       docs.forEach((doc) => {
         this.books.push({
           docId: doc.id,
@@ -50,7 +46,7 @@ export class ManageComponent implements OnInit {
       });
     });
   }
-
+  ngOnChanges(changes: SimpleChanges): void {}
   // sort(event: Event) {
   //   const { value } = event.target.HTMLSelectElement;
   //   this.router.navigate([], {
@@ -75,7 +71,9 @@ export class ManageComponent implements OnInit {
   doDelete($event: Event) {
     $event.preventDefault();
     console.log(this.theBookId);
-    this.bookService.deleteBook(this.theBookId);
-    this.router.navigate(['gallery']);
+    this.bookService
+      .deleteBook(this.theBookId)
+      .then(() => this.bookService.getUserBooks());
+    // this.router.navigate(['gallery']);
   }
 }

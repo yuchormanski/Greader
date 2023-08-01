@@ -46,12 +46,6 @@ export class BookService {
     return this.bookCollection.add(data);
   }
 
-  getUserInfo() {
-    const currentUser = this.auth.user;
-    // console.log(currentUser);
-    return currentUser;
-  }
-
   getUserBooks() {
     return this.auth.user.pipe(
       switchMap((user) => {
