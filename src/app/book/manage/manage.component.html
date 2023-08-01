@@ -42,12 +42,6 @@
               <button class="delete-btn" routerLink="/delete/{{ book.docId }}">
                 Delete
               </button>
-              <!-- <button
-                class="delete-btn"
-                (click)="goToDeleteBook($event, book.docId!)"
-              >
-                Delete
-              </button> -->
             </div>
           </div>
           <!--  -->
@@ -59,11 +53,4 @@
     </div>
   </div>
 </section>
-
-<!-- <app-loader /> -->
 <app-footer />
-
-<div class="delete-alert" *ngIf="areYouSure">
-  <h2>text text text</h2>
-  <button (click)="doDelete($event)">DELETE</button>
-</div>

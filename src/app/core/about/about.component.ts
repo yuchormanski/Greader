@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about',
@@ -6,10 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements OnInit {
-  isNotHome: boolean = false;
-  constructor() {}
+  constructor(private pageTitle: Title) {}
 
   ngOnInit(): void {
-    this.isNotHome = true;
+    this.pageTitle.setTitle('GReader - About page');
   }
 }

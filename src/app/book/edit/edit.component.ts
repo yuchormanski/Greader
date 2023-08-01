@@ -10,6 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import IBook from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit',
@@ -28,7 +29,8 @@ export class EditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
-    private router: Router
+    private router: Router,
+    private pageTitle: Title
   ) {}
 
   // form fields
@@ -91,6 +93,8 @@ export class EditComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.pageTitle.setTitle('GReader - Edit page');
+
     this.showAlert = false;
     this.showAlert = false;
     this.alertColor = 'green';

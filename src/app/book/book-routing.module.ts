@@ -3,16 +3,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { UploadComponent } from './upload/upload.component';
 import { ManageComponent } from './manage/manage.component';
 import { EditComponent } from './edit/edit.component';
+import { DeleteComponent } from './delete/delete.component';
 import {
   AngularFireAuthGuard,
   redirectUnauthorizedTo,
 } from '@angular/fire/compat/auth-guard';
-import { DeleteComponent } from './delete/delete.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo('login');
 
 const routes: Routes = [
-  { path: 'upload', component: UploadComponent },
+  {
+    path: 'upload',
+    component: UploadComponent,
+    data: {
+      authOnly: true,
+      authGuardPipe: redirectToLogin,
+    },
+    canActivate: [AngularFireAuthGuard],
+  },
   {
     path: 'manage',
     component: ManageComponent,

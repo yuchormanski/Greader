@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import IBook from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
 // import { ApiService } from 'src/app/api.service';
@@ -12,11 +13,13 @@ import { BookService } from 'src/app/services/book.service';
 export class CatalogComponent implements OnInit {
   isLoading: boolean = true;
 
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService, private pageTitle: Title) {}
 
   booksArray: IBook[] = [];
 
   ngOnInit(): void {
+    this.pageTitle.setTitle('GReader - Catalog page');
+
     this.bookService.getAllBooks().subscribe((docs) => {
       this.booksArray = [];
       this.isLoading = false;

@@ -5,6 +5,7 @@ import IBook from 'src/app/models/book.model';
 import IUser from 'src/app/models/user.model';
 import firebase from 'firebase/compat/app';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-manage',
@@ -24,12 +25,15 @@ export class ManageComponent implements OnInit, OnChanges {
     private router: Router,
     private route: ActivatedRoute,
     private bookService: BookService,
-    private auth: AngularFireAuth
+    private auth: AngularFireAuth,
+    private pageTitle: Title
   ) {
     auth.user.subscribe((user) => (this.user = user));
   }
 
   ngOnInit(): void {
+    this.pageTitle.setTitle('GReader - Manage page');
+
     this.route.queryParams.subscribe((params: Params) => {
       this.bookOrder = params['sort'] == '2' ? params['sort'] : '1';
     });
@@ -67,13 +71,5 @@ export class ManageComponent implements OnInit, OnChanges {
     $event.preventDefault();
     this.areYouSure = true;
     this.theBookId = id;
-  }
-  doDelete($event: Event) {
-    $event.preventDefault();
-    console.log(this.theBookId);
-    this.bookService
-      .deleteBook(this.theBookId)
-      .then(() => this.bookService.getUserBooks());
-    // this.router.navigate(['gallery']);
   }
 }

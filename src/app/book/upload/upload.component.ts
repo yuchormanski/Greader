@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import {
@@ -13,13 +13,14 @@ import { v4 as uuid } from 'uuid';
 import { last, switchMap } from 'rxjs/operators';
 import { BookService } from 'src/app/services/book.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.css'],
 })
-export class UploadComponent implements OnDestroy {
+export class UploadComponent implements OnInit, OnDestroy {
   user: firebase.User | null = null;
   isDragover = false;
   nextStep = false;
@@ -37,12 +38,17 @@ export class UploadComponent implements OnDestroy {
     private storage: AngularFireStorage,
     private auth: AngularFireAuth,
     private booksService: BookService,
-    private router: Router
+    private router: Router,
+    private pageTitle: Title
   ) {
     auth.user.subscribe((user) => (this.user = user));
   }
 
   minLengthCount: number = 1;
+
+  ngOnInit(): void {
+    this.pageTitle.setTitle('GReader - Upload page');
+  }
 
   // form fields
   title = new FormControl('', {

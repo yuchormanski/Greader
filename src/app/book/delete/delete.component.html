@@ -8,7 +8,7 @@
         <div class="upload-heading">
           <div class="heading-line"></div>
           <h2 class="heading delete-heading">
-            You are about to delete this book!
+            {{ message }}
           </h2>
           <div class="heading-line"></div>
         </div>
@@ -17,9 +17,9 @@
           <div class="book-info">
             <div class="book-data">
               <h3>{{ book?.title }}</h3>
-              <p>{{ book?.likes }}</p>
-              <p>{{ book?.downloads }}</p>
-              <p>{{ book?.creationDate }}</p>
+              <p><span>Creation date: </span>{{ book?.creationDate }}</p>
+              <p><span>Likes: </span>{{ book?.likes }}</p>
+              <p><span>Downloads: : </span>{{ book?.downloads }}</p>
             </div>
             <div class="book-img">
               <img
@@ -29,13 +29,17 @@
               />
             </div>
           </div>
-          a
-          <div class="actions">
+
+          <div class="actions" *ngIf="deletePanel">
             <div>
-              <button class="reject">Don't want to do this</button>
+              <button class="reject" (click)="getBack()">
+                I don't want to do this!
+              </button>
             </div>
             <div>
-              <button class="delete">Yes, I do!</button>
+              <button class="delete" (click)="sorryAboutThat()">
+                Yes, I do!
+              </button>
             </div>
           </div>
         </div>

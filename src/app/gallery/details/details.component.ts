@@ -4,6 +4,7 @@ import IBook from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-details',
@@ -18,17 +19,21 @@ export class DetailsComponent implements OnInit, AfterViewInit {
   likedArray: string[] = [];
   buttonText = 'LIKE IT';
   buttonColor = '#055c02';
-
+  userId = '';
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
     private auth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    private pageTitle: Title
   ) {
     auth.user.subscribe((user) => (this.user = user));
   }
 
   ngOnInit(): void {
+    this.pageTitle.setTitle('GReader - Details page');
+
+    this.userId = this.user?.uid || '';
     const id = this.route.snapshot.params['bookId'];
     this.isLoading = false;
     this.bookService.getOneBook(id).subscribe((i) => {
