@@ -39,12 +39,15 @@
               <button class="edit-btn" (click)="editBook($event, book)">
                 Edit
               </button>
-              <button
+              <button class="delete-btn" routerLink="/delete/{{ book.docId }}">
+                Delete
+              </button>
+              <!-- <button
                 class="delete-btn"
                 (click)="goToDeleteBook($event, book.docId!)"
               >
                 Delete
-              </button>
+              </button> -->
             </div>
           </div>
           <!--  -->

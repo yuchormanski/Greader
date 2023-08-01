@@ -1,0 +1,47 @@
+<section>
+  <div class="centered">
+    <div class="center-img">
+      <img src="/assets/img/delete-book.jpg" alt="" />
+    </div>
+    <div class="upload-wrapper">
+      <div class="center-text">
+        <div class="upload-heading">
+          <div class="heading-line"></div>
+          <h2 class="heading delete-heading">
+            You are about to delete this book!
+          </h2>
+          <div class="heading-line"></div>
+        </div>
+        <!--  -->
+        <div id="book">
+          <div class="book-info">
+            <div class="book-data">
+              <h3>{{ book?.title }}</h3>
+              <p>{{ book?.likes }}</p>
+              <p>{{ book?.downloads }}</p>
+              <p>{{ book?.creationDate }}</p>
+            </div>
+            <div class="book-img">
+              <img
+                class="img-cover"
+                src="{{ book?.imgUrl }} "
+                alt="Book Image"
+              />
+            </div>
+          </div>
+          a
+          <div class="actions">
+            <div>
+              <button class="reject">Don't want to do this</button>
+            </div>
+            <div>
+              <button class="delete">Yes, I do!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer />

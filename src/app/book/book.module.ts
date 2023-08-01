@@ -9,9 +9,10 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
 import { UserRoutingModule } from '../user/user-routing.module';
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
-  declarations: [UploadComponent, ManageComponent, EditComponent],
+  declarations: [UploadComponent, ManageComponent, EditComponent, DeleteComponent],
   imports: [
     CommonModule,
     BookRoutingModule,

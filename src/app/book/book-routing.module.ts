@@ -7,6 +7,7 @@ import {
   AngularFireAuthGuard,
   redirectUnauthorizedTo,
 } from '@angular/fire/compat/auth-guard';
+import { DeleteComponent } from './delete/delete.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo('login');
 
@@ -24,6 +25,15 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: EditComponent,
+    data: {
+      authOnly: true,
+      authGuardPipe: redirectToLogin,
+    },
+    canActivate: [AngularFireAuthGuard],
+  },
+  {
+    path: 'delete/:id',
+    component: DeleteComponent,
     data: {
       authOnly: true,
       authGuardPipe: redirectToLogin,
