@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { getFirestore, doc, getDoc, FieldPath } from 'firebase/firestore';
 
 import {
   AngularFirestore,
@@ -62,14 +61,12 @@ export class BookService {
   getAllBooks() {
     return this.auth.user.pipe(
       switchMap((user) => {
-        // if (!user) {
-        //   return of([]);
-        // }
         const query = this.bookCollection.ref;
         return query.get();
       })
     );
   }
+
   getOneBook(id: string) {
     return this.bookCollection.doc(id).valueChanges();
   }

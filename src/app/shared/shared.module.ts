@@ -4,6 +4,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { AlertComponent } from './alert/alert.component';
 import { EventBlockerDirective } from './directives/event-blocker.directive';
 import { SlicePipe } from './pipes/slice.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { SlicePipe } from './pipes/slice.pipe';
     EventBlockerDirective,
     SlicePipe,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   exports: [LoaderComponent, AlertComponent, EventBlockerDirective, SlicePipe],
 })
 export class SharedModule {}

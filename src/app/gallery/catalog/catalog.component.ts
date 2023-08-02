@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import IBook from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-catalog',
@@ -30,16 +30,35 @@ export class CatalogComponent implements OnInit {
           ...doc.data(),
         });
       });
+      this.searchBooksArray = this.booksArray;
     });
   }
 
-  searchF(form: NgForm) {
-    // if (this.sForm.invalid) {
-    //   return;
-    // }
-    // const { search } = this.searchForm.value;
-    // this.searchBooksArray = this.booksArray.filter((b) =>
-    //   b.title.toLowerCase().includes(search!.toLowerCase())
-    // );
+  searchForm(form: NgForm) {
+    const { search, selection } = form.value;
+    if (selection == '1') {
+      this.searchBooksArray = this.booksArray.filter((b) =>
+        b.title.toLowerCase().includes(search!.toLowerCase())
+      );
+    } else {
+      this.searchBooksArray = this.booksArray.filter((b) =>
+        b.author.toLowerCase().includes(search!.toLowerCase())
+      );
+    }
   }
+
+  // sortingForm(form: NgForm) {
+  //   const { selection } = form.value;
+  //   if (selection == '1') {
+  //     this.searchBooksArray = this.booksArray.sort((a, b) =>
+  //       a.author.localeCompare(b.author)
+  //     );
+  //   } else if (selection == '2') {
+  //     this.searchBooksArray = this.booksArray.sort((a, b) =>
+  //       a.title.localeCompare(b.title)
+  //     );
+  //   } else if (selection == '2') {
+  //     this.searchBooksArray = this.booksArray.sort((a, b) => b.likes - a.likes);
+  //   }
+  // }
 }
