@@ -16,10 +16,17 @@
       <div class="footer-center">
         <div class="book-small" *ngFor="let book of lastThree">
           <a href="/gallery/{{ book.docId }}">
-            <img src="{{ book.imgUrl }}" alt="" class="scale-down"
+            <div class="book-title-popup">
+              <p>"{{ book.title }}"</p>
+            </div>
+            <img
+              src="{{ book.imgUrl }}"
+              alt="{{ book.title }}"
+              class="scale-down"
           /></a>
         </div>
       </div>
+      <!--  -->
     </div>
 
     <div class="footer-block">

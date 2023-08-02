@@ -18,16 +18,20 @@
 
       <div class="book-control">
         <div class="sort-panel">
-          <!-- <form #sortForm="ngForm" (ngSubmit)="sortingForm(sortForm)">
-            <select name="select" id="">
+          <form #sortForm="ngForm" (ngSubmit)="sortingForm(sortForm)">
+            <select name="sorting" id="" #sorting="ngModel" ngModel>
               <option value="" selected disabled>Sort by:</option>
               <option value="1">Author name</option>
               <option value="2">Book title</option>
               <option value="3">Popularity</option>
+              <option value="4">Lang: BG</option>
+              <option value="5">Lang: EN</option>
+              <option value="6">Lang: DK</option>
             </select>
             <button>Sort</button>
-          </form> -->
+          </form>
         </div>
+
         <div class="search-panel">
           <form #form="ngForm" (ngSubmit)="searchForm(form)">
             <label for="search"></label>

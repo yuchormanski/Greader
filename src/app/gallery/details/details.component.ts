@@ -20,6 +20,9 @@ export class DetailsComponent implements OnInit, AfterViewInit {
   buttonText = 'LIKE IT';
   buttonColor = '#055c02';
   userId = '';
+  hasUser = false;
+  downloadAlert = true;
+
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
@@ -32,7 +35,6 @@ export class DetailsComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.pageTitle.setTitle('GReader - Details page');
-
     this.userId = this.user?.uid || '';
     const id = this.route.snapshot.params['bookId'];
     this.isLoading = false;
@@ -40,11 +42,14 @@ export class DetailsComponent implements OnInit, AfterViewInit {
       this.book = i ?? null;
       this.likedArray = this.book?.likedBy!;
       if (this.user && this.book) {
+        this.hasUser = true;
         if (this.likedArray.includes(this.user.uid)) {
           this.isLiked = true;
-          this.buttonText = 'Already Like It';
+          this.buttonText = 'You Already Like It';
           this.buttonColor = '#5a0238';
         }
+      } else if (this.user == null) {
+        this.hasUser = false;
       }
     });
   }
@@ -56,8 +61,10 @@ export class DetailsComponent implements OnInit, AfterViewInit {
   }
 
   downloadBook($event: Event) {
-    // $event.preventDefault();
     const id = this.route.snapshot.params['bookId'];
+    setTimeout(() => {
+      this.downloadAlert = true;
+    }, 1500);
     this.bookService.download(id);
   }
 

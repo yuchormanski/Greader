@@ -122,6 +122,11 @@ section {
   flex-direction: column;
   align-items: center;
 }
+
+a.no-user:hover::before {
+  content: "Login before ";
+}
+
 table {
   /* margin-top: 30px; */
   background-color: #006b64;

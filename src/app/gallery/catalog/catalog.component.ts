@@ -40,25 +40,41 @@ export class CatalogComponent implements OnInit {
       this.searchBooksArray = this.booksArray.filter((b) =>
         b.title.toLowerCase().includes(search!.toLowerCase())
       );
-    } else {
+    } else if (selection == '2') {
       this.searchBooksArray = this.booksArray.filter((b) =>
         b.author.toLowerCase().includes(search!.toLowerCase())
       );
     }
+    if (this.searchBooksArray.length === 0) {
+    }
   }
 
-  // sortingForm(form: NgForm) {
-  //   const { selection } = form.value;
-  //   if (selection == '1') {
-  //     this.searchBooksArray = this.booksArray.sort((a, b) =>
-  //       a.author.localeCompare(b.author)
-  //     );
-  //   } else if (selection == '2') {
-  //     this.searchBooksArray = this.booksArray.sort((a, b) =>
-  //       a.title.localeCompare(b.title)
-  //     );
-  //   } else if (selection == '2') {
-  //     this.searchBooksArray = this.booksArray.sort((a, b) => b.likes - a.likes);
-  //   }
-  // }
+  sortingForm(sortForm: NgForm) {
+    const { sorting } = sortForm.value;
+    console.log(sorting);
+
+    if (sorting == '1') {
+      this.searchBooksArray = this.booksArray.sort((a, b) =>
+        a.author.localeCompare(b.author)
+      );
+    } else if (sorting == '2') {
+      this.searchBooksArray = this.booksArray.sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+    } else if (sorting == '3') {
+      this.searchBooksArray = this.booksArray.sort((a, b) => b.likes - a.likes);
+    } else if (sorting == '4') {
+      this.searchBooksArray = this.booksArray.filter(
+        (b) => b.language == 'Bulgarian'
+      );
+    } else if (sorting == '5') {
+      this.searchBooksArray = this.booksArray.filter(
+        (b) => b.language == 'English'
+      );
+    } else if (sorting == '6') {
+      this.searchBooksArray = this.booksArray.filter(
+        (b) => b.language == 'German'
+      );
+    }
+  }
 }

@@ -83,3 +83,19 @@ footer {
 .sites-links a:hover {
   text-decoration: underline;
 }
+
+.book-title-popup {
+  display: none;
+  position: absolute;
+  bottom: -20%;
+  padding: 0 20px;
+  line-height: 50px;
+  font-size: 20px;
+  background-color: #508b87;
+  border-radius: 10px;
+  color: #ddd;
+}
+
+.book-small:hover .book-title-popup {
+  display: block;
+}

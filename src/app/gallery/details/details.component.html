@@ -10,7 +10,6 @@
           <h2 class="heading book-heading">"{{ book?.title }}"</h2>
           <div class="heading-line"></div>
         </div>
-
         <div class="book-meta">
           <div class="book-author book-heading-icon">
             <img
@@ -68,7 +67,7 @@
             </p>
           </div>
         </div>
-        <section>
+        <section *ngIf="hasUser; else noUser">
           <div *ngIf="this.book?.uid != this.user?.uid; else isNotOwner">
             <div class="book-actions">
               <div class="book-download-block">
@@ -133,6 +132,40 @@
             </table>
           </div>
         </section>
+
+        <ng-template #noUser>
+          <div class="book-actions">
+            <div class="book-download-block">
+              <button class="btn download-btn">
+                <a class="no-user" routerLink="/login">Download BOOK</a>
+              </button>
+            </div>
+          </div>
+          <!-- <div class="book-meta-footer">
+            <table>
+              <tr>
+                <td>Likes:</td>
+                <td class="tdR">{{ book?.likes }}</td>
+              </tr>
+              <tr>
+                <td>Downloads:</td>
+                <td class="tdR">{{ book?.downloads }}</td>
+              </tr>
+              <tr>
+                <td>Uploader:</td>
+                <td class="tdR">{{ book?.displayName }}</td>
+              </tr>
+              <tr>
+                <td>Created on:</td>
+                <td class="tdR">{{ book?.creationDate | date }}</td>
+              </tr>
+              <tr>
+                <td>File type:</td>
+                <td class="tdR">{{ book?.fileType | uppercase }}</td>
+              </tr>
+            </table>
+          </div> -->
+        </ng-template>
         <!-- actions -->
       </div>
     </div>
