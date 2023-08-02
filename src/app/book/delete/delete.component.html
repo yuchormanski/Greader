@@ -17,9 +17,29 @@
           <div class="book-info">
             <div class="book-data">
               <h3>{{ book?.title }}</h3>
-              <p><span>Creation date: </span>{{ book?.creationDate }}</p>
-              <p><span>Likes: </span>{{ book?.likes }}</p>
-              <p><span>Downloads: : </span>{{ book?.downloads }}</p>
+              <p><span class="placeholder">Author: </span>{{ book?.author }}</p>
+              <p>
+                <span class="placeholder">Language: </span>{{ book?.language }}
+              </p>
+              <p><span class="placeholder">Year: </span>{{ book?.year }}</p>
+              <p><span class="placeholder">Likes: </span>{{ book?.likes }}</p>
+              <p>
+                <span class="placeholder">Downloads: </span
+                >{{ book?.downloads }}
+              </p>
+              <p>
+                <span class="placeholder">File type: </span>{{ book?.fileType }}
+              </p>
+              <p>
+                <span class="placeholder">Created on: </span
+                >{{ book?.creationDate | date }}
+              </p>
+              <p>
+                <span class="placeholder">Description: </span><br />
+                {{ book?.description! | slice : 200 }}
+                <br />
+                <a routerLink="/gallery/{{ bookId }}">READ MORE</a>
+              </p>
             </div>
             <div class="book-img">
               <img

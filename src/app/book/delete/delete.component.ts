@@ -20,6 +20,7 @@ export class DeleteComponent implements OnInit {
   isAuth = false;
   deletePanel: boolean = false;
   message = 'You are about to delete this book!';
+  bookId = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -46,7 +47,7 @@ export class DeleteComponent implements OnInit {
           this.router.navigate(['/']);
         }, 1500);
       }
-
+      this.bookId = id;
       this.deletePanel = this.book?.uid == this.user?.uid!;
     });
   }

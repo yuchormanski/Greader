@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 // import { UserService } from '../user.service';
 import { AuthService } from 'src/app/services/auth.service';
 import IUser from 'src/app/models/user.model';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   credentials = {
     firstName: '',
     lastName: '',
@@ -19,13 +20,17 @@ export class RegisterComponent {
   };
   constructor(
     private router: Router,
-    // private userService: UserService,
-    private auth: AuthService
+    private auth: AuthService,
+    private pageTitle: Title
   ) {}
   inSubmission = false;
   showAlert = false;
   alertMsg = 'Please wait! Your account is being created.';
   isLoading = false;
+
+  ngOnInit(): void {
+    this.pageTitle.setTitle('GReader - Register page');
+  }
 
   async register(form: NgForm) {
     if (form.invalid) {

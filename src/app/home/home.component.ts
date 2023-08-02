@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
 import IBook from '../models/book.model';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,15 @@ export class HomeComponent implements OnInit {
   limitedBooks: IBook[] | null = null;
   isLoading: boolean = true;
 
-  constructor(private bookService: BookService, private router: Router) {}
+  constructor(
+    private bookService: BookService,
+    private router: Router,
+    private pageTitle: Title
+  ) {}
 
   ngOnInit(): void {
+    this.pageTitle.setTitle('GReader - Home page');
+
     this.bookService.getLimitBooks(3).subscribe((docs) => {
       this.limitedBooks = [];
       this.isLoading = false;

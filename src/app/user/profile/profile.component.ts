@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Title } from '@angular/platform-browser';
 import firebase from 'firebase/compat/app';
 
 @Component({
@@ -10,9 +11,11 @@ import firebase from 'firebase/compat/app';
 export class ProfileComponent implements OnInit {
   user: firebase.User | null = null;
 
-  constructor(private auth: AngularFireAuth) {
+  constructor(private auth: AngularFireAuth, private pageTitle: Title) {
     auth.user.subscribe((user) => (this.user = user));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.pageTitle.setTitle('GReader - Profile page');
+  }
 }

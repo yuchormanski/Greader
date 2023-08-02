@@ -105,6 +105,8 @@ section {
 }
 
 .book-actions {
+  width: 700px;
+  height: 60px;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
@@ -112,7 +114,6 @@ section {
   margin: 42px 0 0;
   padding: 20px;
   box-shadow: -2px 7px 25px #00000073;
-  width: 700px;
 }
 
 .book-meta-footer {

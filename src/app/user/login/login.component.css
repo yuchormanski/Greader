@@ -27,6 +27,7 @@
   display: flex;
   flex-direction: column;
   padding: 0 20px;
+  margin: 45px 0 50px;
 }
 .auth-form input {
   background-color: #f8f8f8;
@@ -111,6 +112,7 @@ form.ng-valid button:hover {
 
 fieldset {
   border: 1px solid rgba(128, 128, 128, 0.559);
-  border-radius: 3px;
+  border-radius: 5px;
   padding-top: 10px;
+  box-shadow: -8px 27px 20px #00000050;
 }

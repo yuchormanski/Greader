@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import IBook from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';
-// import { ApiService } from 'src/app/api.service';
-// import { Book } from 'src/app/types/book';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-catalog',
@@ -16,6 +15,7 @@ export class CatalogComponent implements OnInit {
   constructor(private bookService: BookService, private pageTitle: Title) {}
 
   booksArray: IBook[] = [];
+  searchBooksArray: IBook[] = [];
 
   ngOnInit(): void {
     this.pageTitle.setTitle('GReader - Catalog page');
@@ -33,7 +33,13 @@ export class CatalogComponent implements OnInit {
     });
   }
 
-  shortDescription(book: IBook) {
-    return `${book.description.slice(0, 150)} ...`;
+  searchF(form: NgForm) {
+    // if (this.sForm.invalid) {
+    //   return;
+    // }
+    // const { search } = this.searchForm.value;
+    // this.searchBooksArray = this.booksArray.filter((b) =>
+    //   b.title.toLowerCase().includes(search!.toLowerCase())
+    // );
   }
 }

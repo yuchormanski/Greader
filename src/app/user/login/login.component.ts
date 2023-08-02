@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { NgForm } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   credentials = {
     email: '',
     password: '',
@@ -17,7 +18,15 @@ export class LoginComponent {
   inSubmission = false;
   showAlert = false;
   alertMsg = '';
-  constructor(private router: Router, private auth: AngularFireAuth) {}
+  constructor(
+    private router: Router,
+    private auth: AngularFireAuth,
+    private pageTitle: Title
+  ) {}
+
+  ngOnInit(): void {
+    this.pageTitle.setTitle('GReader - Login page');
+  }
 
   async login(loginForm: NgForm) {
     if (loginForm.invalid) return;

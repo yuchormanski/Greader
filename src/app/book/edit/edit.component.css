@@ -59,7 +59,7 @@ select:active {
   justify-content: space-evenly;
   flex-direction: row;
   align-items: center;
-  margin: 10px 0;
+  margin: 10px 0 30px;
 }
 .additional input {
   width: 288px;
