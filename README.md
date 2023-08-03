@@ -1,6 +1,6 @@
 <h1>Greader</h1>
 
-<h2>Angular June 2023 - <a href="https://softuni.bg" target="_blank" alt="Softuni page">SoftUni </a>exam project</h2>
+<h2>Angular June 2023 - <a href="https://softuni.bg" target=_blank alt="Softuni page">SoftUni </a>exam project</h2>
 
     Clone the repository:
 
@@ -103,7 +103,7 @@ Site content:
     * Available for all users
     * require user email and password
 
-# register page
+# Register page
 
     * Available for all users
     * require users:
