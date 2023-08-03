@@ -1,6 +1,27 @@
-# Greader
+<h1>Greader</h1>
 
-Angular June 2023 - Custom project
+<h2>Angular June 2023 - <a href="https://softuni.bg" target="_blank" alt="Softuni page">SoftUni </a>exam project</h2>
+
+    Clone the repository:
+
+git clone https://github.com/yuchormanski/Greader.git
+
+    - Project start:
+        npm install
+
+    - Run client Angular app:
+        ng serve --open    or
+        npm start          or
+        ng s
+
+# Back-end & API:
+
+    The Firebase database is used for Greader and it is hosted on Firebase Cloud.
+    Firebase ensures reliable and scalable data storage for the application.
+
+# File storage
+
+    FIrebase
 
 https://github.com/yuchormanski/Greader/blob/main/src/assets/img/Greader-1.png
 
@@ -122,15 +143,3 @@ Site content:
     * Available for all users
 
     - contain information about the site
-
-Clone the repository:
-git clone https://github.com/yuchormanski/Greader.git
-
-npm install - needed node_modules
-
-Run client Angular app:
-ng serve --open or npm start or ng s
-
-Database
-The Firebase database used for Greader is hosted on Firebase Cloud.
-Firebase ensures reliable and scalable data storage for the application.
