@@ -32,6 +32,14 @@ Site content:
     * Available for all users
      - static page except dynamic rendered element of "Our top suggestions!" -  3 books , according to the rating generated , depending on the users likes
 
+# Every page contains navigation
+
+        - according the users rights loading different connections
+
+# Every page , excluding Home page contains footer
+
+        -dynamically load last three uploaded books
+
 # Library
 
     * Available for all users
@@ -71,10 +79,12 @@ Site content:
 
 # Login page
 
+    * Available for all users
     * require user email and password
 
 # register page
 
+    * Available for all users
     * require users:
         - first name
         - last name
@@ -83,6 +93,35 @@ Site content:
          -- password repeat
 
          After successful register , the user is already login
+
+# Profile page
+
+    * Available only for registered users
+
+    - contain information about the current user
+
+# Current user personal library
+
+    * Available only for registered users
+
+    - list of all user's uploaded books
+    - links to managing personal books
+
+# Edit selected book
+
+         * Available only for registered users
+          - only the owner could edit the current book
+
+# Delete selected book
+
+         * Available only for registered users
+          - only the owner could delete the current book
+
+# About page
+
+    * Available for all users
+
+    - contain information about the site
 
 Clone the repository:
 git clone https://github.com/yuchormanski/Greader.git
