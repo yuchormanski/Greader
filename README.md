@@ -1,3 +1,97 @@
 # Greader
 
 Angular June 2023 - Custom project
+
+https://github.com/yuchormanski/Greader/blob/main/src/assets/img/Greader-1.png
+
+Greader is a project for the Angular course in SoftUni accomplished with Angular 16 for the frontend and Firebase for back-end.
+
+Greader is a web application that allows users to share and download ebooks, to view the ebooks in database in resume and get the details about the current selected book.
+
+The project roles are as unregistered user and user with has own profile.
+
+Users has specific privileges and functionalities.
+
+Every user , without needs of authentication can access home, library, limited details, login and register pages.
+Every try to access to page without rights should redirect yo login page.
+
+Registered users can achieve the full functionality of the application. In that point:
+. viewing their own profile page
+. uploading new book
+. download every book from the library (unlimited times)
+. like the book , uploaded from different user and with that action generate rating on the current book
+. has access to personal library
+. has ability to edit or delete the their own uploaded book
+
+The main goal of 'Greader' is to provoke interest in reading books by providing an opportunity for easy file access
+
+Site content:
+
+# Home page
+
+    * Available for all users
+     - static page except dynamic rendered element of "Our top suggestions!" -  3 books , according to the rating generated , depending on the users likes
+
+# Library
+
+    * Available for all users
+        - page loaded all content from the database, according to the uploaded books by registered users.
+        - Tha page represent the books with limited information , as book title , cover image and short description
+        - also every book has a link to it current profile
+
+# Search
+
+        - by author name or book title, getting all results according users criteria as input
+
+# Book details
+
+        * Available for all users, with limited functionality
+            - The page contain the all information about the book
+            - can view the information about the current book, number of downloads, uploader name, uploaded date and the likes count
+
+        * Registers users with full functionality
+            - everything above plus
+            - should be able to download the current book
+            - to 'Give a Like" and generate 'up' the book rating
+            - every user could like the current book only once
+            - if the current user is the owner of the book has no access to 'Like' button
+
+# Book upload
+
+    * Available only for registered users
+        - available file extensions - epub, pdf, txt
+        - maximum file size is set to 10 MB
+        - the user could upload file by 'Drag & Drop' on the D-D-Panel
+        - the user could upload file by searching file in the local file system
+
+    * After successful upload the user should enter the all book informational book title, book cover image, year and so on ...
+        - all fields are required and are validated
+
+        After successful upload the use ris redirected to library
+
+# Login page
+
+    * require user email and password
+
+# register page
+
+    * require users:
+        - first name
+        - last name
+        - email
+        - password
+         -- password repeat
+
+         After successful register , the user is already login
+
+Clone the repository:
+git clone https://github.com/yuchormanski/Greader.git
+
+npm install - needed node_modules
+
+Run client Angular app:
+ng serve --open or npm start or ng s
+
+Database
+The Firebase database used for Greader is hosted on Firebase Cloud.
+Firebase ensures reliable and scalable data storage for the application.
