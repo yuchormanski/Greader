@@ -20,6 +20,8 @@
 .book-heading {
   font-size: 48px;
   width: 1000px;
+  color: #ededed;
+  text-shadow: 2px 2px 4px #333;
 }
 .book-meta {
   display: flex;
@@ -70,9 +72,14 @@
   min-height: 485px;
   /* border: 1px solid rgb(116, 116, 116); */
 }
-.img {
+.image-stars {
   float: right;
   margin: 0 0 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.img {
   width: 300px;
   height: 400px;
   object-fit: cover;
@@ -254,4 +261,56 @@ tr {
 .download-btn a {
   color: rgb(0, 119, 140);
   text-decoration: none;
+}
+
+/* stars */
+/* .rating:not(:checked) > input {
+  position: absolute;
+  appearance: none;
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  color: #666;
+}
+
+.rating:not(:checked) > label:before {
+  content: "★";
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #e58e09;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #ff9e0b;
+}
+
+.rating > input:checked ~ label {
+  color: #ffa723;
+} */
+
+/* end stars */
+
+.center-img img {
+  width: 1000px;
+  height: 250px;
+  object-fit: cover;
+  box-shadow: 0px 2px 5px #000000eb;
+  filter: blur(1.4rem);
+}
+
+.title {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  top: 150px;
 }

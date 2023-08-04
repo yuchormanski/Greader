@@ -6,9 +6,14 @@
       </div>
       <div *ngIf="!isLoading">
         <div class="gallery-heading">
-          <div class="heading-line"></div>
-          <h2 class="heading book-heading">"{{ book?.title }}"</h2>
-          <div class="heading-line"></div>
+          <div class="center-img">
+            <img src="{{ book?.imgUrl }}" alt="" />
+            <div class="title">
+              <!-- <div class="heading-line"></div> -->
+              <h2 class="heading book-heading">"{{ book?.title }}"</h2>
+              <!-- <div class="heading-line"></div> -->
+            </div>
+          </div>
         </div>
         <div class="book-meta">
           <div class="book-author book-heading-icon">
@@ -58,8 +63,22 @@
 
         <div class="book-details">
           <div class="square">
-            <div>
+            <div class="image-stars">
               <img class="img" src="{{ book?.imgUrl }}" alt="Book front page" />
+              <!-- stars -->
+              <!-- <div class="rating">
+                <input type="radio" id="star5" name="rate" value="5" />
+                <label for="star5" title="text"></label>
+                <input type="radio" id="star4" name="rate" value="4" />
+                <label for="star4" title="text"></label>
+                <input type="radio" id="star3" name="rate" value="3" />
+                <label for="star3" title="text"></label>
+                <input type="radio" id="star2" name="rate" value="2" />
+                <label for="star2" title="text"></label>
+                <input type="radio" id="star1" name="rate" value="1" />
+                <label for="star1" title="text"></label>
+              </div> -->
+              <!-- end stars -->
             </div>
 
             <p class="p">
