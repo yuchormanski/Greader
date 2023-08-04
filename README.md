@@ -2,6 +2,8 @@
 
 <h2>Angular June 2023 - <a href="https://softuni.bg" target=_blank alt="Softuni page">SoftUni </a>exam project</h2>
 
+<p>Project DEMO - https://greader.vercel.app</p>
+
     Clone the repository:
 
 git clone https://github.com/yuchormanski/Greader.git
