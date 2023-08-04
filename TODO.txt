@@ -1,7 +1,0 @@
-canActivate
-About text
-Profile page
-edit page
-Delete confirmation
-download functionality
-footer redesign
