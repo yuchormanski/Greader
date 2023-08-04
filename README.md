@@ -2,7 +2,7 @@
 
 <h2>Angular June 2023 - <a href="https://softuni.bg" target=_blank alt="Softuni page">SoftUni </a>exam project</h2>
 
-<p>Project DEMO - https://greader-4vw2fypu6-yuchormanski-gmailcom.vercel.app/</p>
+<p>Project DEMO - <a href="https://greader.vercel.app">Greader</a></p>
 
     Clone the repository:
 
