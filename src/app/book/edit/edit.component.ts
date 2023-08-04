@@ -113,7 +113,7 @@ export class EditComponent implements OnInit {
       this.description.setValue(description as string);
     });
   }
-  update() {
+  async update() {
     this.editForm.disable();
 
     this.inSubmission = true;
@@ -127,15 +127,27 @@ export class EditComponent implements OnInit {
 
     const updatedData = this.editForm.value;
 
-    this.bookService.updateBook(
-      title!,
-      author!,
-      imgUrl!,
-      language!,
-      year!,
-      description!,
-      id
-    );
+    try {
+      await this.bookService.updateBook(
+        title!,
+        author!,
+        imgUrl!,
+        language!,
+        year!,
+        description!,
+        id
+      );
+    } catch (error) {
+      this.showAlert = true;
+      this.alertColor = 'red';
+      this.alertMsg = 'Something went wrong! Please try again later';
+      this.inSubmission = false;
+      return;
+    }
+
+    this.inSubmission = false;
+    this.alertColor = 'green';
+    this.alertMsg = 'Success!';
 
     setTimeout(() => this.router.navigate([`/gallery/${id}`]), 1000);
   }

@@ -92,6 +92,7 @@ textarea {
   resize: none;
   outline: none;
 }
+
 /*  */
 
 label.label input[type="file"] {
@@ -124,7 +125,7 @@ label.label input[type="file"] {
   color: #ffffff;
 }
 
-/*  */
+/*  alertColor */
 .green,
 .red,
 .blue,
@@ -161,17 +162,16 @@ label.label input[type="file"] {
   background-color: rgb(0, 0, 0);
   color: white;
 }
+
 .base {
   background-color: rgba(0, 145, 255, 0.511);
   text-align: center;
   font-weight: bold;
   font-family: monospace;
   font-size: 18px;
-  /* text-shadow: 0px 2px 2px #4b4b4b; */
   padding: 2px;
   margin: 5px 22px 20px;
   border-radius: 5px;
-  /* box-shadow: 0px 2px 2px black; */
   color: #333;
 }
 
@@ -183,11 +183,13 @@ label.label input[type="file"] {
   color: #f8f8f8;
   border: none;
 }
+
 form.ng-valid .upload-book-Btn {
   color: #f8f8f8;
   text-shadow: 0px 2px 2px #00000083;
   border: 1px dotted rgb(82, 82, 82);
 }
+
 form.ng-valid .upload-book-Btn:hover {
   color: rgba(255, 255, 255, 0.795);
   text-shadow: 0px 2px 2px #000000c9;
