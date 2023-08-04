@@ -60,23 +60,30 @@ export class DetailsComponent implements OnInit, AfterViewInit {
     return author?.split(' ').join('+');
   }
 
-  downloadBook($event: Event) {
+  async downloadBook($event: Event) {
     const id = this.route.snapshot.params['bookId'];
     setTimeout(() => {
       this.downloadAlert = true;
     }, 1500);
-    this.bookService.download(id);
+    try {
+      await this.bookService.download(id);
+    } catch (error) {
+      return console.error(error);
+    }
   }
 
-  likeThisBook($event: Event) {
+  async likeThisBook($event: Event) {
     $event.preventDefault();
     const id = this.route.snapshot.params['bookId'];
     const userId = this.user?.uid;
     if (!this.user) {
       this.router.navigate(['/login']);
     }
-
-    this.bookService.likeIt(id, userId!);
-    this.isLiked = true;
+    try {
+      this.bookService.likeIt(id, userId!);
+      this.isLiked = true;
+    } catch (error) {
+      return console.error(error);
+    }
   }
 }
