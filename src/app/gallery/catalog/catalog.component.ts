@@ -62,7 +62,9 @@ export class CatalogComponent implements OnInit {
         a.title.localeCompare(b.title)
       );
     } else if (sorting == '3') {
-      this.searchBooksArray = this.booksArray.sort((a, b) => b.likes - a.likes);
+      this.searchBooksArray = this.booksArray.sort(
+        (a, b) => b.likes! - a.likes!
+      );
     } else if (sorting == '4') {
       this.searchBooksArray = this.booksArray.filter(
         (b) => b.language == 'Bulgarian'

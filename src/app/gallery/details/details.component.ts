@@ -11,7 +11,7 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
 })
-export class DetailsComponent implements OnInit, AfterViewInit {
+export class DetailsComponent implements OnInit {
   user: firebase.User | null = null;
   book: IBook | null = null;
   isLoading = true;
@@ -35,9 +35,11 @@ export class DetailsComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.pageTitle.setTitle('GReader - Details page');
+
     this.userId = this.user?.uid || '';
     const id = this.route.snapshot.params['bookId'];
     this.isLoading = false;
+
     this.bookService.getOneBook(id).subscribe((i) => {
       this.book = i ?? null;
       this.likedArray = this.book?.likedBy!;
@@ -54,22 +56,20 @@ export class DetailsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): void {}
-
   searchAuthor(author: any) {
     return author?.split(' ').join('+');
   }
 
   async downloadBook($event: Event) {
     const id = this.route.snapshot.params['bookId'];
-    setTimeout(() => {
-      this.downloadAlert = true;
-    }, 1500);
     try {
       await this.bookService.download(id);
     } catch (error) {
       return console.error(error);
     }
+    setTimeout(() => {
+      this.downloadAlert = true;
+    }, 1500);
   }
 
   async likeThisBook($event: Event) {
@@ -80,10 +80,10 @@ export class DetailsComponent implements OnInit, AfterViewInit {
       this.router.navigate(['/login']);
     }
     try {
-      this.bookService.likeIt(id, userId!);
-      this.isLiked = true;
+      await this.bookService.likeIt(id, userId!);
     } catch (error) {
       return console.error(error);
     }
+    this.isLiked = true;
   }
 }
