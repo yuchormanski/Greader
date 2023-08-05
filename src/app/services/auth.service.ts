@@ -24,9 +24,6 @@ export class AuthService {
   ) {
     this.userCollection = db.collection('users');
     this.isAuthenticated$ = auth.user.pipe(map((user) => !!user));
-    if (this.isAuthenticated$) {
-      router.navigate(['/gallery']);
-    }
   }
 
   public async createUser(userData: IUser) {

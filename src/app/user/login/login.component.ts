@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { NgForm } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -22,8 +23,13 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private auth: AngularFireAuth,
-    private pageTitle: Title
-  ) {}
+    private pageTitle: Title,
+    private hasUser: AuthService
+  ) {
+    if (this.hasUser.isAuthenticated$) {
+      router.navigate(['/gallery']);
+    }
+  }
 
   ngOnInit(): void {
     this.pageTitle.setTitle('GReader - Login page');

@@ -22,8 +22,13 @@ export class RegisterComponent implements OnInit {
   constructor(
     private router: Router,
     private auth: AuthService,
-    private pageTitle: Title
-  ) {}
+    private pageTitle: Title,
+    private hasUser: AuthService
+  ) {
+    if (this.hasUser.isAuthenticated$) {
+      router.navigate(['/gallery']);
+    }
+  }
   inSubmission = false;
   showAlert = false;
   alertMsg = 'Please wait! Your account is being created.';
