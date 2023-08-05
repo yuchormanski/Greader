@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import IUser from 'src/app/models/user.model';
 import { Title } from '@angular/platform-browser';
+import { FirebaseError } from '@angular/fire/app';
 
 @Component({
   selector: 'app-register',
@@ -57,9 +58,13 @@ export class RegisterComponent implements OnInit {
       this.isLoading = true;
       await this.auth.createUser(userData as IUser);
     } catch (err) {
-      console.error(err);
       this.showAlert = true;
-      this.alertMsg = 'Something went wrong! Please, try again later.';
+      if (err instanceof FirebaseError) {
+        let message = err.message.slice(9).split('. ')[0] + '.';
+        this.alertMsg = message;
+      }
+
+      // this.alertMsg = 'Something went wrong! Please, try again later.';
       this.inSubmission = false;
       this.isLoading = false;
 

@@ -98,8 +98,8 @@
                 class="error"
                 *ngIf="uploadForm.get('imgUrl')?.errors?.['pattern']"
               >
-                Invalid image URL! Allowed files extensions are: JPG, JPEG and
-                PNG
+                Invalid image URL!<br />Should start with http or https.<br />Allowed
+                extensions are: JPG, JPEG and PNG
               </p>
             </ng-container>
             <!-- year errors -->
@@ -146,8 +146,12 @@
             </ng-container>
           </div>
 
-          <div>
-            <form [formGroup]="uploadForm" (ngSubmit)="uploadBook()">
+          <div class="form-block">
+            <form
+              [formGroup]="uploadForm"
+              (ngSubmit)="uploadBook()"
+              class="form-data"
+            >
               <div class="form-row book-title">
                 <!-- book-title -->
                 <label for="title"></label>

@@ -81,7 +81,9 @@
 
       <div *ngIf="!isLoading" class="gallery-wrapper">
         <article class="brick" *ngFor="let book of searchBooksArray">
-          <img class="book-img" src="{{ book.imgUrl }}" alt="" />
+          <a [routerLink]="book.docId">
+            <img class="book-img" src="{{ book.imgUrl }}" alt="" />
+          </a>
           <div class="brick-content">
             <h3 class="h3-title">"{{ book.title }}"</h3>
             <p class="book-author">

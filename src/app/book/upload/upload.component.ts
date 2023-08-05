@@ -14,6 +14,7 @@ import { last, switchMap } from 'rxjs/operators';
 import { BookService } from 'src/app/services/book.service';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-upload',
@@ -39,9 +40,13 @@ export class UploadComponent implements OnInit, OnDestroy {
     private auth: AngularFireAuth,
     private booksService: BookService,
     private router: Router,
-    private pageTitle: Title
+    private pageTitle: Title,
+    private hasUser: AuthService
   ) {
     auth.user.subscribe((user) => (this.user = user));
+    if (!hasUser.isAuthenticated$) {
+      router.navigate(['/login']);
+    }
   }
 
   minLengthCount: number = 1;

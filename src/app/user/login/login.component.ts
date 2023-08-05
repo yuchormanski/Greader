@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseError } from '@angular/fire/app';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { NgForm } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
@@ -42,7 +43,11 @@ export class LoginComponent implements OnInit {
     } catch (err) {
       console.error(err);
       this.showAlert = true;
-      this.alertMsg = 'Something went wrong! Please, try again later.';
+      if (err instanceof FirebaseError) {
+        let message = err.message.slice(9).split('. ')[0] + '.';
+        this.alertMsg = message;
+      }
+      // this.alertMsg = 'Invalid username or password';
       this.inSubmission = false;
       this.isLoading = false;
 
