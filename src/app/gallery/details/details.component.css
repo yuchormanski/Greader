@@ -21,7 +21,7 @@
   font-size: 48px;
   width: 1000px;
   color: #ededed;
-  text-shadow: 2px 2px 4px #333;
+  text-shadow: -2px 3px 5px #000000;
 }
 .book-meta {
   display: flex;
@@ -304,7 +304,8 @@ tr {
   height: 250px;
   object-fit: cover;
   box-shadow: 0px 2px 5px #000000eb;
-  filter: blur(1.4rem);
+  filter: blur(0.6rem);
+  opacity: 0.3;
 }
 
 .title {
