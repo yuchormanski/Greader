@@ -80,7 +80,13 @@
       </div>
 
       <div *ngIf="!isLoading" class="gallery-wrapper">
-        <article class="brick" *ngFor="let book of searchBooksArray">
+        <article
+          class="brick"
+          *ngFor="
+            let book of searchBooksArray
+              | paginate : { itemsPerPage: 6, currentPage: p }
+          "
+        >
           <a [routerLink]="book.docId">
             <img class="book-img" src="{{ book.imgUrl }}" alt="" />
           </a>
@@ -100,6 +106,13 @@
             </p>
           </div>
         </article>
+        <div class="pagination">
+          <div>
+            <pagination-controls
+              (pageChange)="p = $event"
+            ></pagination-controls>
+          </div>
+        </div>
       </div>
     </div>
   </div>

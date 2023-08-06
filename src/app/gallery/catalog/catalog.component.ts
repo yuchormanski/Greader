@@ -11,15 +11,19 @@ import { NgForm } from '@angular/forms';
 })
 export class CatalogComponent implements OnInit {
   isLoading: boolean = true;
+  p: number = 1;
 
   constructor(private bookService: BookService, private pageTitle: Title) {}
 
   booksArray: IBook[] = [];
   searchBooksArray: IBook[] = [];
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.pageTitle.setTitle('GReader - Catalog page');
+    this.getBooks();
+  }
 
+  getBooks() {
     this.bookService.getAllBooks().subscribe((docs) => {
       this.booksArray = [];
       this.isLoading = false;

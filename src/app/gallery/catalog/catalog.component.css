@@ -128,3 +128,8 @@ select:hover {
 }
 
 /* end-search-form */
+
+.pagination {
+  position: relative;
+  left: 102%;
+}

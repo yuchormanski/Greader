@@ -8,6 +8,8 @@ import { DetailsComponent } from './details/details.component';
 import { GalleryRoutingModule } from './gallery-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [CatalogComponent, DetailsComponent],
   imports: [
@@ -16,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
     GalleryRoutingModule,
     SharedModule,
     FormsModule,
+    NgxPaginationModule,
   ],
   exports: [CatalogComponent, DetailsComponent, GalleryRoutingModule],
 })
