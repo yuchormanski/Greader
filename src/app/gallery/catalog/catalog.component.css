@@ -29,6 +29,8 @@
 .brick {
   width: 300px;
   margin: 20px 0;
+  border-top: 1px solid #80808059;
+  padding: 15px 0;
 }
 .book-img {
   width: 300px;

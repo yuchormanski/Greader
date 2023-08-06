@@ -22,6 +22,17 @@
   font-size: 14px;
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar img {
+  width: 400px;
+}
+
 .user-books a {
   font-size: 20px;
   color: #333;

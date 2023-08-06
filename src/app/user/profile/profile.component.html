@@ -10,11 +10,18 @@
           <h2 class="heading profile-heading">Profile information</h2>
           <div class="heading-line"></div>
         </div>
-        <h3><span class="s-i-text">Name: </span>{{ user?.displayName }}</h3>
-        <h3><span class="s-i-text">Email: </span>{{ user?.email }}</h3>
+        <div class="container">
+          <div class="avatar">
+            <img src="/assets/img/avatar.png" alt="" />
+          </div>
+          <div class="profile-info">
+            <h3><span class="s-i-text">Name: </span>{{ user?.displayName }}</h3>
+            <h3><span class="s-i-text">Email: </span>{{ user?.email }}</h3>
 
-        <div class="user-books">
-          <a routerLink="/manage">View uploaded books</a>
+            <div class="user-books">
+              <a routerLink="/manage">View uploaded books</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
