@@ -6,6 +6,9 @@ import { AuthService } from 'src/app/services/auth.service';
 import IUser from 'src/app/models/user.model';
 import { Title } from '@angular/platform-browser';
 import { FirebaseError } from '@angular/fire/app';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import firebase from 'firebase/compat/app';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +16,9 @@ import { FirebaseError } from '@angular/fire/app';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  user: firebase.User | null = null;
+  hasUser = false;
+
   credentials = {
     firstName: '',
     lastName: '',
@@ -23,11 +29,16 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private auth: AuthService,
     private pageTitle: Title,
-    private hasUser: AuthService
+    private userAuth: AngularFireAuth
   ) {
-    if (this.hasUser.isAuthenticated$) {
-      router.navigate(['/gallery']);
-    }
+    const hasUser = getAuth();
+    onAuthStateChanged(hasUser, (user) => {
+      if (!!user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        router.navigate(['/gallery']);
+      }
+    });
   }
   inSubmission = false;
   showAlert = false;
@@ -55,10 +66,10 @@ export class RegisterComponent implements OnInit {
 
     try {
       const userData = {
-        firstName: this.credentials.firstName,
-        lastName: this.credentials.lastName,
+        firstName: this.credentials.firstName.trim(),
+        lastName: this.credentials.lastName.trim(),
         email: this.credentials.email,
-        password: password as string,
+        password: password.trim() as string,
       };
       this.isLoading = true;
       await this.auth.createUser(userData as IUser);

@@ -30,6 +30,6 @@ export class HeaderComponent implements OnInit {
   async logout($event: Event) {
     $event.preventDefault();
     await this.auth.signOut();
-    // this.router.navigate(['/']); //TODO: не съм сигурен дали да се редиректва....
+    this.router.navigate(['/gallery']); //TODO: не съм сигурен дали да се редиректва....
   }
 }
