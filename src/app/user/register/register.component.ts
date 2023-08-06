@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
     lastName: '',
     email: '',
     age: 0,
+    gender: '',
   };
   constructor(
     private router: Router,
@@ -61,7 +62,6 @@ export class RegisterComponent implements OnInit {
     const firstName = this.credentials.firstName;
     const lastName = this.credentials.lastName;
     const email = this.credentials.email;
-
     const { password } = form.value;
 
     try {
