@@ -20,6 +20,7 @@ export class ManageComponent implements OnInit, OnChanges {
   user: firebase.User | null = null;
   areYouSure = false;
   theBookId = '';
+  p = 1;
 
   constructor(
     private router: Router,

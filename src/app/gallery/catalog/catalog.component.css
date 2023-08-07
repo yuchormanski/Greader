@@ -130,6 +130,7 @@ select:hover {
 /* end-search-form */
 
 .pagination {
-  position: relative;
-  left: 102%;
+  display: flex;
+  justify-content: center;
+  font-family: system-ui;
 }

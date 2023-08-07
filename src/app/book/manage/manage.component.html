@@ -17,14 +17,16 @@
       <div *ngIf="isLoading">
         <app-loader />
       </div>
-      <!-- <select (change)="sort($event)">
-        <option value="1" [selected]="bookOrder === '1'">Recent uploads</option>
-        <option value="2" [selected]="bookOrder === '2'">Oldest uploads</option>
-      </select> -->
+
       <div class="gallery-wrapper" *ngIf="!isLoading">
         <div *ngIf="books.length > 0; else noBooks">
           <!--  -->
-          <div class="book-card" *ngFor="let book of books">
+          <div
+            class="book-card"
+            *ngFor="
+              let book of books | paginate : { itemsPerPage: 2, currentPage: p }
+            "
+          >
             <img class="small-img" src="{{ book.imgUrl }}" alt="" />
             <div class="book-data">
               <h2>{{ book.title }}</h2>
@@ -49,6 +51,11 @@
         <ng-template #noBooks>
           <h2>Currently there is no book in this section</h2>
         </ng-template>
+      </div>
+      <div class="pagination">
+        <div>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
       </div>
     </div>
   </div>

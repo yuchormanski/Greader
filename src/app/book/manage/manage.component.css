@@ -82,3 +82,9 @@
 .delete-btn {
   background-color: #bb2e2c;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  font-family: system-ui;
+}

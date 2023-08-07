@@ -11,8 +11,15 @@ import { EditComponent } from './edit/edit.component';
 import { UserRoutingModule } from '../user/user-routing.module';
 import { DeleteComponent } from './delete/delete.component';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
-  declarations: [UploadComponent, ManageComponent, EditComponent, DeleteComponent],
+  declarations: [
+    UploadComponent,
+    ManageComponent,
+    EditComponent,
+    DeleteComponent,
+  ],
   imports: [
     CommonModule,
     BookRoutingModule,
@@ -20,6 +27,7 @@ import { DeleteComponent } from './delete/delete.component';
     CoreModule,
     SharedModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
   ],
   exports: [BookRoutingModule],
 })
