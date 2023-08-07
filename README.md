@@ -51,10 +51,11 @@ The main goal of 'Greader' is to provoke interest in reading books by providing 
 Site content:
 
 # Home page
+
 ![home](https://github.com/yuchormanski/Greader/assets/693307/ed7ece35-24e4-4893-9742-68bcf524e69c)
 
-    1. Available for all users
-     - dynamic rendered element of "Our top suggestions!" -  3 books , according to the rating generated , depending on the users likes
+    <p>Available for all users <br/>
+     - dynamic rendered element of "Our top suggestions!" -  3 books , according to the rating generated , depending on the users likes</p>
 
 # Every page contains navigation
 
