@@ -51,6 +51,7 @@ The main goal of 'Greader' is to provoke interest in reading books by providing 
 Site content:
 
 # Every page contains navigation
+![nav](https://github.com/yuchormanski/Greader/assets/693307/f5329eb0-3738-4473-b286-50caf5dc311d)
 
         - according the users rights loading different connections
 
@@ -66,25 +67,35 @@ Site content:
      - dynamic rendered element of "Our top suggestions!" -  3 books , according to the rating generated , depending on the users likes
 
 # Library
+![capture_002_07082023_204010](https://github.com/yuchormanski/Greader/assets/693307/4aa0b861-6fb3-4dfb-b1a8-65d534d0d0d3)
+![capture_003_07082023_204322](https://github.com/yuchormanski/Greader/assets/693307/98333172-d103-44fd-83de-11812851afa8)
+![capture_004_07082023_204507](https://github.com/yuchormanski/Greader/assets/693307/6a24eaf8-c690-4842-aa01-29968dc8c626)
 
     Available for all users
         - page loaded all content from the database, according to the uploaded books by registered users.
         - Tha page represent the books with limited information , as book title , cover image and short description
         - also every book has a link to it current profile
-
+    Page includes pagination
 # Search
-
         - by author name or book title, getting all results according users criteria as input
+# Sort
+        - by title,
+        - by author,
+        - by rating,
+        - by language
 
 # Book details
 
         Available for all users, with limited functionality
             - The page contain the all information about the book
             - can view the information about the current book, number of downloads, uploader name, uploaded date and the likes count
+            
+![capture_005_07082023_204922](https://github.com/yuchormanski/Greader/assets/693307/995df9c9-5e5d-46fc-a48c-690b12801d72)
 
         Registers users with full functionality
             - everything above plus
             - should be able to download the current book
+![capture_006_07082023_205137](https://github.com/yuchormanski/Greader/assets/693307/0c6ff107-9d9b-4584-b1f2-18053bfc9246)
             - to 'Give a Like" and generate 'up' the book rating
             - every user could like the current book only once
             - if the current user is the owner of the book has no access to 'Like' button
