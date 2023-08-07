@@ -106,14 +106,47 @@
               Author: <span>{{ book.author }}</span>
             </p>
             <div>
-              <!-- {{ shortDescription(book) }} -->
               {{ book.description | slice : 100 }}
             </div>
-            <p>
-              <span class="read-more-btn"
-                ><a [routerLink]="book.docId">read more</a></span
-              >
-            </p>
+            <div class="brick-footer">
+              <p>
+                <span class="read-more-btn"
+                  ><a [routerLink]="book.docId">read more</a></span
+                >
+              </p>
+              <div class="rating">
+                <div
+                  class="star1"
+                  [style]="{
+                    color: book.rating! >= 5 ? 'goldenrod' : null
+                  }"
+                ></div>
+                <div
+                  class="star2"
+                  [style]="{
+                    color: book.rating! >= 10 ? 'goldenrod' : null
+                  }"
+                ></div>
+                <div
+                  class="star3"
+                  [style]="{
+                    color: book.rating! >= 15 ? 'goldenrod' : null
+                  }"
+                ></div>
+                <div
+                  class="star4"
+                  [style]="{
+                    color: book.rating! >= 20 ? 'goldenrod' : null
+                  }"
+                ></div>
+                <div
+                  class="star5"
+                  [style]="{
+                    color: book.rating! >= 25 ? 'goldenrod' : null
+                  }"
+                ></div>
+              </div>
+            </div>
           </div>
         </article>
       </div>

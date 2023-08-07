@@ -31,6 +31,7 @@ export class CatalogComponent implements OnInit {
       docs.forEach((doc) => {
         this.booksArray.push({
           docId: doc.id,
+          rating: doc.data().downloads! + doc.data().likes!,
           ...doc.data(),
         });
       });
@@ -67,7 +68,7 @@ export class CatalogComponent implements OnInit {
       );
     } else if (sorting == '3') {
       this.searchBooksArray = this.booksArray.sort(
-        (a, b) => b.likes! - a.likes!
+        (a, b) => b.likes! - a.likes! || b.downloads! - a.downloads!
       );
     } else if (sorting == '4') {
       this.searchBooksArray = this.booksArray.filter(

@@ -22,6 +22,7 @@ export class DetailsComponent implements OnInit {
   userId = '';
   hasUser = false;
   downloadAlert = true;
+  rating: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -43,6 +44,7 @@ export class DetailsComponent implements OnInit {
     this.bookService.getOneBook(id).subscribe((i) => {
       this.book = i ?? null;
       this.likedArray = this.book?.likedBy!;
+      this.rating = this.book?.downloads! + this.book?.likes!;
       if (this.user && this.book) {
         this.hasUser = true;
         if (this.likedArray.includes(this.user.uid)) {

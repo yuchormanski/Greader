@@ -18,4 +18,5 @@ export default interface IBook {
   likes?: number;
   downloads?: number;
   likedBy?: [];
+  rating?: number;
 }
