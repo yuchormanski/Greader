@@ -50,13 +50,6 @@ The main goal of 'Greader' is to provoke interest in reading books by providing 
 
 Site content:
 
-# Home page
-
-![home](https://github.com/yuchormanski/Greader/assets/693307/ed7ece35-24e4-4893-9742-68bcf524e69c)
-
-    <p>Available for all users <br/>
-     - dynamic rendered element of "Our top suggestions!" -  3 books , according to the rating generated , depending on the users likes</p>
-
 # Every page contains navigation
 
         - according the users rights loading different connections
@@ -65,9 +58,16 @@ Site content:
 
         -dynamically load last three uploaded books
 
+# Home page
+
+![home](https://github.com/yuchormanski/Greader/assets/693307/ed7ece35-24e4-4893-9742-68bcf524e69c)
+
+    Available for all users
+     - dynamic rendered element of "Our top suggestions!" -  3 books , according to the rating generated , depending on the users likes
+
 # Library
 
-    * Available for all users
+    Available for all users
         - page loaded all content from the database, according to the uploaded books by registered users.
         - Tha page represent the books with limited information , as book title , cover image and short description
         - also every book has a link to it current profile
@@ -78,11 +78,11 @@ Site content:
 
 # Book details
 
-        * Available for all users, with limited functionality
+        Available for all users, with limited functionality
             - The page contain the all information about the book
             - can view the information about the current book, number of downloads, uploader name, uploaded date and the likes count
 
-        * Registers users with full functionality
+        Registers users with full functionality
             - everything above plus
             - should be able to download the current book
             - to 'Give a Like" and generate 'up' the book rating
@@ -91,59 +91,48 @@ Site content:
 
 # Book upload
 
-    * Available only for registered users
+    Available only for registered users
         - available file extensions - epub, pdf, txt
         - maximum file size is set to 10 MB
         - the user could upload file by 'Drag & Drop' on the D-D-Panel
         - the user could upload file by searching file in the local file system
 
-    * After successful upload the user should enter the all book informational book title, book cover image, year and so on ...
+    After successful upload the user should enter the all book informational book title, book cover image, year and so on ...
         - all fields are required and are validated
 
         After successful upload the use ris redirected to library
 
 # Login page
 
-    * Available for all users
-    * require user email and password
+    Available for all users
 
 # Register page
 
-    * Available for all users
-    * require users:
-        - first name
-        - last name
-        - email
-        - password
-         -- password repeat
-
-         After successful register , the user is already login
+    Available for all users
+    After successful register , the user is already login
 
 # Profile page
 
-    * Available only for registered users
-
+    Available only for registered users
     - contain information about the current user
 
 # Current user personal library
 
-    * Available only for registered users
-
+    Available only for registered users
     - list of all user's uploaded books
     - links to managing personal books
 
 # Edit selected book
 
-         * Available only for registered users
-          - only the owner could edit the current book
+     Available only for registered users
+     - only the owner could edit the current book
 
 # Delete selected book
 
-         * Available only for registered users
-          - only the owner could delete the current book
+    Available only for registered users
+    - only the owner could delete the current book
 
 # About page
 
-    * Available for all users
-
+    Available for all users
     - contain information about the site
