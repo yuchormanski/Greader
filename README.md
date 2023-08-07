@@ -107,20 +107,24 @@ Site content:
         - maximum file size is set to 10 MB
         - the user could upload file by 'Drag & Drop' on the D-D-Panel
         - the user could upload file by searching file in the local file system
+![capture_007_07082023_205347](https://github.com/yuchormanski/Greader/assets/693307/2c715bea-1d87-4ff3-8b17-8386dea27f4d)
 
     After successful upload the user should enter the all book informational book title, book cover image, year and so on ...
         - all fields are required and are validated
+![capture_008_07082023_205744](https://github.com/yuchormanski/Greader/assets/693307/3efb7b2e-bf5e-4df1-98ca-2d551c786399)
 
         After successful upload the use ris redirected to library
 
 # Login page
 
+![capture_009_07082023_205900](https://github.com/yuchormanski/Greader/assets/693307/33726de6-bd23-4d59-8797-526fcc79e660)
     Available for all users
 
 # Register page
 
     Available for all users
     After successful register , the user is already login
+![capture_010_07082023_210013](https://github.com/yuchormanski/Greader/assets/693307/f9ab2a24-f737-434f-87f1-ca02b3815338)
 
 # Profile page
 
@@ -128,17 +132,20 @@ Site content:
     - contain information about the current user
 
 # Current user personal library
+![capture_011_07082023_210200](https://github.com/yuchormanski/Greader/assets/693307/e2da3e53-1c0e-45f4-8e6b-cccb4fa60aed)
 
     Available only for registered users
     - list of all user's uploaded books
     - links to managing personal books
 
 # Edit selected book
+![capture_012_07082023_210246](https://github.com/yuchormanski/Greader/assets/693307/d6efdc75-81a0-4a50-95b4-bbda554073fa)
 
      Available only for registered users
      - only the owner could edit the current book
 
 # Delete selected book
+![capture_013_07082023_210407](https://github.com/yuchormanski/Greader/assets/693307/03cbe0ec-1fd1-4f28-be32-0cbfc26f8a80)
 
     Available only for registered users
     - only the owner could delete the current book
