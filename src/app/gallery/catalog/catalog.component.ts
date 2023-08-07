@@ -68,8 +68,14 @@ export class CatalogComponent implements OnInit {
       );
     } else if (sorting == '3') {
       this.searchBooksArray = this.booksArray.sort(
-        (a, b) => b.likes! - a.likes! || b.downloads! - a.downloads!
+        (a, b) =>
+          b.downloads! + b.likes! - (a.downloads! + a.likes!) ||
+          b.downloads! - a.downloads! ||
+          b.likes! - a.likes!
       );
+      // this.searchBooksArray = this.booksArray.sort(
+      //   (a, b) => b.likes! - a.likes! || b.downloads! - a.downloads!
+      // );
     } else if (sorting == '4') {
       this.searchBooksArray = this.booksArray.filter(
         (b) => b.language == 'Bulgarian'
