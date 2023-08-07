@@ -32,8 +32,8 @@
                 target="_blank"
               >
                 {{ book?.author }}</a
-              ></span
-            >
+              >
+            </span>
           </div>
 
           <div class="book-year book-heading-icon">
@@ -66,38 +66,10 @@
             <div class="image-stars">
               <img class="img" src="{{ book?.imgUrl }}" alt="Book front page" />
               <!-- stars -->
-              <div class="rating">
-                <div
-                  class="star1"
-                  [style]="{
-                    color: rating >= 5 ? 'goldenrod' : null
-                  }"
-                ></div>
-                <div
-                  class="star2"
-                  [style]="{
-                    color: rating >= 10 ? 'goldenrod' : null
-                  }"
-                ></div>
-                <div
-                  class="star3"
-                  [style]="{
-                    color: rating >= 15 ? 'goldenrod' : null
-                  }"
-                ></div>
-                <div
-                  class="star4"
-                  [style]="{
-                    color: rating >= 20 ? 'goldenrod' : null
-                  }"
-                ></div>
-                <div
-                  class="star5"
-                  [style]="{
-                    color: rating >= 25 ? 'goldenrod' : null
-                  }"
-                ></div>
+              <div class="stars-rating">
+                <app-stars [rating]="rating" />
               </div>
+              <!-- end stars -->
             </div>
 
             <p class="p">
@@ -179,32 +151,7 @@
               </button>
             </div>
           </div>
-          <!-- <div class="book-meta-footer">
-            <table>
-              <tr>
-                <td>Likes:</td>
-                <td class="tdR">{{ book?.likes }}</td>
-              </tr>
-              <tr>
-                <td>Downloads:</td>
-                <td class="tdR">{{ book?.downloads }}</td>
-              </tr>
-              <tr>
-                <td>Uploader:</td>
-                <td class="tdR">{{ book?.displayName }}</td>
-              </tr>
-              <tr>
-                <td>Created on:</td>
-                <td class="tdR">{{ book?.creationDate | date }}</td>
-              </tr>
-              <tr>
-                <td>File type:</td>
-                <td class="tdR">{{ book?.fileType | uppercase }}</td>
-              </tr>
-            </table>
-          </div> -->
         </ng-template>
-        <!-- actions -->
       </div>
     </div>
   </div>

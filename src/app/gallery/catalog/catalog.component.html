@@ -114,7 +114,10 @@
                   ><a [routerLink]="book.docId">read more</a></span
                 >
               </p>
-              <div class="rating">
+
+              <app-stars [rating]="book.rating"></app-stars>
+
+              <!-- <div class="rating">
                 <div
                   class="star1"
                   [style]="{
@@ -145,7 +148,7 @@
                     color: book.rating! >= 25 ? 'goldenrod' : null
                   }"
                 ></div>
-              </div>
+              </div> -->
             </div>
           </div>
         </article>

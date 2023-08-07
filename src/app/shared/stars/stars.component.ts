@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./stars.component.css'],
 })
 export class StarsComponent {
-  @Input() option = '';
+  @Input() rating: number | undefined;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import IBook from 'src/app/models/book.model';
 import { BookService } from 'src/app/services/book.service';

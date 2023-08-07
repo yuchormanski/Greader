@@ -87,13 +87,14 @@ footer {
 .book-title-popup {
   display: none;
   position: absolute;
-  bottom: -20%;
+  left: 41%;
   padding: 0 20px;
-  line-height: 50px;
-  font-size: 20px;
-  background-color: #508b87;
+  line-height: 0px;
+  font-size: 18px;
+  background-color: #efefef;
   border-radius: 10px;
-  color: #ddd;
+  color: #333;
+  margin-top: -56px;
 }
 
 .book-small:hover .book-title-popup {

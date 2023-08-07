@@ -36,6 +36,7 @@
   width: 300px;
   height: 400px;
   object-fit: cover;
+  box-shadow: -1px 2px 9px #333;
 }
 .h3-title {
   text-align: center;
@@ -161,30 +162,3 @@ select:hover {
   justify-content: center;
   font-family: system-ui;
 }
-
-/* stars */
-.rating {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: -10px;
-}
-
-.star1,
-.star2,
-.star3,
-.star4,
-.star5 {
-  color: #f8f8f8;
-  text-shadow: 1px 1px 2px #000;
-}
-.star1:before,
-.star2:before,
-.star3:before,
-.star4:before,
-.star5:before {
-  content: "\2605";
-  font-size: 25px;
-}
-
-/* end - stars */
