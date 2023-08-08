@@ -80,7 +80,6 @@ export class RegisterComponent implements OnInit {
         this.alertMsg = message;
       }
 
-      // this.alertMsg = 'Something went wrong! Please, try again later.';
       this.inSubmission = false;
       this.isLoading = false;
 

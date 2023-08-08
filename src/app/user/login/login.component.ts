@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseError } from '@angular/fire/app';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-// import firebase from 'firebase/compat/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import { NgForm } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-// import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +13,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  // user: firebase.User | null = null;
-
   credentials = {
     email: '',
     password: '',
