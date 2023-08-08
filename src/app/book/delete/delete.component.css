@@ -13,6 +13,21 @@
   margin: 0px 0 50px;
   box-shadow: -8px 27px 20px #00000050;
 }
+
+.upload-heading {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+.book-title-heading {
+  font-size: 36px;
+}
+.heading-line {
+  width: 15%;
+  border-bottom: 1px solid #333;
+}
+
 .book-info {
   display: flex;
   flex-direction: row;
@@ -21,7 +36,6 @@
 }
 .book-data {
   width: 700px;
-  height: 600px;
   padding-right: 20px;
   font-size: 20px;
   color: #000000;
@@ -29,7 +43,7 @@
 
 .placeholder {
   font-size: 18px;
-  color: #333;
+  color: #505050;
 }
 
 .book-img {
@@ -48,6 +62,26 @@
   box-shadow: 3px 5px 7px #545454;
 }
 
+.more-info {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: black;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  color: #333;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.more-info:hover,
+.more-info:active,
+.more-info:focus,
+.more-info:visited {
+  border-bottom: 1px solid #0cbb0f;
+}
+
 .actions {
   width: 86.5%;
   display: flex;
@@ -62,6 +96,7 @@ button.reject,
 button.delete {
   border: 1px solid gray;
   border-radius: 4px;
+  box-shadow: -3px 4px 6px #333;
 }
 
 button.reject {

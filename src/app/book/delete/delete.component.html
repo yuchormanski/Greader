@@ -16,7 +16,11 @@
         <div id="book">
           <div class="book-info">
             <div class="book-data">
-              <h3>{{ book?.title }}</h3>
+              <div class="upload-heading">
+                <div class="heading-line"></div>
+                <h3 class="book-title-heading">{{ book?.title }}</h3>
+                <div class="heading-line"></div>
+              </div>
               <p><span class="placeholder">Author: </span>{{ book?.author }}</p>
               <p>
                 <span class="placeholder">Language: </span>{{ book?.language }}
@@ -35,10 +39,12 @@
                 >{{ book?.creationDate | date }}
               </p>
               <p>
-                <span class="placeholder">Description: </span><br />
+                <span class="placeholder description">Description: </span><br />
                 {{ book?.description! | slice : 200 }}
                 <br />
-                <a routerLink="/gallery/{{ bookId }}">READ MORE</a>
+                <a routerLink="/gallery/{{ bookId }}" class="more-info"
+                  >READ MORE</a
+                >
               </p>
             </div>
             <div class="book-img">
