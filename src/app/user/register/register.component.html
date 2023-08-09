@@ -96,6 +96,7 @@
                 required
                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
                 ngModel
+                [(ngModel)]="credentials.password"
                 minlength="8"
               />
             </div>
