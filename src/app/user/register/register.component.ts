@@ -60,30 +60,26 @@ export class RegisterComponent implements OnInit {
 
     this.inSubmission = true;
 
-    const firstName = this.credentials.firstName
-      .replace(/[^a-zA-Z0-9 ]/g, '')
-      .trim();
-    const lastName = this.credentials.lastName
-      .replace(/[^a-zA-Z0-9 ]/g, '')
-      .trim();
+    const firstName = this.credentials.firstName.trim();
+    const lastName = this.credentials.lastName.trim();
     const email = this.credentials.email;
-    const password = this.credentials.password.replace(/[^\s ]/g, '');
+    const password = this.credentials.password;
     // const { password } = form.value;
 
     try {
       // trim inputs and check for unavailable characters
-      // const userData = {
-      //   firstName: this.credentials.firstName,
-      //   lastName: this.credentials.lastName,
-      //   email: this.credentials.email,
-      //   password: this.credentials.password,
-      // };
       const userData = {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        password: password,
+        firstName: this.credentials.firstName,
+        lastName: this.credentials.lastName,
+        email: this.credentials.email,
+        password: this.credentials.password,
       };
+      // const userData = {
+      //   firstName: firstName,
+      //   lastName: lastName,
+      //   email: email,
+      //   password: password,
+      // };
 
       this.isLoading = true;
       await this.auth.createUser(userData as IUser);

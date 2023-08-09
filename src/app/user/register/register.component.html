@@ -27,6 +27,7 @@
                 required
                 [(ngModel)]="credentials.firstName"
                 minlength="2"
+                pattern="^[a-zA-Z0-9-\_]+$"
               />
             </div>
             <ng-container *ngIf="firstName.touched">
@@ -35,6 +36,11 @@
               </p>
               <p class="error" *ngIf="firstName.errors?.['minlength']">
                 Last name should be at least 2 characters!
+              </p>
+              <p class="error" *ngIf="firstName.errors?.['pattern']">
+                Can't use any special characters!<br />
+                If you need space, use 'underscore'<br />
+                etc. Jean_Paul
               </p>
             </ng-container>
 
@@ -50,6 +56,7 @@
                 required
                 [(ngModel)]="credentials.lastName"
                 minlength="2"
+                pattern="^[a-zA-Z0-9-\_]+$"
               />
             </div>
             <ng-container *ngIf="lastName.touched">
@@ -58,6 +65,11 @@
               </p>
               <p class="error" *ngIf="lastName.errors?.['minlength']">
                 Last name should be at least 2 characters!
+              </p>
+              <p class="error" *ngIf="firstName.errors?.['pattern']">
+                Can't use any special characters!<br />
+                If you need space, use 'underscore'<br />
+                etc. Jean_Paul
               </p>
             </ng-container>
 
