@@ -72,13 +72,17 @@ export class RegisterComponent implements OnInit {
 
     try {
       // trim inputs and check for unavailable characters
+      // const userData = {
+      //   firstName: this.credentials.firstName,
+      //   lastName: this.credentials.lastName,
+      //   email: this.credentials.email,
+      //   password: this.credentials.password,
+      // };
       const userData = {
-        firstName: this.credentials.firstName,
-
-        lastName: this.credentials.lastName,
-
-        email: this.credentials.email,
-        password: this.credentials.password,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
       };
 
       this.isLoading = true;
