@@ -39,12 +39,13 @@
           <ng-template #theBooks>
             <div class="home-center">
               <div class="book-small" *ngFor="let book of limitedBooks">
-                <img
-                  src="{{ book.imgUrl }}"
-                  alt=""
-                  class="scale-down"
-                  (click)="goTo(book.docId!)"
-                />
+                <a
+                  routerLink="/gallery/{{ book.docId }}"
+                  class="home-book-link"
+                >
+                  <img src="{{ book.imgUrl }}" alt="" class="scale-down" />
+                </a>
+
                 <p class="h-book-name">{{ book.title | slice : 40 }}</p>
               </div>
             </div>

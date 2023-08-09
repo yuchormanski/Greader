@@ -180,9 +180,9 @@ export class UploadComponent implements OnInit, OnDestroy {
           const book = {
             uid: this.user?.uid as string,
             displayName: this.user?.displayName as string,
-            title: this.title.value,
-            author: this.author.value,
-            imgUrl: this.imgUrl.value,
+            title: this.title.value.trim(),
+            author: this.author.value.trim(),
+            imgUrl: this.imgUrl.value.trim(),
             language: this.language.value,
             year: this.year.value,
             description: this.description.value,
@@ -196,7 +196,6 @@ export class UploadComponent implements OnInit, OnDestroy {
           };
 
           const bookDocRef = await this.booksService.createBook(book);
-          // console.log(book);
 
           this.showPercentage = false;
           this.alertColor = 'green';

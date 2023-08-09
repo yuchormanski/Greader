@@ -35,8 +35,4 @@ export class HomeComponent implements OnInit {
       });
     });
   }
-
-  goTo(id: string) {
-    this.router.navigate([`/gallery/${id}`]);
-  }
 }

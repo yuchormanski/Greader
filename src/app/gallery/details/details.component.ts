@@ -47,6 +47,7 @@ export class DetailsComponent implements OnInit {
       this.rating = this.book?.downloads! + this.book?.likes!;
       if (this.user && this.book) {
         this.hasUser = true;
+        if (!this.likedArray) return;
         if (this.likedArray.includes(this.user.uid)) {
           this.isLiked = true;
           this.buttonText = 'You Already Like It';

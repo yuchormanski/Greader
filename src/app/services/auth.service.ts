@@ -30,6 +30,7 @@ export class AuthService {
     if (!userData.password) {
       throw new Error('Password not provided!');
     }
+
     const userCred = await this.auth.createUserWithEmailAndPassword(
       userData.email as string,
       userData.password as string
@@ -38,16 +39,16 @@ export class AuthService {
     if (!userCred.user) {
       throw new Error("User can't be found");
     }
+
+    // trim inputs
     await this.userCollection.doc(userCred.user.uid).set({
-      firstName: userData.firstName,
-      lastName: userData.lastName,
+      firstName: userData.firstName.trim(),
+      lastName: userData.lastName.trim(),
       email: userData.email,
     });
 
     await userCred.user.updateProfile({
       displayName: `${userData.firstName} ${userData.lastName}`,
     });
-
-    // this.router.navigate(['/gallery']);
   }
 }
