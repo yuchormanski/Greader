@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
     firstName: '',
     lastName: '',
     email: '',
+    password: '',
     age: 0,
     gender: '',
   };
@@ -62,15 +63,22 @@ export class RegisterComponent implements OnInit {
     const firstName = this.credentials.firstName;
     const lastName = this.credentials.lastName;
     const email = this.credentials.email;
-    const { password } = form.value;
+    const password = this.credentials.password;
+    // const { password } = form.value;
 
     try {
+      // trim inputs and check for unavailable characters
       const userData = {
-        firstName: this.credentials.firstName.trim(),
-        lastName: this.credentials.lastName.trim(),
+        firstName: this.credentials.firstName
+          .replace(/[^a-zA-Z0-9 ]/g, '')
+          .trim(),
+        lastName: this.credentials.lastName
+          .replace(/[^a-zA-Z0-9 ]/g, '')
+          .trim(),
         email: this.credentials.email,
-        password: password.trim() as string,
+        password: this.credentials.password.replace(/[^\s ]/g, ''),
       };
+
       this.isLoading = true;
       await this.auth.createUser(userData as IUser);
     } catch (err) {
