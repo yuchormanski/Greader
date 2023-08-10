@@ -23,7 +23,7 @@ git clone https://github.com/yuchormanski/Greader.git
 
 # File storage
 
-    FIrebase
+    Firebase
 
 https://github.com/yuchormanski/Greader/blob/main/src/assets/img/Greader-1.png
 
@@ -51,6 +51,7 @@ The main goal of 'Greader' is to provoke interest in reading books by providing 
 Site content:
 
 # Every page contains navigation
+
 ![nav](https://github.com/yuchormanski/Greader/assets/693307/f5329eb0-3738-4473-b286-50caf5dc311d)
 
         - according the users rights loading different connections
@@ -67,6 +68,7 @@ Site content:
      - dynamic rendered element of "Our top suggestions!" -  3 books , according to the rating generated , depending on the users likes
 
 # Library
+
 ![capture_002_07082023_204010](https://github.com/yuchormanski/Greader/assets/693307/4aa0b861-6fb3-4dfb-b1a8-65d534d0d0d3)
 ![capture_003_07082023_204322](https://github.com/yuchormanski/Greader/assets/693307/98333172-d103-44fd-83de-11812851afa8)
 ![capture_004_07082023_204507](https://github.com/yuchormanski/Greader/assets/693307/6a24eaf8-c690-4842-aa01-29968dc8c626)
@@ -76,9 +78,13 @@ Site content:
         - Tha page represent the books with limited information , as book title , cover image and short description
         - also every book has a link to it current profile
     Page includes pagination
+
 # Search
+
         - by author name or book title, getting all results according users criteria as input
+
 # Sort
+
         - by title,
         - by author,
         - by rating,
@@ -89,16 +95,15 @@ Site content:
         Available for all users, with limited functionality
             - The page contain the all information about the book
             - can view the information about the current book, number of downloads, uploader name, uploaded date and the likes count
-            
+
+
 ![capture_005_07082023_204922](https://github.com/yuchormanski/Greader/assets/693307/995df9c9-5e5d-46fc-a48c-690b12801d72)
 
         Registers users with full functionality
             - everything above plus
             - should be able to download the current book
-![capture_006_07082023_205137](https://github.com/yuchormanski/Greader/assets/693307/0c6ff107-9d9b-4584-b1f2-18053bfc9246)
-            - to 'Give a Like" and generate 'up' the book rating
-            - every user could like the current book only once
-            - if the current user is the owner of the book has no access to 'Like' button
+
+![capture_006_07082023_205137](https://github.com/yuchormanski/Greader/assets/693307/0c6ff107-9d9b-4584-b1f2-18053bfc9246) - to 'Give a Like" and generate 'up' the book rating - every user could like the current book only once - if the current user is the owner of the book has no access to 'Like' button
 
 # Book upload
 
@@ -107,10 +112,12 @@ Site content:
         - maximum file size is set to 10 MB
         - the user could upload file by 'Drag & Drop' on the D-D-Panel
         - the user could upload file by searching file in the local file system
+
 ![capture_007_07082023_205347](https://github.com/yuchormanski/Greader/assets/693307/2c715bea-1d87-4ff3-8b17-8386dea27f4d)
 
     After successful upload the user should enter the all book informational book title, book cover image, year and so on ...
         - all fields are required and are validated
+
 ![capture_008_07082023_205744](https://github.com/yuchormanski/Greader/assets/693307/3efb7b2e-bf5e-4df1-98ca-2d551c786399)
 
         After successful upload the use ris redirected to library
@@ -118,12 +125,13 @@ Site content:
 # Login page
 
 ![capture_009_07082023_205900](https://github.com/yuchormanski/Greader/assets/693307/33726de6-bd23-4d59-8797-526fcc79e660)
-    Available for all users
+Available for all users
 
 # Register page
 
     Available for all users
     After successful register , the user is already login
+
 ![capture_010_07082023_210013](https://github.com/yuchormanski/Greader/assets/693307/f9ab2a24-f737-434f-87f1-ca02b3815338)
 
 # Profile page
@@ -132,6 +140,7 @@ Site content:
     - contain information about the current user
 
 # Current user personal library
+
 ![capture_011_07082023_210200](https://github.com/yuchormanski/Greader/assets/693307/e2da3e53-1c0e-45f4-8e6b-cccb4fa60aed)
 
     Available only for registered users
@@ -139,12 +148,14 @@ Site content:
     - links to managing personal books
 
 # Edit selected book
+
 ![capture_012_07082023_210246](https://github.com/yuchormanski/Greader/assets/693307/d6efdc75-81a0-4a50-95b4-bbda554073fa)
 
      Available only for registered users
      - only the owner could edit the current book
 
 # Delete selected book
+
 ![capture_013_07082023_210407](https://github.com/yuchormanski/Greader/assets/693307/03cbe0ec-1fd1-4f28-be32-0cbfc26f8a80)
 
     Available only for registered users
