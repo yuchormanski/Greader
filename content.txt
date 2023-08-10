@@ -1,3 +1,0 @@
-Firebase auth
-Firebase rules for creating, edit and delete set only to auth user
-
