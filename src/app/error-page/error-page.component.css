@@ -1,7 +1,9 @@
 .error-page {
-  width: 900px;
-  height: 700px;
-  background: url("../../assets/img/404-2.jpg") no-repeat center;
+  /* max-width: 1200px; */
+  width: 100%;
+  min-height: 700px;
+  height: 100%;
+  background: url("../../assets/img/error-page.jpg") no-repeat center;
   align-self: center;
   display: flex;
   margin: 5% auto;
@@ -11,9 +13,17 @@
   font-size: 22px;
 }
 
+.content {
+  /* transform: rotate(31deg); */
+  /* position: absolute;
+  top: 21%;
+  left: 57%; */
+  color: white;
+}
+
 .error-heading {
   font-size: 48px;
-  text-shadow: 0px 2px 1px rgb(102, 28, 28);
+  text-shadow: 0px 2px 1px rgb(44, 38, 38);
 }
 .error-page a:link,
 .error-page a:visited,
