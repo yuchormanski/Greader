@@ -19,7 +19,6 @@ header {
   margin-right: 8px;
   font-family: "Raleway", sans-serif;
   font-size: 20px;
-  text-shadow: 0px 2px 2px #00000040;
 }
 
 li.nav-space {
@@ -138,17 +137,25 @@ li.nav-space {
   opacity: 1;
 }
 
-.activeLink {
-  border-top: 0.02em solid #1a7900;
-  border-radius: 3px;
-}
 .navMenu a {
   text-decoration: none;
-  color: #333;
+  /* color: #333; */
 }
-.navMenu a:hover,
-.navMenu a:focus {
+.nav-link a:hover,
+.nav-link a:focus {
   color: #555;
+}
+.nav-link {
+  color: #333;
+  text-shadow: 0px 2px 2px #00000040;
+}
+
+.activeLink {
+  font-weight: bold;
+  color: #219c00;
+  text-shadow: 0px 0px 0px #a9a9a9;
+  border-top: 0.02em solid #1a7900;
+  border-radius: 2px;
 }
 
 .logout-link {
