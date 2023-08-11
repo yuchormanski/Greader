@@ -138,13 +138,16 @@ li.nav-space {
   opacity: 1;
 }
 
+.activeLink {
+  border-top: 0.02em solid #1a7900;
+  border-radius: 3px;
+}
 .navMenu a {
   text-decoration: none;
   color: #333;
 }
 .navMenu a:hover,
-.navMenu a:focus,
-.navMenu a:active {
+.navMenu a:focus {
   color: #555;
 }
 
