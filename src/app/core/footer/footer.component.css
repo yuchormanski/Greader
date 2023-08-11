@@ -100,3 +100,12 @@ footer {
 .book-small:hover .book-title-popup {
   display: block;
 }
+
+.socials {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.socials a {
+  margin-left: 15px;
+}

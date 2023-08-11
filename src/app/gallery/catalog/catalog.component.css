@@ -93,7 +93,7 @@
   align-items: center;
   flex-direction: row;
   padding: 2px;
-  border: 1px solid gray;
+  border: 1px solid #80808094;
   border-radius: 15px;
 }
 .sort-form {
@@ -102,7 +102,7 @@
   align-items: center;
   flex-direction: row;
   padding: 2px;
-  border: 1px solid gray;
+  border: 1px solid #80808094;
   border-radius: 15px;
 }
 
