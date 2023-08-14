@@ -188,6 +188,7 @@ export class UploadComponent implements OnInit, OnDestroy {
             description: this.description.value,
             url,
             fileName: this.file?.name as string,
+            bookFileName,
             fileType: this.fileExtension(),
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             creationDate: Date.now(),

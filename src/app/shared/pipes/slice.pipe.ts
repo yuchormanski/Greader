@@ -10,4 +10,3 @@ export class SlicePipe implements PipeTransform {
     }`;
   }
 }
-// {{ theme.themeName | slice : 25 }}

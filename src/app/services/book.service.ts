@@ -6,6 +6,7 @@ import {
   QuerySnapshot,
 } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 import IBook from '../models/book.model';
 import { switchMap, map, timestamp } from 'rxjs/operators';
@@ -37,7 +38,11 @@ import {
 export class BookService {
   public bookCollection: AngularFirestoreCollection<IBook>;
 
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth) {
+  constructor(
+    private db: AngularFirestore,
+    private auth: AngularFireAuth,
+    private storage: AngularFireStorage
+  ) {
     this.bookCollection = db.collection('books');
   }
 
@@ -119,7 +124,12 @@ export class BookService {
       .update({ likes: increment(1), likedBy: arrayUnion(userId) });
   }
 
-  deleteBook(id: string) {
+  deleteBook(id: string, book: IBook) {
+    const bookRef = this.storage.ref(
+      `books/${book.bookFileName}.${book.fileType}`
+    );
+
+    bookRef.delete();
     return this.bookCollection.doc(id).delete();
   }
 }

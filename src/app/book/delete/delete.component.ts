@@ -60,13 +60,14 @@ export class DeleteComponent implements OnInit {
     }, 1500);
   }
 
-  async sorryAboutThat() {
+  async sorryAboutThat(book: IBook) {
     const id = this.route.snapshot.params['id'];
     this.hasAction = true;
-    await this.bookService.deleteBook(id);
+
+    await this.bookService.deleteBook(id, book);
     // setTimeout(() => {
     //   this.message = 'Please, wait! Deletion is in process!';
     // }, 1000);
-    this.router.navigate(['gallery']);
+    this.router.navigate(['/gallery']);
   }
 }
