@@ -64,6 +64,10 @@
   color: #000000;
 }
 
+.short-description {
+  text-indent: 10px;
+}
+
 .brick-footer {
   display: flex;
   align-items: center;
@@ -84,8 +88,8 @@
 .read-more-btn a {
   text-decoration: none;
   color: #333;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .read-more-btn a:hover,
 .read-more-btn a:focus,
