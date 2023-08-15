@@ -23,6 +23,7 @@ export class DetailsComponent implements OnInit {
   hasUser = false;
   downloadAlert = true;
   rating: number = 0;
+  bookId = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -52,6 +53,7 @@ export class DetailsComponent implements OnInit {
           this.isLiked = true;
           this.buttonText = 'You Already Like It';
           this.buttonColor = '#5a0238';
+          this.bookId = id;
         }
       } else if (this.user == null) {
         this.hasUser = false;
