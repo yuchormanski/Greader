@@ -19,6 +19,13 @@ body {
 }
 
 section {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 2%,
+    rgba(255, 255, 255, 1) 7%,
+    rgba(218, 212, 193, 1) 100%
+  );
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }

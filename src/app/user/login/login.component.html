@@ -53,18 +53,18 @@
                 #password="ngModel"
                 required
                 [(ngModel)]="credentials.password"
-                minlength="8"
               />
             </div>
+            <!-- minlength="8" -->
             <ng-container *ngIf="password.touched">
               <p class="error" *ngIf="password.errors?.['required']">
                 Password is required!
               </p>
-              <p class="error" *ngIf="password.errors?.['minlength']">
+              <!-- <p class="error" *ngIf="password.errors?.['minlength']">
                 Password must be at least
                 {{password.errors?.['minlength']['requiredLength']}}
                 characters!
-              </p>
+              </p> -->
             </ng-container>
 
             <div class="form-elements">

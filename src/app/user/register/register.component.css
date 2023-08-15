@@ -18,7 +18,7 @@
 }
 
 .center-text {
-  background-color: #ffffffaf;
+  background-color: transparent;
   width: 550px;
   border-radius: 3px;
   padding: 0px 25px 20px;
@@ -111,6 +111,7 @@ form.ng-valid button:hover {
 }
 
 fieldset {
+  background-color: #fff;
   border: 1px solid rgba(128, 128, 128, 0.559);
   border-radius: 5px;
   padding-top: 10px;
